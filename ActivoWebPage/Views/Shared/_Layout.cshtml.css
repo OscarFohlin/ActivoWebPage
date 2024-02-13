@@ -39,10 +39,20 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.custom-footer {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item a{
+    color: black;
+    font-size: 1em;
+    font-weight: 500;
+    justify-content: center;
+    padding: 10px 50px;
+    align-items: center;
+    Box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
 }
