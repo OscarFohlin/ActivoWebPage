@@ -29,13 +29,13 @@ width:100vw;
 
 #thn {
     height: 40vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+  
+}
+
+#Vvik {
+    height: 40vh;
+    width: 100%;
 }
 
 .hero-image {
