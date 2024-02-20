@@ -59,3 +59,35 @@ width:100vw;
 .nav-link:hover {
     color: darkgoldenrod !important;
 }
+.footer {
+    width: 100%;
+    background-color: transparent; /* Transparens */
+    font-size: 15px;
+    display: flex;
+    padding-bottom: 0%;
+    margin: 0%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-icons a {
+    color: black;
+    text-decoration: none;
+    gap:10px; /* Mellanrum mellan ikonerna */
+}
+
+.footer-nav .nav-link {
+    color: black !important;
+    font-family: 'Inter', sans-serif;
+    padding-right: 250px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0%;
+}
+
+    .footer-nav .nav-link:hover {
+        color: darkgoldenrod !important; 
+    }
+
+
