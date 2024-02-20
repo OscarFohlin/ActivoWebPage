@@ -27,21 +27,22 @@ font-weight:800;
 width:100vw;
 }
 
-#thn{
+#thn {
     height: 40vh;
-    width:100vw;
+    width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-self:right;
-    align-self:center;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero-image{
-    margin-right:0%;
-    margin-top:0%;
-    img
+.hero-image {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-text{
