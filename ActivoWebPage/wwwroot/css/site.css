@@ -22,22 +22,34 @@ body {
   overflow-x: hidden;
 }
 
-h1{
-font-size:100px;
-font-weight:800;
-width:100vw;
+.hero-text h1 {
+    font-size: 140px;
+    font-weight: 700;
+    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
+    width: 100vw;
 }
 
 #thn {
-    height: 40vh;
+    height: 60vh;
     width: 100%;
-  
 }
 
 #Vvik {
-    height: 40vh;
+    height: 60vh;
     width: 100%;
 }
+
+.hero-gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 
 .hero-image {
     position: relative;
@@ -53,6 +65,31 @@ width:100vw;
     left:50%;
     transform: translate(-50%, -50%);
     color:white;
+    text-shadow: 100px;
+}
+
+.hero-scroll-button {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-scroll-button img {
+        width: 40px;
+        height: auto; 
+}
+
+.hero-scroll-button button {
+        padding: 10px 20px;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 5px;
+}
+
+.hero-scroll-button:hover img {
+            filter: brightness(10%) grayscale(50%) contrast(70%);
+            cursor: pointer;
 }
 
 .navbar {
@@ -82,16 +119,13 @@ width:100vw;
     }
 
 .gradient-text {
-    margin-left: 4%;
+    margin-top: 40px;
+    margin-left: 3%;
     margin-bottom: 30px;
-
     background-color: black;
-
-    background-image: linear-gradient(to right, #FE85B6 0%, #FEA8C4 20%, #FFBE74 40%, #FFA8C4 80%);
-
+    background-image: linear-gradient(to right, #FE85B6 0px, #FEA8C4 200px, #FFBE74 400px, #FFA8C4 800px);
     background-size: 100%;
     background-repeat: repeat;
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -102,9 +136,17 @@ width:100vw;
     letter-spacing: -2px;
 }
 
+.gradient-block {
+    border-bottom: 5px solid black; /* Adjust thickness as needed */
+    width: 120px; /* Adjust the width of the block */
+    margin-top: 5px; /* Adjust the space between text and block */
+}
+
 .advert-text {
-    margin-left: 8px;
-    margin-top: 35px;
+    margin-left: 15%;
+    font-size: 12px;
+    text-decoration: underline;
+    margin-top: 50px;
     color: black;
 }
 
@@ -114,14 +156,17 @@ width:100vw;
 
 .advertisement-large:hover img {
     filter: brightness(80%) grayscale(20%) contrast(120%);
+    cursor: pointer;
 }
 
 .advertisement-large {
     border-radius: 10px;
     overflow: hidden;
-    width: 100%;
-    margin-top: -15px;
-    margin-bottom: 60px;
+    width: 70%;
+    max-height: 15%;
+    margin: 50px auto;
+    margin-top: -16px;
+    margin-bottom: 20px;
 }
 
 
