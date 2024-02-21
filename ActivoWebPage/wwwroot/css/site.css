@@ -117,7 +117,7 @@ body {
 
 /* navbar */
 .navbar {
-    justify-content: center;
+    padding: 20px;
 }
 
 .nav-link {
