@@ -4,20 +4,17 @@ html {
   position: relative;
   min-height: 100%;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 20px;
-  }
+@media (max-width: 1600px) {
+    html {
+        font-size: 20px;
+    }
 }
-
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
 body {
-  height:100vh;
-  overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .gradient-text {
@@ -175,23 +172,32 @@ body {
     margin-bottom: 20px;
 }
 
+
+.content {
+    flex: 1;
+}
+
 /* footer */
 .footer {
+    margin-top: auto; /* Trycker footern till botten av sidan */
     width: 100%;
-    background-color: transparent; /* Transparens */
+    background-color: transparent;
     font-size: 15px;
     display: flex;
-    padding-bottom: 0%;
-    margin: 0%;
     justify-content: space-between;
     align-items: center;
 }
 
+
 .footer-icons a {
-    color: black;
+    color: black !important;
     text-decoration: none;
-    gap:10px; /* Mellanrum mellan ikonerna */
+    gap: 10px; /* Mellanrum mellan ikonerna */
 }
+
+    .footer-icons a:hover {
+        color: darkgoldenrod !important;
+    }
 
 .footer-nav .nav-link {
     color: black !important;
@@ -204,7 +210,5 @@ body {
 }
 
     .footer-nav .nav-link:hover {
-        color: darkgoldenrod !important; 
+        color: darkgoldenrod !important;
     }
-
-
