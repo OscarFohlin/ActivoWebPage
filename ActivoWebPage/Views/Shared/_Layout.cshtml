@@ -11,26 +11,35 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar bg-dark border-bottom border-body">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-                <a class="navbar-brand" href="#">
-                    <img src="~/images/logo_eventivo.png" alt="Logo" width="65" height="70" class="d-inline-block align-text-top">
+  <header>
+    <nav class="navbar bg-dark border-body">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="Navbar">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/logo_eventivo.png" alt="Logo" width="65" height="70" class="d-inline-block align-text-top">
+            </a>
+            <div class="d-flex">
+                <a class="nav-link" href="#">KULTUR & NÖJE</a>
+                <a class="nav-link" href="#">ÄTA & DRICKA</a>
+                <a class="nav-link" href="#">SPORT & FRILUFTSLIV</a>
+                <a class="nav-link" href="#">SÖK EVENT</a>
+                <a class="nav-link" href="#">LOGGA IN</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    STAD
                 </a>
-                <div class="d-flex">
-                    <a class="nav-link" href="#">KULTUR & NÖJE</a>
-                    <a class="nav-link" href="#">SPORT & FRILUFTSLIV</a>
-                    <a class="nav-link" href="#">SÖK EVENT</a>
-                    <a class="nav-link" href="#">LOGGA IN</a>
-                </div>
-                <div class="d-flex">
-                    <a class="nav-link" asp-action="Trollhattan" asp-controller="Cities"> Trollhättan</a>
-                    <span class="navbar-text">&#47;</span>
-                    <a class="nav-link" asp-action="Vastervik" asp-controller="Cities"> Västervik</a>
-                </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
+                        <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
+                </ul>
+            </li>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
  <div class="content">
      @RenderBody()
