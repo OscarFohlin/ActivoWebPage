@@ -19,6 +19,7 @@ html {
 
 body {
   height:100vh;
+  overflow-x: hidden;
 }
 
 h1{
@@ -54,6 +55,11 @@ width:100vw;
     color:white;
 }
 
+.navbar {
+    justify-content: center;
+    padding-bottom: unset;
+}
+
 .nav-link {
     color: #ffffff !important; 
 }
@@ -61,6 +67,20 @@ width:100vw;
 .nav-link:hover {
     color: darkgoldenrod !important;
 }
+
+.dropdown-menu {
+    background-color: #212529;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white; 
+}
+
+    .dropdown-menu .dropdown-item:hover {
+        color: darkgoldenrod;
+        background-color: #212529;
+    }
+
 .footer {
     width: 100%;
     background-color: transparent; /* Transparens */
