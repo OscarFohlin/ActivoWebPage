@@ -95,10 +95,11 @@ body {
     transform: translateX(-50%);
 }
 
-.hero-scroll-button img {
+    .hero-scroll-button img {
         width: 40px;
-        height: auto; 
-}
+        height: auto;
+        transition: filter 0.7s;
+    }
 
 .hero-scroll-button button {
         padding: 10px 20px;
