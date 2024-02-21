@@ -11,54 +11,52 @@
 
 </head>
 <body>
-  <header>
-    <nav class="navbar bg-dark border-body">
+    <header>
+          <nav class="navbar bg-dark border-body">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="Navbar">
-            <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="#">
                 <img src="~/images/logo_eventivo.png" alt="Logo" width="65" height="70" class="d-inline-block align-text-top">
-            </a>
-            <div class="d-flex">
-                <a class="nav-link" href="#">KULTUR & NÖJE</a>
-                <a class="nav-link" href="#">ÄTA & DRICKA</a>
-                <a class="nav-link" href="#">SPORT & FRILUFTSLIV</a>
-                <a class="nav-link" href="#">SÖK EVENT</a>
-                <a class="nav-link" href="#">LOGGA IN</a>
+              </a>
+              <div class="d-flex">
+                  <a class="nav-link" asp-action="ThnCulture" asp-controller="Cities">KULTUR & NÖJE</a>
+                  <a class="nav-link" asp-action="ThnSports" asp-controller="Cities">SPORT & FRILUFTSLIV</a>
+                  <a class="nav-link" asp-action="ThnSearch" asp-controller="Cities">SÖK EVENT</a>
+                  <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    STAD
-                </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
-                        <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
-                </ul>
-            </li>
-            </div>
+                  <div class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            STAD
+                      </a>
+
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
+                          <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
+                      </ul>
+                  </div>
+              </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <footer class="footer d-flex justify-content-between align-items-center py-3 my-4">
+        <div class="footer-icons d-flex flex-column align-items-start">
+            <a href="https://instagram.com" class="mb-2"><i class="fab fa-instagram fa-lg"></i>Eventivo</a>
+            <a href="https://twitter.com" class="mb-2"><i class="fab fa-twitter fa-lg"></i>Eventivo</a>
+            <a href="https://facebook.com" class="mb-2"><i class="fab fa-facebook-f fa-lg"></i>Eventivo</a>
         </div>
-    </nav>
-</header>
-
- <div class="content">
-     @RenderBody()
- </div>
-    
-     <footer class="footer d-flex justify-content-between align-items-center py-3 my-4">
-     <div class="footer-icons d-flex flex-column align-items-start">
-         <a href="https://instagram.com" class="mb-2"><i class="fab fa-instagram fa-lg"></i>Eventivo</a>
-         <a href="https://twitter.com" class="mb-2"><i class="fab fa-twitter fa-lg"></i>Eventivo</a>
-         <a href="https://facebook.com" class="mb-2"><i class="fab fa-facebook-f fa-lg"></i>Eventivo</a>
-     </div>
-     <div class="footer-nav">
-         <ul class="nav justify-content-center">
-             <li class="nav-item"><a href="#" class="nav-link">OM OSS</a></li>
-             <li class="nav-item"><a href="#" class="nav-link">KONTAKT</a></li>
-             <li class="nav-item"><a href="#" class="nav-link">SEKRETESS</a></li>
-         </ul>
-     </div>
- </footer>
+        <div class="footer-nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a href="#" class="nav-link">OM OSS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">KONTAKT</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">SEKRETESS</a></li>
+            </ul>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
