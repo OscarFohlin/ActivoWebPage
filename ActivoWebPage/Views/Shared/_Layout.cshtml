@@ -12,29 +12,37 @@
 <body>
     <header>
           <nav class="navbar bg-dark border-body">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+              @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>*@
               <a class="navbar-brand" href="#">
                 <img src="~/images/logo_eventivo.png" alt="Logo" width="65" height="70" class="d-inline-block align-text-top">
               </a>
+
               <div class="d-flex">
                   <a class="nav-link" asp-action="ThnCulture" asp-controller="Cities">KULTUR & NÖJE</a>
                   <a class="nav-link" asp-action="ThnSports" asp-controller="Cities">SPORT & FRILUFTSLIV</a>
-                  <a class="nav-link" asp-action="ThnSearch" asp-controller="Cities">SÖK EVENT</a>
-                  <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
-
-                  <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            STAD
-                      </a>
-
-                      <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
-                          <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
-                      </ul>
-                  </div>
               </div>
+
+
+              <div class="nav-item dropdown">
+                  <div class="d-flex align-items-center">
+                      <img src="~/images/searchglass.svg" alt="Search" width="30" height="30">
+                  </div>
+                  <a class="nav-link" asp-action="ThnSearch" asp-controller="Cities">SÖK EVENT</a>
+                  <div class="vr text-light" style="width: 3px;"></div>
+                  <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
+                  <div class="vr text-light" style="width: 3px;"></div>
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      STAD
+                  </a>
+
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
+                      <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
+                  </ul>
+              </div>
+              
         </nav>
     </header>
 
