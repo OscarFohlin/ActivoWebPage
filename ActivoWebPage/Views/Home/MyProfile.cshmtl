@@ -1,0 +1,5 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Länka in till Profil</h2>
