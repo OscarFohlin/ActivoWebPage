@@ -1,4 +1,5 @@
-# Hello test från melwin dator. 
+# Hello test frï¿½n melwin dator.
 
-Detta är en read me fil som synns nyggt i github. och man kan skriva so ett vanlig dokument. 
+Detta ï¿½r en read me fil som synns nyggt i github. och man kan skriva so ett vanlig dokument.
 
+hello
