@@ -37,9 +37,20 @@ body {
 }
 
 .gradient-block {
-    border-bottom: 5px solid black; /* Adjust thickness as needed */
-    width: 120px; /* Adjust the width of the block */
-    margin-top: 5px; /* Adjust the space between text and block */
+    border-bottom: 5px solid black;
+    width: 120px;
+    margin-top: 5px;
+}
+
+.chosen-section-highlight-text {
+    transform: scale(1.1);
+    background-image: linear-gradient(to right, #FE85B6 0%, #FEA8C4 20%, #FFBE74 50%, #FFA8C4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+    font-weight: 700;
+    color: transparent;
 }
 
 
@@ -163,9 +174,9 @@ body {
     font-size: 14px;
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
-    max-height: 200px; /* Set a fixed maximum height for the summary text */
+    max-height: 200px;
     width:340px;
-    overflow: auto; /* Add a scrollbar when the content overflows the maximum height */
+    overflow: auto;
 }
 
 .pop-event-date-text {
@@ -200,9 +211,9 @@ a:hover {
 /*slut på text css och början av div css logik*/
 
 #page-container {
-    margin: 0px auto; /* Center the container horizontally */
+    margin: 0px auto;
     min-width: 975px;
-    box-sizing: border-box; /* Include padding and border in the total width */
+    box-sizing: border-box;
     justify-content: center;
     transition: 0.7s;
     cursor: pointer;
@@ -216,61 +227,61 @@ a:hover {
 #container-pop-event {
     margin: 0px auto;
     display: flex;
-    justify-content: flex-start; /* Align items starting from the left */
-    align-items: flex-start; /* Align items to the top */
+    justify-content: flex-start;
+    align-items: flex-start;
     justify-content: center;
 }
 
 #container-pop-event-image {
-    flex: 0 0 auto; /* Don't grow or shrink, maintain initial size */
-    margin-right: 10px; /* Adjust margin as needed */
+    flex: 0 0 auto;
+    margin-right: 10px;
 }
 
 .pop-event-image {
-    max-width: 400px !important; /* Set the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 400px !important;
+    height: auto;
     transition: 0.7s;
 }
 
 #container-pop-event-content-seperation {
-    height: 100%; /* Ensure separator takes full height */
+    height: 100%;
     width: 30px;
 }
 
 .seperation-block {
-    border-bottom: 75px solid black; /* Adjust thickness as needed */
-    width: 5px; /* Adjust the width of the block */
+    border-bottom: 75px solid black;
+    width: 5px;
 }
 
 #container-pop-event-info {
     margin-left: 25px;
     display: flex;
-    flex-direction: column; /* Stacks children vertically */
+    flex-direction: column;
 }
 
 #container-pop-event-date-area {
     display: flex;
-    align-items: center; /* Aligns the date icon and text vertically */
+    align-items: center;
     margin-top: -25px;
     margin-bottom: 10px;
 }
 
 #container-pop-event-date-icon img {
-    width: 25px; /* Example size, adjust as needed */
+    width: 25px;
     height: auto;
     margin-right: 10px;
 }
 
 #container-pop-event-infobox-link {
     display: flex;
-    align-items: center; /* Aligns text and 'read more' icon */
-    gap: 5px; /* Space between text and icon */
-    margin: 0px 0; /* Spacing from the last element */
+    align-items: center;
+    gap: 5px;
+    margin: 0px 0;
 }
 
 #container-pop-event-infobox-link img {
     margin-top: -11px;
-    width: 20px; /* Example size, adjust as needed */
+    width: 20px;
     height: auto;
 }
 
