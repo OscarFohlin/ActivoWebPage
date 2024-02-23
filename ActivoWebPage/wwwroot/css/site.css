@@ -15,6 +15,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
+    min-width: 975px;
 }
 
 .gradient-text {
@@ -44,10 +45,11 @@ body {
 
 /* hero */
 .hero-text h1 {
-    font-size: 140px;
+    margin-top: 80px;
+    font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
+        kommer nog ändra i framtiden till någopt som anpassar sig bättre*/
     font-weight: 700;
     text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-    width: 100vw;
 }
 
 #thn {
@@ -98,7 +100,7 @@ body {
     .hero-scroll-button img {
         width: 40px;
         height: auto;
-        transition: filter 0.7s;
+        transition: 1s;
     }
 
 .hero-scroll-button button {
@@ -110,6 +112,7 @@ body {
 
 .hero-scroll-button:hover img {
             filter: brightness(10%) grayscale(50%) contrast(70%);
+            transform: scale(1.25);
             cursor: pointer;
 }
 
@@ -145,6 +148,136 @@ body {
 
 
 
+/*css för pop event och liknande containers*/
+
+/*text css*/
+                                             
+.pop-event-title-text {
+    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.pop-event-summary-text {
+    font-size: 14px;
+    font-family: 'Istok Web', sans-serif;
+    font-weight: 500;
+    max-height: 200px; /* Set a fixed maximum height for the summary text */
+    width:340px;
+    overflow: auto; /* Add a scrollbar when the content overflows the maximum height */
+}
+
+.pop-event-date-text {
+    font-size: 14px;
+    font-family: 'Istok Web', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 25px;
+    text-decoration: underline;
+    text-color: black;
+    text-decoration-thickness: 1px;
+}
+
+.pop-event-infobox-link-text {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/*slut på text css och början av div css logik*/
+
+#page-container {
+    margin: 0px auto; /* Center the container horizontally */
+    min-width: 975px;
+    box-sizing: border-box; /* Include padding and border in the total width */
+    justify-content: center;
+    transition: 0.7s;
+    cursor: pointer;
+    margin-bottom:50px;
+}
+
+#page-container:hover {
+    transform: scale(1.1)
+}
+
+#container-pop-event {
+    margin: 0px auto;
+    display: flex;
+    justify-content: flex-start; /* Align items starting from the left */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center;
+}
+
+#container-pop-event-image {
+    flex: 0 0 auto; /* Don't grow or shrink, maintain initial size */
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.pop-event-image {
+    max-width: 400px !important; /* Set the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    transition: 0.7s;
+}
+
+#container-pop-event-content-seperation {
+    height: 100%; /* Ensure separator takes full height */
+    width: 30px;
+}
+
+.seperation-block {
+    border-bottom: 75px solid black; /* Adjust thickness as needed */
+    width: 5px; /* Adjust the width of the block */
+}
+
+#container-pop-event-info {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+}
+
+#container-pop-event-date-area {
+    display: flex;
+    align-items: center; /* Aligns the date icon and text vertically */
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+
+#container-pop-event-date-icon img {
+    width: 25px; /* Example size, adjust as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+#container-pop-event-infobox-link {
+    display: flex;
+    align-items: center; /* Aligns text and 'read more' icon */
+    gap: 5px; /* Space between text and icon */
+    margin: 0px 0; /* Spacing from the last element */
+}
+
+#container-pop-event-infobox-link img {
+    margin-top: -11px;
+    width: 20px; /* Example size, adjust as needed */
+    height: auto;
+}
+
+
+/*Slut för css del av pop event och liknande events*/
+
+
 /* reklam */
 .advert-text {
     margin-left: 15%;
@@ -157,7 +290,7 @@ body {
 .advertisement-large img {
     transition: filter 0.3s;
 }
-
+    
 .advertisement-large:hover img {
     filter: brightness(80%) grayscale(20%) contrast(120%);
     cursor: pointer;
@@ -169,7 +302,7 @@ body {
     width: 70%;
     max-height: 15%;
     margin: 50px auto;
-    margin-top: -16px;
+    margin-top: -14px;
     margin-bottom: 20px;
 }
 
