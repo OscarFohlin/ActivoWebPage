@@ -11,22 +11,44 @@ html {
     }
 }
 
+/* det som blir mörkt i en kort tid i börjkan av sidan */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,  0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+    .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 body {
     display: flex;
     flex-direction: column;
-    min-width: 975px;
+    min-width: 1250px;
 }
 
+/* titel text här o där */
+
 .gradient-text {
-    margin-top: 40px;
     margin-left: 3%;
     margin-bottom: 30px;
     background-color: black;
-    background-image: linear-gradient(to right, #FE85B6 0px, #FEA8C4 200px, #FFBE74 400px, #FFA8C4 800px);
-    background-size: 100%;
+    background-image: linear-gradient(to right, #FE85B6 0%, #FEA8C4 30%, #FFBE74 70%, #FFA8C4 190%);
+    background-size: auto;
     background-repeat: repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -38,15 +60,21 @@ body {
     letter-spacing: -2px;
 }
 
+#top-titlecard-at-section {
+    margin-top: 75px;
+}
+
 .gradient-block {
     border-bottom: 5px solid black;
     width: 120px;
+    margin-left: 3%;
     margin-top: 5px;
+    margin-bottom: 30px;
 }
 
 .chosen-section-highlight-text {
     transform: scale(1.1);
-    background-image: linear-gradient(to right, #FE85B6 0%, #FEA8C4 20%, #FFBE74 50%, #FFA8C4 100%);
+    background-image: linear-gradient(to right, #FE85B6 0%, #FEA8C4 30%, #FFBE74 80%, #FFA8C4 150%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -54,7 +82,6 @@ body {
     font-weight: 700;
     color: transparent;
 }
-
 
 /* hero */
 .hero-text h1 {
@@ -75,6 +102,8 @@ body {
     width: 100%;
 }
 
+/* hero header */
+
 .hero-gradient-overlay {
     position: absolute;
     bottom: 0;
@@ -91,6 +120,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    margin-bottom: 80px;
 }
 
 .hero-text{
@@ -129,26 +159,48 @@ body {
             cursor: pointer;
 }
 
-
-
 /* navbar */
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+.bg-custom {
+    background-color: #212121;
+}
+
 .navbar {
     padding: 20px;
+    position: relative;
 }
 
 .nav-link {
     align-self: center;
     color: #ffffff !important;
+    font-size: 20px;
+    font-family: 'Roboto Medium', sans-serif;
+    transition: 0.75s
 }
     .nav-link:hover {
         color: darkgoldenrod !important;
     }
 
+
 .dropdown-menu {
-    background-color: #212529;
+    background-color: #212121;
+    position: absolute;
+    top: calc(100% + 5px); /* Position the dropdown menu below the nav-link */
+    left: 0;
+    z-index: 1000;
 }
     .dropdown-menu .dropdown-item {
         color: white;
+        transition: 0.75s
     }
         .dropdown-menu .dropdown-item:hover {
             color: darkgoldenrod;
@@ -158,8 +210,6 @@ body {
 .nav-item {
     display: flex;
 }
-
-
 
 /*css för pop event och liknande containers*/
 
@@ -219,7 +269,8 @@ a:hover {
     justify-content: center;
     transition: 0.7s;
     cursor: pointer;
-    margin-bottom:50px;
+    margin-bottom: 50px;
+    overflow: hidden;
 }
 
 #page-container:hover {
@@ -241,6 +292,7 @@ a:hover {
 
 .pop-event-image {
     max-width: 400px !important;
+    border-radius: 20px;
     height: auto;
     transition: 0.7s;
 }
@@ -251,8 +303,9 @@ a:hover {
 }
 
 .seperation-block {
-    border-bottom: 75px solid black;
+    border-bottom: 55px solid black;
     width: 5px;
+    margin-left: 35px;
 }
 
 #container-pop-event-info {
@@ -316,7 +369,7 @@ a:hover {
     max-height: 15%;
     margin: 50px auto;
     margin-top: -15px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .content {

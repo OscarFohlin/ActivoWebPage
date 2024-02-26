@@ -16,15 +16,19 @@ namespace ActivoWebPage.Controllers
         }
 
         //Flikar för Trollhättan
-        public IActionResult ThnCulture()
+        public IActionResult Trollhattan_Culture()
         {
             return View();
         }
-        public IActionResult ThnSports()
+        public IActionResult Trollhattan_Sports()
         {
             return View();
         }
-        public IActionResult ThnSearch()
+        public IActionResult Trollhattan_Socializing()
+        {
+            return View();
+        }
+        public IActionResult Trollhattan_Search()
         {
             return View();
         }

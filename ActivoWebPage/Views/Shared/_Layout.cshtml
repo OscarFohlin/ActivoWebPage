@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-          <nav class="navbar bg-dark border-body">
+          <nav class="navbar bg-custom border-body">
               @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>*@
@@ -20,28 +20,30 @@
               </a>
 
               <div class="d-flex">
-                  <a class="nav-link" asp-action="ThnCulture" asp-controller="Cities">KULTUR & NÖJE</a>
-                  <a class="nav-link" asp-action="ThnSports" asp-controller="Cities">SPORT & FRILUFTSLIV</a>
+                <a class="nav-link" id="trollhattan-culture" asp-action="Trollhattan_Culture" asp-controller="Cities">KULTUR & NÖJE</a>
+                <a class="nav-link" id="trollhattan-socializing" asp-action="Trollhattan_Socializing" asp-controller="Cities">ÄTA & DRICKA</a>
+                <a class="nav-link" id="trollhattan-sports" asp-action="Trollhattan_Sports" asp-controller="Cities">SPORT & FRILUFTSLIV</a>
               </div>
 
 
-              <div class="nav-item dropdown">
-                  <div class="d-flex align-items-center">
-                      <img src="~/images/searchglass.svg" alt="Search" width="30" height="30">
-                  </div>
-                  <a class="nav-link" asp-action="ThnSearch" asp-controller="Cities">SÖK EVENT</a>
-                  <div class="vr text-light" style="width: 3px;"></div>
-                  <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
-                  <div class="vr text-light" style="width: 3px;"></div>
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      STAD
-                  </a>
+            <div class="nav-list">
+                <a class="nav-link" asp-action="Trollhattan_Search" asp-controller="Cities">SÖK EVENT</a>
+                <div class="vr text-light" style="width: 3px;"></div>
+                <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
+                <div class="vr text-light" style="width: 3px;"></div>
 
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
-                      <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
-                  </ul>
-              </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    STAD
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
+                    <li><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
+                </ul>
+            </div>
+            </div>
+
+
               
         </nav>
     </header>
@@ -68,5 +70,20 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+    <script>
+        function changeFontAndText(element) {
+            // Reset all nav-link elements
+            var navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function (navLink) {
+                navLink.style.fontWeight = 'normal'; // Reset font weight
+            });
+
+            // Set the clicked nav-link to bold font weight
+            element.style.fontWeight = 'bold';
+        }
+    </script>
+
 </body>
 </html>
