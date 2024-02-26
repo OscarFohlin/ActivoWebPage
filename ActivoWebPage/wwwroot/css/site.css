@@ -38,7 +38,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    min-width: 1250px;
+    min-width: 1275px;
 }
 
 /* titel text här o där */
@@ -221,7 +221,7 @@ body {
 /*css för pop event och liknande containers*/
 
 /*text css*/
-                                             
+                                           
 .pop-event-title-text {
     font-size: 30px;
     font-family: 'Inter', sans-serif;
@@ -269,7 +269,12 @@ a:hover {
 
 /*slut på text css och början av div css logik*/
 
+#container-pop-event {
+
+}
+
 #page-container {
+    max-width: 100% !important;
     margin: 0px auto;
     min-width: 975px;
     box-sizing: border-box;
@@ -278,10 +283,13 @@ a:hover {
     cursor: pointer;
     margin-bottom: 50px;
     overflow: hidden;
+    position: relative;
+    top: 20px;
+    width: fit-content; /* Adjusts width to fit content */
 }
 
 #page-container:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
 }
 
 #container-pop-event {
