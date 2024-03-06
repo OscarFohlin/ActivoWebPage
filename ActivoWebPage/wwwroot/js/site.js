@@ -37,6 +37,7 @@ if (currentUrl.includes("Trollhattan") & currentUrl.includes("Sports")) {
 
     navLink.classList.add('chosen-section-highlight-text');
 
+
 } 
 
 if (currentUrl.includes("Trollhattan") & currentUrl.includes("Socializing")) {
@@ -61,3 +62,11 @@ if (currentUrl.includes("Trollhattan") & currentUrl.includes("Search")) {
 
     navLink.classList.add('chosen-section-highlight-text');
 }
+
+
+    //funktioner för blur effekt på den andra bilden när man hoverar över för
+//blir knasigt i css när man försöker ändra en annan saks properties
+    //fortsätter på det senare sätter bara upp startsidan först så att den finns
+
+const vvikImage = document.getElementById("startpage-image-vvik");
+const thnImage = document.getElementById("startpage-image-thn");

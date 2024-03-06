@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
 </head>
+
 <body>
-    <header>
+    <header class="header-trollhattan">
           <nav class="navbar bg-custom border-body">
               @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>*@
-              <a class="navbar-brand" href="#">
-                <img src="~/images/logo_eventivo.png" alt="Logo" width="65" height="70" class="d-inline-block align-text-top">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="65" height="70" class="d-inline-block align-text-top" />
               </a>
 
               <div class="d-flex">
