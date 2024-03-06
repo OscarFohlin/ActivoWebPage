@@ -23,6 +23,7 @@ html {
     }
 
     body {
+        overflow-x:hidden;
         display: flex;
         flex-direction: column;
     }
@@ -170,17 +171,19 @@ html {
 
     .bg-custom {
         background-color: #212121;
+
     }
 
     .search-icon {
         width: 20px;
-        height auto;
+        height: auto;
         margin-right: 10px;
     }
 
     .navbar {
         padding: 20px;
         position: relative;
+
     }
 
     .nav-link {
@@ -188,7 +191,8 @@ html {
         color: #ffffff !important;
         font-size: 20px;
         font-family: 'Roboto Medium', sans-serif;
-        transition: 0.75s
+        transition: 0.75s;
+
     }
 
         .nav-link:hover {
@@ -196,28 +200,35 @@ html {
         }
 
 
-    .dropdown-menu {
-        background-color: #212121;
-        position: absolute;
-        top: calc(100% + 5px); /* Position the dropdown menu below the nav-link */
-        left: 0;
-        z-index: 1000;
-    }
+.dropdown-menu {
+    background-color: #212121;
+    position: absolute;
+    top: calc(100% + 5px); /* Position the dropdown menu below the nav-link */
+    left: 0;
+    z-index: 1000;
+    width: 1px !important;
+}
 
-        .dropdown-menu .dropdown-item {
-            color: white;
-            transition: 0.75s
-        }
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: 0.75s;
+
+}
 
             .dropdown-menu .dropdown-item:hover {
                 color: darkgoldenrod;
                 background-color: #212529;
             }
-    /*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
-    .nav-item {
-        display: flex;
-    }
 
+/*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
+.nav-item {
+    display: flex;
+}
+
+    .nav-item dropdown {
+        width: 1px !important;
+        overflow: hidden;
+    }
 
 /*startsida css */
 .start-container {
@@ -740,6 +751,7 @@ html {
         display: flex;
         align-items: center;
         margin-left: 10px;
+
     }
 
         .footer-icons a {
@@ -762,6 +774,7 @@ html {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 600;
     font-style: italic;
+    transition: 0.5s;
 }
 
     .footer-icons a:hover {
@@ -783,6 +796,7 @@ html {
         font-size: 20px;
         font-family: 'Roboto Condensed', sans-serif;
         font-weight: 500;
+        transition: 0.5s;
     }
 
             .footer-nav .nav-link:last-child {
