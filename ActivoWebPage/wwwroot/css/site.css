@@ -164,9 +164,9 @@ html {
         align-items: center;
     }
 
-    .nav-item {
-        margin-left: 10px;
-    }
+.nav-item {
+    margin-left: 10px;
+}
 
     .bg-custom {
         background-color: #212121;
@@ -238,6 +238,7 @@ html {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-size: 120px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .startpage-or-text {
@@ -252,6 +253,7 @@ html {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-size: 60px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .startpage-vvik-name,
@@ -268,6 +270,7 @@ html {
     font-size: 4vw;
     letter-spacing: -0.5px;
     transition: 0.5s ease;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 2);
 }
 
 
@@ -328,20 +331,24 @@ html {
     font-weight: 600;
     font-size: 24px;
     z-index: 1;
+    transition: 0.5s ease;
 }
 
-.startpage-login-box:hover{
-
+.startpage-login-box:hover {
     transform: scale(1.1);
-
 }
 
-#startpage-image-vvik:hover .resolution-scale-image-startpage {
-    filter: brightness(90%) contrast(110%);
-}
+    .startpage-login-box:hover .startpage-login-text {
+        color: darkgoldenrod !important;
+    }
+
+
+    #startpage-image-vvik:hover .resolution-scale-image-startpage {
+        filter: brightness(90%) contrast(110%);
+    }
 
 #startpage-image-vvik:hover .startpage-vvik-name {
-    font-size: 4.5vw; /* Increase font size on hover */
+    font-size: 4.5vw;
 }
 
 /*the other images animations/transitions ya knowwww*/
@@ -355,7 +362,6 @@ html {
 }
 
 /*det som ska läggas till är mer scaling för mindre fönster typ mobiler fast det är mer av ett header problem*/
-
 
 /*slut på startsidans css
 
@@ -702,15 +708,28 @@ html {
 
 
     /* footer */
-    .footer {
-        margin-top: auto; /* Trycker footern till botten av sidan */
-        width: 100%;
-        background-color: transparent;
-        font-size: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.footer-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: transparent;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 1275px;
+    height: 120px;
+}  
+
 
     .logo-footer {
         width: 30px;
@@ -728,37 +747,53 @@ html {
             text-decoration: none;
         }
 
-    .footer-icon-text {
-        display: flex;
-        align-items: center;
-        display: inline-block;
-        margin-left: 4px;
-        margin-bottom: -4px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
-        font-style: italic;
+    .mb-2{
+        width: fit-content;
+        height: 30px;
+        z-index: 2;
     }
+
+.footer-icon-text {
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    margin-left: 4px;
+    margin-bottom: -4px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
 
     .footer-icons a:hover {
         color: darkgoldenrod !important;
     }
 
-    .footer-nav {
-        flex-grow: 1;
-        text-align: center;
-    }
+.footer-nav {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-width: 1275px;
+    z-index: 1;
+}
 
-        .footer-nav .nav-link {
-            color: black !important;
-            font-family: 'Inter', sans-serif;
-            display: inline-block;
-            text-align: center;
-        }
+    .footer-nav .nav-link-footer {
+        color: black;
+        display: inline-block;
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+    }
 
             .footer-nav .nav-link:last-child {
                 margin-right: 0;
             }
 
-            .footer-nav .nav-link:hover {
+            .footer-nav .nav-link-footer:hover {
                 color: darkgoldenrod !important;
             }
+
+.nav-link-footer{
+    width: 150px;
+    height: fit-content;
+}
