@@ -10,7 +10,6 @@ html {
         font-size: 20px;
     }
 }
-    /* det som blir mörkt i en kort tid i börjkan av sidan */
 
 .container-seperation {
 
@@ -219,14 +218,12 @@ html {
         display: flex;
     }
 
-/*start sida css*/
 
-
-
+/*startsida css */
 .start-container {
     display: flex;
     z-index: 10;
-    position: relative; /* Add position: relative to make absolute positioning work */
+    position: relative;
 }
 
 .startpage-text {
@@ -234,13 +231,13 @@ html {
     top: 10%;
     left: 0;
     right: 0;
-    margin: 0 auto; /* Centers the text horizontally */
-    text-align: center; /* Centers the text inside the container */
+    margin: 0 auto;
+    text-align: center;
     z-index: 3;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
-    font-size: 120px; /* Adjust font size as needed */
+    font-size: 120px;
 }
 
 .startpage-or-text {
@@ -248,13 +245,13 @@ html {
     bottom: 27%;
     left: 0;
     right: 0;
-    margin: 0 auto; /* Centers the text horizontally */
-    text-align: center; /* Centers the text inside the container */
+    margin: 0 auto;
+    text-align: center;
     z-index: 3;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
-    font-size: 60px; /* Adjust font size as needed */
+    font-size: 60px;
 }
 
 .startpage-vvik-name,
@@ -278,8 +275,8 @@ html {
     display: flex;
     position: relative;
     flex: 1;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
+    align-items: center;
+    justify-content: center;
 }
 
 .startpage-image {
@@ -287,12 +284,12 @@ html {
     z-index: 1;
     margin: 0;
     padding: 0;
-    position: relative; /* Add position: relative to make absolute positioning work */
+    position: relative;
     transition: 1s ease;
 }
 
 .resolution-scale-image-startpage {
-    object-fit: cover; /* Maintain aspect ratio without stretching */
+    object-fit: cover; 
     height: 1200px;
     filter: brightness(45%) contrast(110%);
     transition: 1s ease;
@@ -338,7 +335,7 @@ html {
     transform: scale(1.1);
 
 }
-/* CSS for when hovering over the startpage image with ID startpage-image-vvik */
+
 #startpage-image-vvik:hover .resolution-scale-image-startpage {
     filter: brightness(90%) contrast(110%);
 }
@@ -354,18 +351,13 @@ html {
 }
 
 #startpage-image-thn:hover .startpage-thn-name {
-    font-size: 4.5vw; /* Increase font size on hover */
+    font-size: 4.5vw;
 }
 
-
-
-
-
-
+/*det som ska läggas till är mer scaling för mindre fönster typ mobiler fast det är mer av ett header problem*/
 
 
 /*slut på startsidans css
-
 
 
     /*css för pop event och liknande containers*/
@@ -429,7 +421,7 @@ html {
         overflow: hidden;
         position: relative;
         top: 20px;
-        width: fit-content; /* Adjusts width to fit content */
+        width: fit-content;
     }
 
         .page-container:hover {
@@ -589,10 +581,9 @@ html {
         height: auto;
     }
 
-    /*slut på fix?*/
 
 
-    /* reklam */
+    /* reklam css typ */
     .advert-text {
         margin-left: 20.2%;
         font-size: 12px;
