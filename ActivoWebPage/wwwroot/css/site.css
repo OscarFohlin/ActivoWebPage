@@ -23,7 +23,6 @@ html {
     }
 
     body {
-        overflow-x:hidden;
         display: flex;
         flex-direction: column;
     }
@@ -630,7 +629,6 @@ html {
     
     .content {
         flex: 1;
-        overflow:hidden;
         min-width: 1275px;
     }
 
