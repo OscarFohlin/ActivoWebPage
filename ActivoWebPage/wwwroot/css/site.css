@@ -202,7 +202,7 @@ html {
 .dropdown-menu {
     background-color: #212121;
     position: absolute;
-    top: calc(100% + 5px); /* Position the dropdown menu below the nav-link */
+    top: calc(100% + 5px);
     left: 0;
     z-index: 1000;
     width: 1px !important;
@@ -385,6 +385,14 @@ html {
     margin-top: 10px;
 }
 
+.pop-event-title-text-bottom {
+    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: end;
+}
+
     .pop-event-summary-text {
         font-size: 14px;
         font-family: 'Istok Web', sans-serif;
@@ -393,6 +401,16 @@ html {
         width: 340px;
         overflow: auto;
     }
+
+.pop-event-summary-text-bottom {
+    font-size: 14px;
+    font-family: 'Istok Web', sans-serif;
+    font-weight: 500;
+    max-height: 200px;
+    width: 340px;
+    overflow: auto;
+    text-align: end;
+}
 
     .pop-event-date-text {
         font-size: 14px;
@@ -405,6 +423,18 @@ html {
         text-decoration-thickness: 1px;
     }
 
+.pop-event-date-text-bottom {
+    font-size: 14px;
+    font-family: 'Istok Web', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 25px;
+    text-decoration: underline;
+    text-color: black;
+    text-decoration-thickness: 1px;
+    text-align: end;
+}
+
     .pop-event-infobox-link-text {
         font-size: 16px;
         font-family: 'Inter', sans-serif;
@@ -413,44 +443,64 @@ html {
         text-decoration-thickness: 2px;
     }
 
-    a {
-        color: black;
-        text-decoration: none;
-    }
+.pop-event-infobox-link-text-bottom {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-align: end;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+}
 
         a:hover {
-            color: black;
+            color: darkgoldenrod !important;
             text-decoration: none;
         }
 
     /*slut på text css och början av div css logik*/
+.container-pop-event:hover {
+    transform: scale(1.05);
+}
 
-    .page-container {
-        max-width: 100% !important;
-        margin: 0px auto;
-        min-width: 975px;
-        box-sizing: border-box;
-        justify-content: center;
-        transition: 0.7s;
-        cursor: pointer;
-        margin-bottom: 50px;
-        overflow: hidden;
-        position: relative;
-        top: 20px;
-        width: fit-content;
-    }
+.container-pop-event-lower:hover {
+    transform: scale(1.05);
+}
 
-        .page-container:hover {
-            transform: scale(1.1);
-        }
+.page-container:hover{
+    cursor:default;
+}
 
-    .container-pop-event {
-        margin: 0px auto;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        justify-content: center;
-    }
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100% !important;
+    margin: 0px auto;
+    min-width: 975px;
+    justify-content: center;
+    transition: 0.7s;
+    cursor: pointer;
+    margin-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+    width: fit-content;
+    padding: 30px;
+}
+
+.container-pop-event {
+    margin: 0px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    transition: 0.5s;
+}
 
     .container-pop-event-image {
         flex: 0 0 auto;
@@ -461,7 +511,6 @@ html {
         max-width: 400px !important;
         border-radius: 20px;
         height: auto;
-        transition: 0.7s;
     }
 
     .container-pop-event-content-seperation {
@@ -484,25 +533,26 @@ html {
     .container-pop-event-date-area {
         display: flex;
         align-items: center;
-        margin-top: -25px;
+        margin-top: -20px;
         margin-bottom: 10px;
     }
 
-    .container-pop-event-date-icon img {
-        width: 25px;
-        height: auto;
-        margin-right: 10px;
-    }
+.container-pop-event-date-icon img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
 
-    .container-pop-event-infobox-link {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        margin: 0px 0;
-    }
+.container-pop-event-infobox-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0px 0;
+    margin-top: -10px;
+}
 
         .container-pop-event-infobox-link img {
-            margin-top: -11px;
+            margin-top: -16px;
             width: 20px;
             height: auto;
         }
@@ -510,29 +560,7 @@ html {
 
     /*Slut för css del av pop event och liknande events*/
     /*test för fix av info-boxar*/
-
-.container-pop-event-lower {
-}
-
-.page-container-lower {
-    max-width: 100% !important;
-    margin: 0px auto;
-    margin-left: 135px;
-    min-width: 975px;
-    box-sizing: border-box;
-    justify-content: center;
-    transition: 0.7s;
-    cursor: pointer;
-    margin-bottom: 50px;
-    overflow: hidden;
-    position: relative;
-    top: 20px;
-    width: fit-content;
-}
-
-    .page-container-lower:hover {
-        transform: scale(1.1);
-    }
+/*funkar!*/
 
 .container-pop-event-lower {
     margin: 0px auto;
@@ -540,33 +568,34 @@ html {
     justify-content: flex-start;
     align-items: flex-start;
     justify-content: center;
+    transition: 0.5s;
 }
 
 .container-pop-event-image-lower {
     flex: 0 0 auto;
-    margin-right: 10px;
+    margin-left: 5px;
 }
 
 .pop-event-image-lower {
     max-width: 400px !important;
     border-radius: 20px;
     height: auto;
-    transition: 0.7s;
+    margin-right: -80px;
 }
 
 .container-pop-event-content-seperation-lower {
     height: 100%;
     width: 30px;
+    margin-right: 55px;
 }
 
 .seperation-block-lower {
     border-bottom: 55px solid black;
     width: 5px;
-    margin-left: -35px;
+    margin-left: 35px;
 }
 
 .container-pop-event-info-lower {
-    margin-left: 25px;
     display: flex;
     flex-direction: column;
 }
@@ -574,13 +603,15 @@ html {
 .container-pop-event-date-area-lower {
     display: flex;
     align-items: center;
-    margin-top: -25px;
+    margin-top: -20px;
     margin-bottom: 10px;
+    justify-content: flex-end;
+    width: calc(100% - 5px);
 }
 
 .container-pop-event-date-icon-lower img {
     width: 25px;
-    height: auto;
+    height: 25px;
     margin-right: 10px;
 }
 
@@ -588,15 +619,19 @@ html {
     display: flex;
     align-items: center;
     gap: 5px;
-    margin: 0px 0;
+    margin: 0;
+    justify-content: flex-end;
+    width: calc(100% - 5px);
+    margin-top: -10px;
 }
 
     .container-pop-event-infobox-link-lower img {
-        margin-top: -11px;
+        margin-top: -16px;
         width: 20px;
         height: auto;
     }
 
+/*slut på page-container css */
 
 
     /* reklam css typ */
