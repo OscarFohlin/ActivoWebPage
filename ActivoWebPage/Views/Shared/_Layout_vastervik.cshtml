@@ -22,14 +22,14 @@
               </a>
 
               <div class="d-flex">
-                <a class="nav-link" id="trollhattan-culture" asp-action="Trollhattan_Culture" asp-controller="Cities">KULTUR & NÖJE</a>
-                <a class="nav-link" id="trollhattan-socializing" asp-action="Trollhattan_Socializing" asp-controller="Cities">ÄTA & DRICKA</a>
-                <a class="nav-link" id="trollhattan-sports" asp-action="Trollhattan_Sports" asp-controller="Cities">SPORT & FRILUFTSLIV</a>
+                <a class="nav-link" id="trollhattan-culture" asp-action="Culture" asp-controller="Vastervik">KULTUR & NÖJE</a>
+                <a class="nav-link" id="trollhattan-socializing" asp-action="Socializing" asp-controller="Vastervik">ÄTA & DRICKA</a>
+                <a class="nav-link" id="trollhattan-sports" asp-action="Sports" asp-controller="Vastervik">SPORT & FRILUFTSLIV</a>
               </div>
 
 
             <div class="nav-list">
-                <a class="nav-link" asp-action="Trollhattan_Search" asp-controller="Cities"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
+                <a class="nav-link" asp-action="Search" asp-controller="Home"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
                 <div class="vr text-light" style="width: 3px;"></div>
                 <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
                 <div class="vr text-light" style="width: 3px;"></div>
@@ -39,8 +39,8 @@
                     STAD
                 </a>
                     <ul class="dropdown-menu">
-                    <li class="dropdown-city"><a class="dropdown-item" asp-action="Trollhattan" asp-controller="Cities">Trollhättan</a></li>
-                    <li class="dropdown-city"><a class="dropdown-item" asp-action="Vastervik" asp-controller="Cities">Västervik</a></li>
+                    <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
+                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
                 </ul>
             </div>
             </div>

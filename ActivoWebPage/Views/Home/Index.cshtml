@@ -2,11 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    Layout = "~/Views/Shared/_layout_start.cshtml";
+}
+
 <div class="start-container">
     <h1 class="startpage-text no-pointer-events">VÄLJ STAD</h1>
 
     <div class="startpage-image" id="startpage-image-vvik">
-        <a asp-action="Vastervik" asp-controller="Cities">
+        <a asp-action="Home" asp-controller="Vastervik">
             <img class="resolution-scale-image-startpage" src="~/images/startpage-image-vvik.jpg" style="width:100%" />
             <h2 class="startpage-vvik-name no-pointer-events">Västervik</h2>
         </a>
@@ -15,7 +19,7 @@
     <div class="startpage-seperation-block"></div>
 
     <div class="startpage-image" id="startpage-image-thn">
-        <a asp-action="Trollhattan" asp-controller="Cities">
+        <a asp-action="Home" asp-controller="Trollhattan">
             <img class="resolution-scale-image-startpage" src="~/images/startpage-image-thn.jpg" style="width:100%" />
             <h2 class="startpage-thn-name no-pointer-events">Trollhättan</h2>
         </a>

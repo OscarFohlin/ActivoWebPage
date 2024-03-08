@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ActivoWebPage</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+
+</head>
+
+<body>
+    <header class="header-trollhattan">
+          <nav class="navbar bg-custom border-body">
+              @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>*@
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="65" height="70" class="d-inline-block align-text-top" />
+              </a>
+
+
+            <div class="nav-list">
+                <a class="nav-link" asp-action="Search" asp-controller="Home"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
+                <div class="vr text-light" style="width: 3px;"></div>
+                <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
+                <div class="vr text-light" style="width: 3px;"></div>
+
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    STAD
+                </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-city"><a class="dropdown-item" asp-controller="Trollhattan" asp-action="Home">Trollhättan</a></li>
+                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
+                    </ul>
+            </div>
+            </div>
+
+
+              
+        </nav>
+    </header>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <footer class="footer d-flex justify-content-between align-items-center py-3 my-4">
+
+        <div class="footer-wrapper">
+            <div class="footer-icons d-flex flex-column align-items-start">
+            <a href="https://instagram.com" class="mb-2"><img class="logo-footer" src="~/images/logo-instagram.png"/><p class="footer-icon-text">Eventivo</p></a>
+            <a href="https://twitter.com" class="mb-2"><img class="logo-footer" src="~/images/logo-twitter.png" /><p class="footer-icon-text">Eventivo</p></a>
+            <a href="https://facebook.com" class="mb-2"><img class="logo-footer" src="~/images/logo-facebook.png" /><p class="footer-icon-text">Eventivo</p></a>
+            </div>
+        </div>
+
+        <div class="footer-nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="About" asp-controller="Home">OM OSS</a></li>
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Contact" asp-controller="Home">KONTAKT</a></li>
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Privacy" asp-controller="Home">SEKRETESS</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    <script>
+        function changeFontAndText(element) {
+            // Reset all nav-link elements
+            var navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function (navLink) {
+                navLink.style.fontWeight = 'normal'; // Reset font weight
+            });
+
+            // Set the clicked nav-link to bold font weight
+            element.style.fontWeight = 'bold';
+        }
+    </script>
+
+</body>
+</html>

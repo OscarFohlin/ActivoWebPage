@@ -9,79 +9,103 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ActivoWebPage
 build_property.RootNamespace = ActivoWebPage
-build_property.ProjectDir = /Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/
+build_property.ProjectDir = C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage
+build_property.MSBuildProjectDirectory = C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/wwwroot/lib/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdC9saWIvVmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/wwwroot/lib/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxsaWJcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/wwwroot/lib/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdC9saWIvVmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/wwwroot/lib/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxsaWJcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Cities/ThnCulture.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0aWVzL1RobkN1bHR1cmUuY3NodG1s
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Cities/ThnSearch.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0aWVzL1RoblNlYXJjaC5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Cities/ThnSports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0aWVzL1RoblNwb3J0cy5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Cities/Trollhattan.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0aWVzL1Ryb2xsaGF0dGFuLmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Cities/Vastervik.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0aWVzL1Zhc3RlcnZpay5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Home/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Home/MyProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NeVByb2ZpbGUuY3NodG1s
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Trollhattan/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJvbGxoYXR0YW5cSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Trollhattan/Trollhattan_Culture.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJvbGxoYXR0YW5cVHJvbGxoYXR0YW5fQ3VsdHVyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/testpushfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdGVzdHB1c2hmaWxlLmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Trollhattan/Trollhattan_Socializing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJvbGxoYXR0YW5cVHJvbGxoYXR0YW5fU29jaWFsaXppbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Vastervik/vvkCulture.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmFzdGVydmlrL3Z2a0N1bHR1cmUuY3NodG1s
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Trollhattan/Trollhattan_Sports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJvbGxoYXR0YW5cVHJvbGxoYXR0YW5fU3BvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Vastervik/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFzdGVydmlrXEhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Vastervik/Vastervik_Culture.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFzdGVydmlrXFZhc3RlcnZpa19DdWx0dXJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/elisekihlberg/Desktop/Projects/MinLabbAPI 2/ActivoWebPage/ActivoWebPage/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-vr8kl03uwn
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Vastervik/Vastervik_Socializing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFzdGVydmlrXFZhc3RlcnZpa19Tb2NpYWxpemluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Vastervik/Vastervik_Sports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFzdGVydmlrXFZhc3RlcnZpa19TcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Shared/_Layout_start.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfc3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-37dl1obj0a
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Shared/_Layout_trollhattan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfdHJvbGxoYXR0YW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bf4cwsl8ww
+
+[C:/Users/oscar/OneDrive/Dokument/GitHub/ActivoWebPage/ActivoWebPage/Views/Shared/_Layout_vastervik.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfdmFzdGVydmlrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-uwvtgnf637
