@@ -316,6 +316,18 @@ html {
     z-index: 1;
 }
 
+.logo-startpage{
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+    z-index: 1;
+}
+
+.logo-startpage-img {
+    height: 250px;
+    width: auto;
+}
+
 .startpage-login-container {
     position: absolute;
     bottom: 20%;
