@@ -3,11 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ActivoWebPage</title>
+    <title>@ViewData["Title"] - Eventivo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+
+    @*sida än så länge låst på typ 955px 
+        i min-width på grund av overflow problem inom de andra sektionerna
+        men när de mobilanpassats så kan vi basically ta bort min-width av
+        window size
+    *@
 
 </head>
 
@@ -23,20 +29,23 @@
 
 
             <div class="nav-list">
-                <a class="nav-link" asp-action="Search" asp-controller="Home"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
+
+                <div class="vr text-light" style="width: 3px;"></div>
+                <a class="nav-link" asp-action="Search" asp-controller="Home">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg" /></a>
                 <div class="vr text-light" style="width: 3px;"></div>
                 <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
-                <div class="vr text-light" style="width: 3px;"></div>
 
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    STAD
-                </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-city"><a class="dropdown-item" asp-controller="Trollhattan" asp-action="Home">Trollhättan</a></li>
+                <div class="nav-item dropdown">
+                    <div class="vr text-light" style="width: 3px;"></div>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        VÄLJ STAD
+                    </a>
+                    <ul class="dropdown-menu dropdown-cities">
+                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
                         <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
                     </ul>
-            </div>
+                </div>
+
             </div>
 
 
@@ -74,13 +83,11 @@
 
     <script>
         function changeFontAndText(element) {
-            // Reset all nav-link elements
             var navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (navLink) {
-                navLink.style.fontWeight = 'normal'; // Reset font weight
+                navLink.style.fontWeight = 'normal';
             });
 
-            // Set the clicked nav-link to bold font weight
             element.style.fontWeight = 'bold';
         }
     </script>

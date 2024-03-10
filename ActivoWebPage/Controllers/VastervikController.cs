@@ -2,25 +2,25 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ActivoWebPage.Controllers
 {
-    public class TrollhattanController : Controller
+    public class VastervikController : Controller
     {
 
-        //Flikar för Trollhättan
+        //Flikar för Västervik
         public IActionResult Home()
         {
-            return View("~/Views/Trollhattan/Home.cshtml");
+            return View("~/Views/Vastervik/Home.cshtml");
         }
         public IActionResult Culture()
         {
-            return View("~/Views/Trollhattan/Trollhattan_Culture.cshtml");
+            return View("~/Views/Vastervik/Vastervik_Culture.cshtml");
         }
         public IActionResult Sports()
         {
-            return View("~/Views/Trollhattan/Trollhattan_Sports.cshtml");
+            return View("~/Views/Vastervik/Vastervik_Sports.cshtml");
         }
         public IActionResult Socializing()
         {
-            return View("~/Views/Trollhattan/Trollhattan_Socializing.cshtml");
+            return View("~/Views/Vastervik/Vastervik_Socializing.cshtml");
         }
     }
 }

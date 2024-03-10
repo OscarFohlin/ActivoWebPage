@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ActivoWebPage</title>
+    <title>@ViewData["Title"] - Eventivo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
@@ -12,42 +12,61 @@
 </head>
 
 <body>
+
+    @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>*@
+
     <header class="header-trollhattan">
           <nav class="navbar bg-custom border-body">
-              @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>*@
+
+        <div class="nav-start">
             <a class="navbar-brand" asp-action="Index" asp-controller="Home">
-                <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="65" height="70" class="d-inline-block align-text-top" />
+                <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="70" height="70" class="d-inline-block align-text-top" />
               </a>
 
-              <div class="d-flex">
-                <a class="nav-link" id="trollhattan-culture" asp-action="Culture" asp-controller="Trollhattan">KULTUR & NÖJE</a>
-                <a class="nav-link" id="trollhattan-socializing" asp-action="Socializing" asp-controller="Trollhattan">ÄTA & DRICKA</a>
-                <a class="nav-link" id="trollhattan-sports" asp-action="Sports" asp-controller="Trollhattan">SPORT & FRILUFTSLIV</a>
-              </div>
+                <div class="container-categories">
+                    <div class="d-flex content-align-desktop">
+                        <a class="nav-link" id="culture" asp-action="Culture" asp-controller="Trollhattan">KULTUR & NÖJE</a>
+                        <a class="nav-link" id="socializing" asp-action="Socializing" asp-controller="Trollhattan">ÄTA & DRICKA</a>
+                        <a class="nav-link" id="sports" asp-action="Sports" asp-controller="Trollhattan">SPORT & FRILUFTSLIV</a>
+                    </div>
 
+                    <div class="nav-item content-align-mobile">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            KATEGORIER
+                        </a>
+                        <ul class="dropdown-menu dropdown-categories">
+                            <li class="dropdown-category"><a class="dropdown-item" id="culture-mobile" asp-action="Culture" asp-controller="Trollhattan">KULTUR & NÖJE</a></li>
+                            <li class="dropdown-category"><a class="dropdown-item" id="socializing-mobile" asp-action="Socializing" asp-controller="Trollhattan">ÄTA & DRICKA</a></li>
+                            <li class="dropdown-category"><a class="dropdown-item" id="sports-mobile" asp-action="Sports" asp-controller="Trollhattan">SPORT & FRILUFTSLIV</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
 
             <div class="nav-list">
-                <a class="nav-link" asp-action="Search" asp-controller="Home"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
+
+                <div class="vr text-light" style="width: 3px;"></div>
+                <a class="nav-link" asp-action="Search" asp-controller="Home">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg" /></a>
                 <div class="vr text-light" style="width: 3px;"></div>
                 <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
-                <div class="vr text-light" style="width: 3px;"></div>
 
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    STAD
-                </a>
-                    <ul class="dropdown-menu">
+                <div class="nav-item dropdown">
+                    <div class="vr text-light" style="width: 3px;"></div>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        VÄLJ STAD
+                    </a>
+                    <ul class="dropdown-menu dropdown-cities">
                         <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
                         <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
-                </ul>
-            </div>
-            </div>
+                    </ul>
+                </div>
 
-
-              
+            </div>
+   
         </nav>
+
     </header>
 
     <div class="content">
@@ -80,13 +99,11 @@
 
     <script>
         function changeFontAndText(element) {
-            // Reset all nav-link elements
             var navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (navLink) {
-                navLink.style.fontWeight = 'normal'; // Reset font weight
+                navLink.style.fontWeight = 'normal';
             });
 
-            // Set the clicked nav-link to bold font weight
             element.style.fontWeight = 'bold';
         }
     </script>

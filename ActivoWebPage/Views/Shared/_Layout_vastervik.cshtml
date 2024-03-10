@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ActivoWebPage</title>
+    <title>@ViewData["Title"] - Eventivo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
@@ -13,41 +13,55 @@
 
 <body>
     <header class="header-trollhattan">
-          <nav class="navbar bg-custom border-body">
-              @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>*@
-            <a class="navbar-brand" asp-action="Index" asp-controller="Home">
-                <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="65" height="70" class="d-inline-block align-text-top" />
-              </a>
+        <nav class="navbar bg-custom border-body">
 
-              <div class="d-flex">
-                <a class="nav-link" id="trollhattan-culture" asp-action="Culture" asp-controller="Vastervik">KULTUR & NÖJE</a>
-                <a class="nav-link" id="trollhattan-socializing" asp-action="Socializing" asp-controller="Vastervik">ÄTA & DRICKA</a>
-                <a class="nav-link" id="trollhattan-sports" asp-action="Sports" asp-controller="Vastervik">SPORT & FRILUFTSLIV</a>
-              </div>
+            <div class="nav-start">
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                    <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="70" height="70" class="d-inline-block align-text-top" />
+                </a>
 
+                <div class="container-categories">
+                    <div class="d-flex content-align-desktop">
+                        <a class="nav-link" id="culture" asp-action="Culture" asp-controller="Vastervik">KULTUR & NÖJE</a>
+                        <a class="nav-link" id="socializing" asp-action="Socializing" asp-controller="Vastervik">ÄTA & DRICKA</a>
+                        <a class="nav-link" id="sports" asp-action="Sports" asp-controller="Vastervik">SPORT & FRILUFTSLIV</a>
+                    </div>
+
+                    <div class="nav-item content-align-mobile">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            KATEGORIER
+                        </a>
+                        <ul class="dropdown-menu dropdown-categories">
+                            <li class="dropdown-category"><a class="dropdown-item" id="culture-mobile" asp-action="Culture" asp-controller="Vastervik">KULTUR & NÖJE</a></li>
+                            <li class="dropdown-category"><a class="dropdown-item" id="socializing-mobile" asp-action="Socializing" asp-controller="Vastervik">ÄTA & DRICKA</a></li>
+                            <li class="dropdown-category"><a class="dropdown-item" id="sports-mobile" asp-action="Sports" asp-controller="Vastervik">SPORT & FRILUFTSLIV</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <div class="nav-list">
-                <a class="nav-link" asp-action="Search" asp-controller="Home"><img class="search-icon" src="~/images/searchglass.svg" />SÖK EVENT</a>
+
+                <div class="vr text-light" style="width: 3px;"></div>
+                <a class="nav-link" asp-action="Search" asp-controller="Home">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg" /></a>
                 <div class="vr text-light" style="width: 3px;"></div>
                 <a class="nav-link" asp-action="MyProfile" asp-controller="Home">LOGGA IN</a>
-                <div class="vr text-light" style="width: 3px;"></div>
 
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    STAD
-                </a>
-                    <ul class="dropdown-menu">
-                    <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
+                <div class="nav-item dropdown">
+                    <div class="vr text-light" style="width: 3px;"></div>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        VÄLJ STAD
+                    </a>
+                    <ul class="dropdown-menu dropdown-cities">
+                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
                         <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
-                </ul>
-            </div>
+                    </ul>
+                </div>
+
             </div>
 
-
-              
         </nav>
+
     </header>
 
     <div class="content">
@@ -56,30 +70,19 @@
 
     <footer class="footer d-flex justify-content-between align-items-center py-3 my-4">
 
-        <footer class="footer d-flex justify-content-between align-items-center py-3 my-4">
-
-            <div class="footer-wrapper">
-                <div class="footer-icons d-flex flex-column align-items-start">
-                    <a href="https://instagram.com" class="mb-2"><img class="logo-footer" src="~/images/logo-instagram.png" /><p class="footer-icon-text">Eventivo</p></a>
-                    <a href="https://twitter.com" class="mb-2"><img class="logo-footer" src="~/images/logo-twitter.png" /><p class="footer-icon-text">Eventivo</p></a>
-                    <a href="https://facebook.com" class="mb-2"><img class="logo-footer" src="~/images/logo-facebook.png" /><p class="footer-icon-text">Eventivo</p></a>
-                </div>
+        <div class="footer-wrapper">
+            <div class="footer-icons d-flex flex-column align-items-start">
+                <a href="https://instagram.com" class="mb-2"><img class="logo-footer" src="~/images/logo-instagram.png" /><p class="footer-icon-text">Eventivo</p></a>
+                <a href="https://twitter.com" class="mb-2"><img class="logo-footer" src="~/images/logo-twitter.png" /><p class="footer-icon-text">Eventivo</p></a>
+                <a href="https://facebook.com" class="mb-2"><img class="logo-footer" src="~/images/logo-facebook.png" /><p class="footer-icon-text">Eventivo</p></a>
             </div>
-
-            <div class="footer-nav">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item-footer"><a class="nav-link-footer" asp-action="About" asp-controller="Home">OM OSS</a></li>
-                    <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Contact" asp-controller="Home">KONTAKT</a></li>
-                    <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Privacy" asp-controller="Home">SEKRETESS</a></li>
-                </ul>
-            </div>
-        </footer>
+        </div>
 
         <div class="footer-nav">
             <ul class="nav justify-content-center">
-                <li class="nav-item-footer"><a href="#" class="nav-link-footer">OM OSS</a></li>
-                <li class="nav-item-footer"><a href="#" class="nav-link-footer">KONTAKT</a></li>
-                <li class="nav-item-footer"><a href="#" class="nav-link-footer">SEKRETESS</a></li>
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="About" asp-controller="Home">OM OSS</a></li>
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Contact" asp-controller="Home">KONTAKT</a></li>
+                <li class="nav-item-footer"><a class="nav-link-footer" asp-action="Privacy" asp-controller="Home">SEKRETESS</a></li>
             </ul>
         </div>
     </footer>
@@ -91,16 +94,15 @@
 
     <script>
         function changeFontAndText(element) {
-            // Reset all nav-link elements
             var navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (navLink) {
-                navLink.style.fontWeight = 'normal'; // Reset font weight
+                navLink.style.fontWeight = 'normal';
             });
 
-            // Set the clicked nav-link to bold font weight
             element.style.fontWeight = 'bold';
         }
     </script>
+
 
 </body>
 </html>
