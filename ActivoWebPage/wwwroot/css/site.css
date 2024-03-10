@@ -227,7 +227,7 @@ html {
 .dropdown-cities {
     margin-top: 30px !important;
     margin-left: -50% !important;
-    left: 60% !important;
+    left: 55% !important;
     min-width: fit-content;
 }
 
@@ -455,7 +455,7 @@ html {
     font-size: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    margin-top: 10px;
+    max-width: 400px;
 }
 
 .pop-event-title-text-bottom {
@@ -464,6 +464,9 @@ html {
     font-weight: 600;
     margin-top: 10px;
     text-align: end;
+    max-width: 400px;
+    margin-top: -5px;
+
 }
 
     .pop-event-summary-text {
@@ -582,7 +585,7 @@ a {
 .pop-event-image {
     max-width: 400px !important;
     border-radius: 20px;
-    height: auto;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -669,6 +672,18 @@ a {
     border-bottom: 55px solid black;
     width: 5px;
     margin-left: 35px;
+}
+
+.container-pop-event-title-description-lower {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.container-pop-event-summary-description-lower {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .container-pop-event-info-lower {
