@@ -657,8 +657,7 @@ a {
 .pop-event-image-lower {
     max-width: 400px !important;
     border-radius: 20px;
-    height: auto;
-    margin-right: -80px;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -689,6 +688,7 @@ a {
 .container-pop-event-info-lower {
     display: flex;
     flex-direction: column;
+    margin-right: -17px;
 }
 
 .container-pop-event-date-area-lower {
