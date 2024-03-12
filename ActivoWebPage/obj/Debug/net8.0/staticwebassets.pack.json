@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\advert-placeholder.png"
     },
     {
+      "Id": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\bg_eventivo.jpg",
+      "PackagePath": "staticwebassets\\images\\bg_eventivo.jpg"
+    },
+    {
       "Id": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\carousel-image-placeholder.png",
       "PackagePath": "staticwebassets\\images\\carousel-image-placeholder.png"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\icon-scroll-hero-header.png",
       "PackagePath": "staticwebassets\\images\\icon-scroll-hero-header.png"
+    },
+    {
+      "Id": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\icon_bookmark.png",
+      "PackagePath": "staticwebassets\\images\\icon_bookmark.png"
     },
     {
       "Id": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\logo-facebook.png",

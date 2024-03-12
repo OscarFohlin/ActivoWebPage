@@ -11,5 +11,8 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hv.Sos100.SingleSignOn" Version="1.3.0" />
+  </ItemGroup>
 
 </Project>

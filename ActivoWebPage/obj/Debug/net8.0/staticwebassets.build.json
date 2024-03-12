@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QYtoaU7/irg5xfpfW7krQKGpJAiKX6lRkDFu2bWU9Bg=",
+  "Hash": "QXUHF2yZRZn0C8RN0+u7yfDIdWsE2gbyLSIUs8XfFUo=",
   "Source": "ActivoWebPage",
   "BasePath": "_content/ActivoWebPage",
   "Mode": "Default",
@@ -112,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\images\\advert-placeholder.png"
     },
     {
+      "Identity": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\bg_eventivo.jpg",
+      "SourceId": "ActivoWebPage",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\",
+      "BasePath": "_content/ActivoWebPage",
+      "RelativePath": "images/bg_eventivo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg_eventivo.jpg"
+    },
+    {
       "Identity": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\carousel-image-placeholder.png",
       "SourceId": "ActivoWebPage",
       "SourceType": "Discovered",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\heroheader-image-vvik.png"
+    },
+    {
+      "Identity": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\icon_bookmark.png",
+      "SourceId": "ActivoWebPage",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\",
+      "BasePath": "_content/ActivoWebPage",
+      "RelativePath": "images/icon_bookmark.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_bookmark.png"
     },
     {
       "Identity": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\wwwroot\\images\\icon-scroll-hero-header.png",
