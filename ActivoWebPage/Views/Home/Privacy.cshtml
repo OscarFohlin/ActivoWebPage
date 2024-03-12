@@ -1,11 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-
 @{
     Layout = "~/Views/Shared/_layout_start.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+@{
+    var isAuthenticated = ViewData["IsAuthenticated"] as string;
+    var accountId = ViewData["AccountId"] as string;
+    var AccountType = ViewData["AccountType"] as string;
+}
 
-<p>Use this page to detail your site's privacy policy.</p>
+<html>
+<body>
+    @if (isAuthenticated != "true")
+    {
+        <h3>Du är inte inloggad...</h3>
+    }
+    else
+    {
+        <h3>Welcome, @accountId!</h3>
+    }
+</body>
+</html>
