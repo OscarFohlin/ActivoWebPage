@@ -1,3 +1,5 @@
+using Hv.Sos100.SingleSignOn;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
