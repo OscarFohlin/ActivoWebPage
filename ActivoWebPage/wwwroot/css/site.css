@@ -1,15 +1,11 @@
 /*  Generella css */
 
 html {
-  font-size: 14px;
-  position: relative;
-  min-height: 100%;
+    font-size: 20px;
+    position: relative;
+    min-height: 100%;
 }
-@media (max-width: 1600px) {
-    html {
-        font-size: 20px;
-    }
-}
+
 
 .content {
     flex: 1;
@@ -17,8 +13,6 @@ html {
 }
 
 .container-seperation {
-
-    background-color:red;
     width: 100%;
     height: 10px;
 }
@@ -159,20 +153,38 @@ html {
     /* navbar */
 
 /* adaptiv storlek av navbar först */
-@media (max-width: 1350px) {
+@media (max-width: 1396px) {
     .content-align-desktop {
         display: none !important;
     }
 }
 
-@media (min-width: 1351px) {
+@media (min-width: 1397px) {
     .content-align-mobile {
         display: none !important;
     }
 }
 
+#logged-in-menu, #logged-out-menu {
+    display: none;
+    width: 180px;
+}
+
+#loginStatus {
+    display: flex;
+    text-align: center;
+}
+
+#skeleton-profile-placeholder {
+    width: 180px;
+    display: block;
+    height: fit-content;
+
+}
+
+
 .header-trollhattan {
-    min-width: 955px;
+    min-width: 990px;
 }
 
 .container-categories {
@@ -181,6 +193,7 @@ html {
     max-width: 100%;
 }
 
+#loginStatus,
 .nav-start {
     display: flex;
 }
@@ -196,7 +209,6 @@ html {
 
     .bg-custom {
         background-color: #212121;
-
     }
 
     .search-icon {
@@ -213,41 +225,47 @@ html {
 
 .nav-link {
     color: #ffffff !important;
-    margin-left: 10px;
     font-size: 20px;
     font-family: 'Roboto Medium', sans-serif;
     transition: 0.75s;
 }
 
+.nav-link-sm {
+    width: 210px;
+}
+
+.nav-link-lg {
+    width: 265px;
+}
+
+.d-flex {
+    align-items: center;
+}
 
         .nav-link:hover {
             color: darkgoldenrod !important;
         }
 
 .dropdown-cities {
-    margin-top: 30px !important;
-    margin-left: -50% !important;
-    left: 55% !important;
-    min-width: fit-content;
-}
-
-.dropdown-categories {
-    margin-top: -2px !important;
-    margin-left: 110px !important;
-    min-width: fit-content;
+    margin-left: 3% !important; /* blir inte centrerad på rätt sätt så gör en liten separat margin */
 }
 
 .dropdown-cities,
-.dropdown-categories {
+.dropdown-categories,
+.dropdown-profile {
     background-color: #212121;
     position: absolute;
-    transform: translateX(-100%);
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     animation: dropdownAnimation 0.2s ease forwards;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     z-index: 1000;
     padding: 10px !important;
+    min-width: fit-content;
+    margin-top: 30px !important;
+    text-align: center;
 }
 
 .dropdown-city {
@@ -256,7 +274,11 @@ html {
     font-size: 20px;
 }
 
-.dropdown-menu .dropdown-item{
+.dropdown{
+    width: 175px;
+}
+
+.dropdown-menu .dropdown-item {
     color: white;
     transition: 0.75s;
     border-radius: 15px;
@@ -284,6 +306,7 @@ html {
 /*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
 .nav-item {
     display: flex;
+    position: relative;
 }
 
     .nav-item dropdown {
@@ -728,16 +751,17 @@ a {
 
     /* reklam css typ */
     .advert-text {
-        margin-left: 20.2%;
+        margin-left: 10.5%;
         font-size: 12px;
         text-decoration: underline;
-        margin-top: 50px;
+        margin-top: 20px;
         color: black;
     }
 
-    .advertisement-large img {
-        transition: filter 0.3s;
-    }
+.advertisement-large img {
+    transition: filter 0.3s;
+    border-radius: 11px;
+}
 
     .advertisement-large:hover img {
         filter: brightness(80%) grayscale(20%) contrast(120%);
@@ -745,13 +769,12 @@ a {
     }
 
     .advertisement-large {
-        border-radius: 10px;
-        overflow: hidden;
-        width: 60%;
-        max-height: 15%;
-        margin: 50px auto;
-        margin-top: -15px;
+        width: 80%;
+        height: auto;
+        margin-top: -25px;
+        margin: 0 auto;
         margin-bottom: 100px;
+        object-fit: cover;
     }
 
     /*Carousel css part*/

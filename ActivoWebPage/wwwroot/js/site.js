@@ -81,5 +81,37 @@ if (currentUrl.includes("Search")) {
 //blir knasigt i css när man försöker ändra en annan saks properties
     //fortsätter på det senare sätter bara upp startsidan först så att den finns
 
-const vvikImage = document.getElementById("startpage-image-vvik");
-const thnImage = document.getElementById("startpage-image-thn");
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    //const isUserLoggedIn = (getCookie('loggedIn') === 'true');
+
+    //hård kodat sålänge, blir som något ovan vid ett senare tillfälle
+    const isUserLoggedIn = true;
+
+    //íd:t av de element som ändras, beroende på inloggningstatus
+    const loggedInMenuElement = document.querySelector("#logged-in-menu");
+    const loggedOutMenuElement = document.querySelector("#logged-out-menu");
+    loggedInMenuElement.style.display = 'none';
+    loggedOutMenuElement.style.display = 'none';
+    setTimeout(function () {
+        const isUserLoggedIn = true;
+
+        //så basically tänker att den ska vänta med att sätta ut vad som ska stå
+        //tills scriptet avgört om användaren är inloggad eller inte, får se om det ändras
+
+        if (isUserLoggedIn && headerContentReady) {
+            loggedInMenuElement.style.display = 'block';
+        } else {
+            loggedOutMenuElement.style.display = 'block';
+        }
+    }, 100); //sätter en delay 
+    const headerContentReady = determineHeaderContent();
+});
+
+
+function determineHeaderContent() {
+    const placeholderElement = document.querySelector("#skeleton-profile-placeholder")
+    placeholderElement.style.display = 'none';
+    return true;
+}
