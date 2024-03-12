@@ -52,7 +52,7 @@
 
                     <div id="skeleton-profile-placeholder"></div>
 
-                    <a class="nav-link line-profile" id="logged-out-menu" asp-action="Search" asp-controller="Home">LOGGA IN</a>
+                    <a class="nav-link line-profile" id="logged-out-menu" asp-action="Login" asp-controller="Home">LOGGA IN</a>
                     @*länka till inloggningssidan istället*@
 
                     <div class="nav-item dropdown" id="logged-in-menu">
@@ -63,7 +63,7 @@
                             <h6 class="dropdown-header">PROFIL</h6>
                             <div class="dropdown-divider bg-light"></div>
                             <li class="dropdown-city"><a class="dropdown-item" href="https://informatik7.ei.hv.se/ProfilMVC">PROFIL</a></li>
-                            <li class="dropdown-city"><a class="dropdown-item" asp-action="Index" asp-controller="Home">LOGGA UT</a></li>
+                            <li class="dropdown-city"><a class="dropdown-item" asp-action="Logout" asp-controller="Home">LOGGA UT</a></li>
                             @*leder till något som tar bort kakan som innehåller inloggningsinformation*@
                         </ul>
                     </div>
