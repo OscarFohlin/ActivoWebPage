@@ -9,7 +9,7 @@ html {
 
 .content {
     flex: 1;
-    min-width: 955px; /*tills overflow av infoboxar har fixats (mobilanpassning) därefter omkring 500px min*/
+    min-width: 990px; /*tills overflow av infoboxar har fixats (mobilanpassning) därefter omkring 500px min*/
 }
 
 .container-seperation {
@@ -81,16 +81,10 @@ html {
         text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
     }
 
-#thn {
+#thn, #Vvik {
     height: 60vh;
     width: 100%;
     object-fit: cover;
-}
-
-#Vvik {
-    height: 60vh;
-    object-fit: cover;
-    width: 100%;
 }
 
     /* hero header */
@@ -153,13 +147,13 @@ html {
     /* navbar */
 
 /* adaptiv storlek av navbar först */
-@media (max-width: 1396px) {
+@media (max-width: 1330px) {
     .content-align-desktop {
         display: none !important;
     }
 }
 
-@media (min-width: 1397px) {
+@media (min-width: 1331px) {
     .content-align-mobile {
         display: none !important;
     }
@@ -167,7 +161,7 @@ html {
 
 #logged-in-menu, #logged-out-menu {
     display: none;
-    width: 180px;
+    width: 200px;
 }
 
 #loginStatus {
@@ -176,7 +170,7 @@ html {
 }
 
 #skeleton-profile-placeholder {
-    width: 180px;
+    width: 200px;
     display: block;
     height: fit-content;
 
@@ -232,10 +226,12 @@ html {
 
 .nav-link-sm {
     width: 210px;
+    margin-right: -20px;
 }
 
 .nav-link-lg {
     width: 265px;
+    margin-left: -20px;
 }
 
 .d-flex {
@@ -275,7 +271,6 @@ html {
 }
 
 .dropdown{
-    width: 175px;
 }
 
 .dropdown-menu .dropdown-item {
@@ -581,7 +576,7 @@ a {
     flex-direction: column;
     max-width: 100% !important;
     margin: 0px auto;
-    min-width: 955px;
+    min-width: 990px;
     justify-content: center;
     transition: 0.7s;
     cursor: pointer;
@@ -880,7 +875,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 955px;
+    min-width: 990px;
     height: 120px;
 }  
 
@@ -927,9 +922,8 @@ a {
     position: absolute;
     width: 100%;
     text-align: center;
-    min-width: 500px;
+    min-width: 990px;
     z-index: 1;
-    min-width: 955px;
 }
 
     .footer-nav .nav-link-footer {

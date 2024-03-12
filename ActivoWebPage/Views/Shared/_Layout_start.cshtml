@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
-    @*sida än så länge låst på typ 955px 
+    @*sida än så länge låst på typ 990px 
         i min-width på grund av overflow problem inom de andra sektionerna
         men när de mobilanpassats så kan vi basically ta bort min-width av
         window size
@@ -27,11 +27,10 @@
                 <img src="~/images/logo_eventivo.png" alt="Logo" id="index" width="70" height="70" class="d-inline-block align-text-top" />
               </a>
 
-
             <div class="nav-list">
 
                 <div class="vr text-light" style="width: 3px;"></div>
-                <a class="nav-link" asp-action="Search" asp-controller="Home">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg"/></a>
+                <a class="nav-link" href="https://informatik5.ei.hv.se/eventivo/Home/Search">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg" /></a>
                 <div class="vr text-light" style="width: 3px;"></div>
               <div id="loginStatus">
 
@@ -41,15 +40,15 @@
                     @*länka till inloggningssidan istället*@
 
                     <div class="nav-item dropdown" id="logged-in-menu">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         MINA SIDOR
                     </a>
                     <ul class="dropdown-menu dropdown-profile">
-                        <h6 class="dropdown-header">PROFIL</h6>
+                        <h6 class="dropdown-header">PROFILHANTERING</h6>
                         <div class="dropdown-divider bg-light"></div>
-                        <li class="dropdown-city"><a class="dropdown-item" a href="https://informatik7.ei.hv.se/ProfilMVC">PROFIL</a></li>
-                        <li class="dropdown-city"><a class="dropdown-item" asp-action="MyProfile" asp-controller="Home">LOGGA UT</a></li>
-                            @*ta bort kakan som innehåller inloggningsinformation*@
+                        <li class="dropdown-city"><a class="dropdown-item" href="https://informatik7.ei.hv.se/ProfilMVC">PROFIL</a></li>
+                            <li class="dropdown-city"><a class="dropdown-item" href="https://informatik5.ei.hv.se/eventivo">LOGGA UT</a></li>
+                            @*ta bort kakan som innehåller inloggningsinformationen*@
                     </ul>
                 </div>
 
@@ -58,14 +57,14 @@
                 <div class="vr text-light" style="width: 3px;"></div>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         VÄLJ STAD
                     </a>
                     <ul class="dropdown-menu dropdown-cities">
-                        <h6 class="dropdown-header">TILLGÄNGLIGA<br/>STÄDER</h6>
+                        <h6 class="dropdown-header">VALBARA<br/>STÄDER</h6>
                         <div class="dropdown-divider bg-light"></div>
-                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Trollhattan">Trollhättan</a></li>
-                        <li class="dropdown-city"><a class="dropdown-item" asp-action="Home" asp-controller="Vastervik">Västervik</a></li>
+                        <li class="dropdown-city"><a class="dropdown-item" href="https://informatik5.ei.hv.se/eventivo/Trollhattan/Home">Trollhättan</a></li>
+                        <li class="dropdown-city"><a class="dropdown-item" href="https://informatik5.ei.hv.se/eventivo/Vastervik/Home">Västervik</a></li>
                     </ul>
                 </div>
 
