@@ -49,7 +49,6 @@ namespace ActivoWebPage.Controllers
           
         }
 
-        [HttpPost]
         public IActionResult Logout()
         {
             // Create an instance of the authenticationservice, be careful not to mix it up with the native .NET AuthenticationService
