@@ -1,0 +1,25 @@
+@{
+    Layout = "~/Views/Shared/_layout_start.cshtml";
+}
+
+<div class="text-center loginbody">
+    <main class="form-signin">
+        <form method="post">
+            <img class="mb-4" id="loggainlogga" src="/images/logo_Eventivo.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Logga in</h1>
+
+            <div class="form-floating">
+                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="email">E-postaddress</label>
+            </div>
+            <div class="form-floating">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="password">Lösenord</label>
+            </div>
+
+
+            <button class="w-100 btn btn-lg btn-primary" asp-controller="Home" asp-action="Authenticate" type="submit">Logga in</button>
+
+        </form>
+    </main>
+</div>
