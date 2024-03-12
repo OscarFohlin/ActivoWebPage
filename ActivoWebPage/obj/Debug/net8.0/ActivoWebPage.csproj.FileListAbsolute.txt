@@ -61,3 +61,5 @@ C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\ne
 C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout_start.cshtml.rz.scp.css
 C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout_trollhattan.cshtml.rz.scp.css
 C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout_vastervik.cshtml.rz.scp.css
+C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\net8.0\ActivoWebPage.csproj.AssemblyReference.cache
+C:\Users\oscar\OneDrive\Dokument\GitHub\ActivoWebPage\ActivoWebPage\obj\Debug\net8.0\ActivoWebPage.MvcApplicationPartsAssemblyInfo.cs
