@@ -204,7 +204,6 @@ body {
 }
 
 #logged-in-menu, #logged-out-menu {
-    display: none;
     width: 200px;
 }
 
