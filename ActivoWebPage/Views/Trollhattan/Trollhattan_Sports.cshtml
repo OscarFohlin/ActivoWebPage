@@ -1,3 +1,5 @@
+@using System.Data
+@model DataTable
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,92 +17,47 @@
         <div class="gradient-block"></div>
     </h2>
 
-    <div class="page-container">
-        <div class="container-pop-event">
+ @foreach (DataRow row in Model.Rows)
+ {
+     <div class="container-pop-event">
 
-            <div class="container-pop-event-image">
-                <img class="pop-event-image" src="~/images/placeholder-general.jpg" />
-            </div>
+         <div class="container-pop-event-image">
+             <img class="pop-event-image" src="@row["ImageData"]" />
+         </div>
 
-            <div class="container-pop-event-content-seperation">
-                <div class="seperation-block"></div>
-            </div>
+         <div class="container-pop-event-content-seperation">
+             <div class="seperation-block"></div>
+         </div>
 
-            <div class="container-pop-event-info">
-                <div class="container-pop-event-title-description">
-                    <h2 class="pop-event-title-text">PLACEHOLDER PLACEHOLDER</h2>
-                </div>
+         <div class="container-pop-event-info">
+             <div class="container-pop-event-title-description">
+                 <h2 class="pop-event-title-text">@row["Name"]<h2>
+             </div>
 
-                <div class="container-pop-event-summary-description">
-                    <p class="pop-event-summary-text">
-                        placeholder text, place holdertext osv. placeholder text, place holdertext osv.placeholder text, place holdertext osv.
-                        placeholder text, place holdertext osv.placeholder text, place holdertext osv. placeholder text, place holdertext osv.
-                        placeholder text, place holdertext osv. placeholder text, place holdertext osv.placeholder text, place holdertext osv.
-                    </p>
-                </div>
+             <div class="container-pop-event-summary-description">
+                 <p class="pop-event-summary-text">
+                     @row["Description"]
+                 </p>
+             </div>
 
-                <div class="container-pop-event-date-area">
-                    <div class="container-pop-event-date-icon">
-                        <img src="~/images/date-icon.png" />
-                    </div>
-                    <div class="container-pop-event-date">
-                        <p class="pop-event-date-text">1 AUGUSTI</p>
-                    </div>
-                </div>
+             <div class="container-pop-event-date-area">
+                 <div class="container-pop-event-date-icon">
+                     <img src="~/images/date-icon.png" />
+                 </div>
+                 <div class="container-pop-event-date">
+                     <p class="pop-event-date-text">@row["StartDateTime"]</p>
+                 </div>
+             </div>
 
-                <div class="container-pop-event-infobox-link">
-                    <p class="pop-event-infobox-link-text"><a href="#">Läs mer</a></p>
-                    <img src="~/images/read-more-icon.png" />
-                </div>
+             <div class="container-pop-event-infobox-link">
+                 <p class="pop-event-infobox-link-text"><a href="#">Läs mer</a></p>
+                 <img src="~/images/read-more-icon.png" />
+             </div>
 
-            </div>
+         </div>
 
-        </div>
-
-    </div>
-
-    <div class="page-container">
-        <div class="container-pop-event-lower">
-
-            <div class="container-pop-event-info-lower">
-                <div class="container-pop-event-title-description-lower">
-                    <h2 class="pop-event-title-text-bottom">PLACEHOLDER PLACEHOLDER</h2>
-                </div>
-
-                <div class="container-pop-event-summary-description-lower">
-                    <p class="pop-event-summary-text-bottom">
-                        placeholder text, place holdertext osv. placeholder text, place holdertext osv.placeholder text, place holdertext osv.
-                        placeholder text, place holdertext osv. placeholder text, place holdertext osv. placeholder text, place holdertext osv.
-                        placeholder text, place holdertext osv. placeholder text, place holdertext osv.placeholder text, place holdertext osv.
-                    </p>
-                </div>
-
-                <div class="container-pop-event-date-area-lower">
-                    <div class="container-pop-event-date-icon-lower">
-                        <img src="~/images/date-icon.png" />
-                    </div>
-                    <div class="container-pop-event-date-lower">
-                        <p class="pop-event-date-text-bottom">1 AUGUSTI</p>
-                    </div>
-                </div>
-
-                <div class="container-pop-event-infobox-link-lower">
-                    <p class="pop-event-infobox-link-text-bottom"><a href="#">Läs mer</a></p>
-                    <img src="~/images/read-more-icon.png" />
-                </div>
-            </div>
-
-            <div class="container-pop-event-content-seperation-lower">
-                <div class="seperation-block-lower"></div>
-            </div>
-
-            <div class="container-pop-event-image-lower">
-                <img class="pop-event-image-lower" src="~/images/placeholder-general.jpg" />
-            </div>
-
-        </div>
-    </div>
-
+     </div>
+ }
 
 
 <div class="container-fluid align-content-center">
