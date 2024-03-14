@@ -2,7 +2,7 @@
 @model DataTable
 
 @{
-    Layout = "~/Views/Shared/_layout_start.cshtml";
+    Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
 <div class="smallercontent">
