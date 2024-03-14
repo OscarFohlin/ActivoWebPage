@@ -24,7 +24,9 @@ namespace ActivoWebPage.Models
 
         public DateTime? TimeStamp { get; set; }
 
-        public string[]? ImageData { get; set; }
+        public string? ImageLink { get; set; }
+
+        public string? ImageFileName { get; set; }
 
         public int[]? TagID { get; set; }
     }
