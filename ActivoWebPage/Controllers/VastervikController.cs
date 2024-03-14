@@ -59,6 +59,13 @@ namespace ActivoWebPage.Controllers
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
             return View("~/Views/Vastervik/Vastervik_Socializing.cshtml", eventDt);
         }
+
+        public async Task<IActionResult> Search()
+        {
+            DataTable eventDt = await _eventApiService.GetEventDataAsync();
+
+            return View(eventDt);
+        }
     }
 }
 
