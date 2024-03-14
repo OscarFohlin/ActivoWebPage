@@ -1,12 +1,16 @@
 using Hv.Sos100.SingleSignOn;
+using ActivoWebPage.Controllers;
+using static ActivoWebPage.Controllers.HomeController;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 //SSO
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddSession();
+builder.Services.AddTransient<HomeController.EventApiService>();
 
 var app = builder.Build();
 
