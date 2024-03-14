@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ActivoWebPage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b4e7887e76b555cb487fbe27eb3b8214183ec8e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b81f191a6e65deaae75e26912df4ee3cc3956c8b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ActivoWebPage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ActivoWebPage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
