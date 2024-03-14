@@ -1,0 +1,39 @@
+@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/Shared/_layout_start.cshtml";
+}
+
+<div class="smallercontent">
+    <h1>Sök event </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Namn</th>
+                <th scope="col">Beskrivning</th>
+                <th scope="col">Pris</th>
+                <th scope="col">Plats</th>
+                <th scope="col">Startar</th>
+                <th scope="col">Slutar</th>
+                <th scope="col">Länk</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Rows)
+             {
+                <tr>
+                    <td>@row["Name"]</td>
+                    <td>@row["Description"]</td>
+                    <td>@row["Price"]</td>
+                    <td>@row["PlacesID"]</td>
+                    <td>@row["StartDateTime"]</td>
+                    <td>@row["EndDateTime"]</td>
+                    <td>@row["URL"]</td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</div>
+
