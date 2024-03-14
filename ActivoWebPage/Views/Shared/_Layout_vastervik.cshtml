@@ -49,25 +49,29 @@
                 <div class="vr text-light" style="width: 3px;"></div>
 
                 <div id="loginStatus">
+                    @{
+                        var isAuthenticated = ViewData["IsAuthenticated"] as string;
 
-                    <div id="skeleton-profile-placeholder"></div>
+                        if (isAuthenticated == "true")
+                        {
+                            <div class="nav-item dropdown" id="logged-in-menu">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    MINA SIDOR
+                                </a>
+                                <ul class="dropdown-menu dropdown-profile">
+                                    <h6 class="dropdown-header">PROFILHANTERING</h6>
+                                    <div class="dropdown-divider bg-light"></div>
+                                    <li class="dropdown-city"><a class="dropdown-item" href="https://informatik7.ei.hv.se/ProfilMVC">PROFIL</a></li>
+                                    <li class="dropdown-city"><a class="dropdown-item" asp-controller="Home" asp-action="Logout">LOGGA UT</a></li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <a class="nav-link line-profile" id="logged-out-menu" asp-action="Login" asp-controller="Home">LOGGA IN</a>
 
-                    <a class="nav-link line-profile" id="logged-out-menu" asp-action="Login" asp-controller="Home">LOGGA IN</a>
-                    @*länka till inloggningssidan istället*@
-
-                    <div class="nav-item dropdown" id="logged-in-menu">
-                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            MINA SIDOR
-                        </a>
-                        <ul class="dropdown-menu dropdown-profile">
-                            <h6 class="dropdown-header">PROFIL</h6>
-                            <div class="dropdown-divider bg-light"></div>
-                            <li class="dropdown-city"><a class="dropdown-item" href="https://informatik7.ei.hv.se/ProfilMVC">PROFIL</a></li>
-                            <li class="dropdown-city"><a class="dropdown-item" asp-action="Logout" asp-controller="Home">LOGGA UT</a></li>
-                            @*leder till något som tar bort kakan som innehåller inloggningsinformation*@
-                        </ul>
-                    </div>
-
+                        }
+                    }
                 </div>
 
                 <div class="nav-item dropdown">
