@@ -4,7 +4,7 @@ namespace ActivoWebPage.Controllers
 {
     public class TrollhattanController : Controller
     {
-        string apiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
+        string eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
         
         //Flikar för Trollhättan
         public async Task<IActionResult> Home()
@@ -13,7 +13,7 @@ namespace ActivoWebPage.Controllers
                 DataTable eventDt = new DataTable();
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(apiUrl);
+                    client.BaseAddress = new Uri(eventApiUrl);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
