@@ -3,67 +3,66 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using static ActivoWebPage.Controllers.HomeController;
 
 namespace ActivoWebPage.Controllers
 {
     public class TrollhattanController : Controller
     {
-        string eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
+        private readonly EventApiService _eventApiService;
 
+        public TrollhattanController(EventApiService eventApiService)
+        {
+            _eventApiService = eventApiService;
+        }
         //Flikar för Trollhättan
         public async Task<IActionResult> Home()
         {
-            //Kalla på API och skickar till view genom en datatabel
-            DataTable eventDt = new DataTable();
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(eventApiUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage getData = await client.GetAsync("");
-
-                //Installera Newtonsoft.Json paketet
-                if (getData.IsSuccessStatusCode)
-                {
-                    string results = getData.Content.ReadAsStringAsync().Result;
-                    eventDt = JsonConvert.DeserializeObject<DataTable>(results);
-                }
-                else
-                {
-                    Console.WriteLine("Error calling the API");
-                }
-
-                ViewData.Model = eventDt;
-            }
-
+        
+        //Hämtar data från API och skickar de till view
+            DataTable eventDt = await _eventApiService.GetEventDataAsync();
+            
+            
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
-            return View("~/Views/Trollhattan/Home.cshtml");
+            return View("~/Views/Trollhattan/Home.cshtml", eventDt);
         }
 
         public async Task<IActionResult> CultureAsync()
         {
+            //Hämtar data från API och skickar de till view
+            DataTable eventDt = await _eventApiService.GetEventDataAsync();
+            
+        
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Culture.cshtml");
+            return View("~/Views/Trollhattan/Trollhattan_Culture.cshtml", eventDt);
         }
+
+        
         public async Task<IActionResult> SportsAsync()
         {
+        //Hämtar data från API och skickar de till view
+         DataTable eventDt = await _eventApiService.GetEventDataAsync();
+         
+         
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Sports.cshtml");
+            return View("~/Views/Trollhattan/Trollhattan_Sports.cshtml", eventDt);
         }
         public async Task<IActionResult> SocializingAsync()
         {
+            DataTable eventDt = await _eventApiService.GetEventDataAsync();
+        
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Socializing.cshtml");
+            return View("~/Views/Trollhattan/Trollhattan_Socializing.cshtml", eventDt);
         }
     }
 }
