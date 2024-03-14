@@ -14,10 +14,12 @@ namespace ActivoWebPage.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly EventApiService _eventApiService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, EventApiService eventApiService)
         {
             _logger = logger;
+            _eventApiService = eventApiService;
         }
 
    public class EventApiService
@@ -49,7 +51,6 @@ namespace ActivoWebPage.Controllers
        }
    }
 
-        //Uppdaterad för att hantera session
         public async Task<IActionResult> Index()
         {
             //Läs in om session finns och skicka till ViewData, allt gör SSO NuGet
@@ -59,6 +60,12 @@ namespace ActivoWebPage.Controllers
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
             return View();
+        }
+
+        public async Task<IActionResult> Search()
+        {
+            DataTable eventDt = await _eventApiService.GetEventDataAsync();
+            return View(eventDt);
         }
         
         //Logga in
@@ -93,11 +100,6 @@ namespace ActivoWebPage.Controllers
         }
 
         public IActionResult Contact()
-        {
-            return View();
-        }
-
-        public IActionResult Search()
         {
             return View();
         }
