@@ -4,6 +4,9 @@ using System.Diagnostics;
 using Hv.Sos100.SingleSignOn;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
+using Newtonsoft.Json;
+using System.Data;
+using System.Net.Http.Headers;
 
 
 namespace ActivoWebPage.Controllers
@@ -16,6 +19,35 @@ namespace ActivoWebPage.Controllers
         {
             _logger = logger;
         }
+
+   public class EventApiService
+   {
+       private readonly string eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
+
+       public async Task<DataTable> GetEventDataAsync()
+       {
+           DataTable eventDt = new DataTable();
+           using (var client = new HttpClient())
+           {
+               client.BaseAddress = new Uri(eventApiUrl);
+               client.DefaultRequestHeaders.Accept.Clear();
+               client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+               HttpResponseMessage getData = await client.GetAsync("");
+
+               if (getData.IsSuccessStatusCode)
+               {
+                   string results = await getData.Content.ReadAsStringAsync();
+                   eventDt = JsonConvert.DeserializeObject<DataTable>(results);
+               }
+               else
+               {
+                   Console.WriteLine("Error calling the API");
+               }
+           }
+           return eventDt;
+       }
+   }
 
         //Uppdaterad för att hantera session
         public async Task<IActionResult> Index()
