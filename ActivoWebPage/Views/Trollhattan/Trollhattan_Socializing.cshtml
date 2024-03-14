@@ -1,3 +1,5 @@
+@using System.Data
+@model DataTable
 
 @{
     ViewData["Title"] = "Home Page";
@@ -12,11 +14,12 @@
     <div class="gradient-block"></div>
 </h2>
 
-<div class="page-container">
+@foreach (DataRow row in Model.Rows)
+{
     <div class="container-pop-event">
 
         <div class="container-pop-event-image">
-            <img class="pop-event-image" src="~/images/placeholder-socializing.png" />
+            <img class="pop-event-image" src="@row["ImageData"]" />
         </div>
 
         <div class="container-pop-event-content-seperation">
@@ -25,14 +28,12 @@
 
         <div class="container-pop-event-info">
             <div class="container-pop-event-title-description">
-                <h2 class="pop-event-title-text">KROGKULTUR  GULDKANT</h2>
+                <h2 class="pop-event-title-text">@row["Name"]<h2>
             </div>
 
             <div class="container-pop-event-summary-description">
                 <p class="pop-event-summary-text">
-                    Nu är det äntligen dags igen! Då är Krogkultur tillbaka för att för sjätte gången lysa upp vintermörkret
-                    med musik och kultur runt om på stadens krogar. Programmet innehåller allt från singer/songwriter, folk,
-                    pop, blues, jazz, klassisk gitarr, piano till rock, vispop och indiepop.
+                    @row["Description"]
                 </p>
             </div>
 
@@ -41,7 +42,7 @@
                     <img src="~/images/date-icon.png" />
                 </div>
                 <div class="container-pop-event-date">
-                    <p class="pop-event-date-text">2 JUNI</p>
+                    <p class="pop-event-date-text">@row["StartDateTime"]</p>
                 </div>
             </div>
 
@@ -53,48 +54,7 @@
         </div>
 
     </div>
-
-</div>
-
-<div class="page-container">
-    <div class="container-pop-event-lower">
-
-        <div class="container-pop-event-info-lower">
-            <div class="container-pop-event-title-description-lower">
-                <h2 class="pop-event-title-text-bottom">MUSIK & KARAOKE THAI ROET</h2>
-            </div>
-
-            <div class="container-pop-event-summary-description-lower">
-                <p class="pop-event-summary-text-bottom">
-                    Det dags för karaoke och musik hos oss på Thai Roi-et igen! Mattias & Marcus sköter musik & karaoke.
-                </p>
-            </div>
-
-            <div class="container-pop-event-date-area-lower">
-                <div class="container-pop-event-date-icon-lower">
-                    <img src="~/images/date-icon.png" />
-                </div>
-                <div class="container-pop-event-date-lower">
-                    <p class="pop-event-date-text-bottom">7 MAJ</p>
-                </div>
-            </div>
-
-            <div class="container-pop-event-infobox-link-lower">
-                <p class="pop-event-infobox-link-text-bottom"><a href="#">Läs mer</a></p>
-                <img src="~/images/read-more-icon.png" />
-            </div>
-        </div>
-
-        <div class="container-pop-event-content-seperation-lower">
-            <div class="seperation-block-lower"></div>
-        </div>
-
-        <div class="container-pop-event-image-lower">
-            <img class="pop-event-image-lower" src="~/images/placeholder-socializing-2.png" />
-        </div>
-
-    </div>
-</div>
+}
 
 <div class="container-fluid align-content-center">
     <div class="row justify-content-center align-items-center">
