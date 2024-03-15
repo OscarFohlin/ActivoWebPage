@@ -65,43 +65,47 @@ namespace ActivoWebPage.Controllers
                 }
             }
 
-           /* public async Task<EventDetailsViewModel> GetEventDetailsAsync(int eventId)
+           
+            public async Task<Places> GetPlaceByIdAsync(int? placeId)
             {
-                var eventDetails = await GetEventByIdAsync(eventId);
-                if (eventDetails == null)
+                // Kontrollera först att placeId inte är null.
+                if (!placeId.HasValue)
                 {
-                    throw new Exception("Event not found");
+                    _logger.LogError("PlaceID is null");
+                    return null;
                 }
 
-                var placeDetails = await GetPlaceByIdAsync(eventDetails.PlacesID);
-                if (placeDetails == null)
-                {
-                    throw new Exception("Place not found");
-                }
-
-                return new EventDetailsViewModel
-                {
-                    Event = eventDetails,
-                    Place = placeDetails
-                };
-            }*/
-
-            /*public async Task<Places> GetPlaceByIdAsync(int placesId)
-            {
+                // Skapa en HttpClient-instans.
                 var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync($"{_placeApiUrl}/{placesId}");
 
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Places>(jsonString);
+                    // Utför en GET-förfrågan till API:et med det angivna PlaceID.
+                    var response = await client.GetAsync($"{_placeApiUrl}/{placeId.Value}");
+
+                    // Kontrollera om förfrågan var framgångsrik.
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Läs svaret som en sträng.
+                        var jsonString = await response.Content.ReadAsStringAsync();
+
+                        // Deserialisera JSON-strängen till ett Places-objekt.
+                        return JsonConvert.DeserializeObject<Places>(jsonString);
+                    }
+                    else
+                    {
+                        _logger.LogError($"Failed to fetch place data for PlaceID {placeId}. Status code: {response.StatusCode}");
+                        return null;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    _logger.LogError($"Failed to fetch place data for PlaceID {placesId}. Status code: {response.StatusCode}");
-                    return null; // Return null instead of throwing an exception
+                    // Logga eventuella undantag som uppstår under anropet.
+                    _logger.LogError($"Exception occurred when fetching place data for PlaceID {placeId}: {ex.Message}");
+                    return null;
                 }
-            }*/
+            }
+
 
 
             public async Task<DataTable> GetEventDataAsync()
