@@ -84,22 +84,45 @@ namespace ActivoWebPage.Controllers
                 };
             }*/
 
-            /*public async Task<Places> GetPlaceByIdAsync(int placesId)
-            {
-                var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync($"{_placeApiUrl}/{placesId}");
+            public async Task<Places> GetPlaceByIdAsync(int? placeId)
+ {
+     // Kontrollera först att placeId inte är null.
+     if (!placeId.HasValue)
+     {
+         _logger.LogError("PlaceID is null");
+         return null;
+     }
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Places>(jsonString);
-                }
-                else
-                {
-                    _logger.LogError($"Failed to fetch place data for PlaceID {placesId}. Status code: {response.StatusCode}");
-                    return null; // Return null instead of throwing an exception
-                }
-            }*/
+     // Skapa en HttpClient-instans.
+     var client = _httpClientFactory.CreateClient();
+
+     try
+     {
+         // Utför en GET-förfrågan till API:et med det angivna PlaceID.
+         var response = await client.GetAsync($"{_placeApiUrl}/{placeId.Value}");
+
+         // Kontrollera om förfrågan var framgångsrik.
+         if (response.IsSuccessStatusCode)
+         {
+             // Läs svaret som en sträng.
+             var jsonString = await response.Content.ReadAsStringAsync();
+
+             // Deserialisera JSON-strängen till ett Places-objekt.
+             return JsonConvert.DeserializeObject<Places>(jsonString);
+         }
+         else
+         {
+             _logger.LogError($"Failed to fetch place data for PlaceID {placeId}. Status code: {response.StatusCode}");
+             return null;
+         }
+     }
+     catch (Exception ex)
+     {
+         // Logga eventuella undantag som uppstår under anropet.
+         _logger.LogError($"Exception occurred when fetching place data for PlaceID {placeId}: {ex.Message}");
+         return null;
+     }
+ }
 
 
             public async Task<DataTable> GetEventDataAsync()
