@@ -1,16 +1,16 @@
 using ActivoWebPage.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using Hv.Sos100.SingleSignOn;
-using Microsoft.AspNetCore.Http;
-using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
+using System.Diagnostics;
 using System.Net.Http.Headers;
 
 
 namespace ActivoWebPage.Controllers
 {
+
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -22,34 +22,105 @@ namespace ActivoWebPage.Controllers
             _eventApiService = eventApiService;
         }
 
-   public class EventApiService
-   {
-       private readonly string eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
+        public class EventApiService
+        {
+            private readonly IHttpClientFactory _httpClientFactory;
+            private readonly string _eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
+            private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
+            private readonly ILogger<EventApiService> _logger;
 
-       public async Task<DataTable> GetEventDataAsync()
-       {
-           DataTable eventDt = new DataTable();
-           using (var client = new HttpClient())
-           {
-               client.BaseAddress = new Uri(eventApiUrl);
-               client.DefaultRequestHeaders.Accept.Clear();
-               client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-               HttpResponseMessage getData = await client.GetAsync("");
+            public EventApiService(IHttpClientFactory httpClientFactory, ILogger<EventApiService> logger)
+            {
+                _httpClientFactory = httpClientFactory;
+                _logger = logger;
+            }
+            public async Task<Event> GetEventByIdAsync(int eventId)
+            {
+                var client = _httpClientFactory.CreateClient();
+                var response = await client.GetAsync($"{_eventApiUrl}/{eventId}");
 
-               if (getData.IsSuccessStatusCode)
-               {
-                   string results = await getData.Content.ReadAsStringAsync();
-                   eventDt = JsonConvert.DeserializeObject<DataTable>(results);
-               }
-               else
-               {
-                   Console.WriteLine("Error calling the API");
-               }
-           }
-           return eventDt;
-       }
-   }
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Event>(jsonString);
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    // Handle not found
+                    return null;
+                }
+                else
+                {
+                    // Log unexpected error
+                    _logger.LogError($"Failed to fetch event data. Status code: {response.StatusCode}");
+                    return null;
+                }
+            }
+
+           /* public async Task<EventDetailsViewModel> GetEventDetailsAsync(int eventId)
+            {
+                var eventDetails = await GetEventByIdAsync(eventId);
+                if (eventDetails == null)
+                {
+                    throw new Exception("Event not found");
+                }
+
+                var placeDetails = await GetPlaceByIdAsync(eventDetails.PlacesID);
+                if (placeDetails == null)
+                {
+                    throw new Exception("Place not found");
+                }
+
+                return new EventDetailsViewModel
+                {
+                    Event = eventDetails,
+                    Place = placeDetails
+                };
+            }*/
+
+            /*public async Task<Places> GetPlaceByIdAsync(int placesId)
+            {
+                var client = _httpClientFactory.CreateClient();
+                var response = await client.GetAsync($"{_placeApiUrl}/{placesId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Places>(jsonString);
+                }
+                else
+                {
+                    _logger.LogError($"Failed to fetch place data for PlaceID {placesId}. Status code: {response.StatusCode}");
+                    return null; // Return null instead of throwing an exception
+                }
+            }*/
+
+
+            public async Task<DataTable> GetEventDataAsync()
+            {
+                DataTable eventDt = new DataTable();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(_eventApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage getData = await client.GetAsync("");
+
+                    if (getData.IsSuccessStatusCode)
+                    {
+                        string results = await getData.Content.ReadAsStringAsync();
+                        eventDt = JsonConvert.DeserializeObject<DataTable>(results);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error calling the API");
+                    }
+                }
+                return eventDt;
+            }
+        }
 
         public async Task<IActionResult> Index()
         {
@@ -64,16 +135,12 @@ namespace ActivoWebPage.Controllers
 
         public async Task<IActionResult> Search()
         {
-            var authenticationService = new AuthenticationService();
-            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
-            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
             return View(eventDt);
         }
-        
+
         //Logga in
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
             return View();
         }
@@ -82,21 +149,7 @@ namespace ActivoWebPage.Controllers
         {
             var authenticationService = new AuthenticationService();
             var authenticatedSession = await authenticationService.CreateSession(email, password, controllerBase: this, HttpContext);
-            var userRole = HttpContext.Session.GetString("UserRole");
-
-            //Dirigera bara citizens till Activo, de andra till admin (profilsidan för tillfället)
-            if (userRole == "Admin" )
-            {
-                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
-            }
-            if (userRole == "Organizer")
-            {
-                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
-            }
-            else
-            {
-                return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Privacy", "Home");
-            }
+            return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Privacy", "Home");
         }
 
 
@@ -107,30 +160,18 @@ namespace ActivoWebPage.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> Privacy()
+        public IActionResult Privacy()
         {
-            var authenticationService = new AuthenticationService();
-            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
-            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-
             return View();
         }
 
-        public async Task<IActionResult> About()
+        public IActionResult About()
         {
-            var authenticationService = new AuthenticationService();
-            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
-            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-
             return View();
         }
 
-        public async Task<IActionResult> Contact()
+        public IActionResult Contact()
         {
-            var authenticationService = new AuthenticationService();
-            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
-            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-
             return View();
         }
 
@@ -138,6 +179,12 @@ namespace ActivoWebPage.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> FetchEvents()
+        {
+            var events = await _eventApiService.GetEventDataAsync();
+            return View("Home", "Trollhattan");
         }
     }
 }
