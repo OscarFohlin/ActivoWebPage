@@ -364,6 +364,8 @@ body {
     }
 
 
+    /*Start page css*/
+
 
 .start-container {
     display: flex;
@@ -471,16 +473,17 @@ body {
     z-index: 1;
 }
 
-.startpage-login-box {
+.startpage-login-box{
     background-color: #212121;
     border-radius: 50px;
+    width: 200px;
     padding: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 2);
     z-index: 1;
     transition: 0.5s ease;
 }
 
-.startpage-login-text {
+.startpage-login-text, .startpage-create-text {
     margin: 0;
     text-align: center;
     color: white;
@@ -491,6 +494,25 @@ body {
     transition: 0.5s ease;
 }
 
+.startpage-create-container{
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.startpage-create-box {
+    background-color: #212121;
+    border-radius: 50px;
+    width: 200px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+
 .startpage-login-box:hover {
     transform: scale(1.1);
 }
@@ -499,6 +521,13 @@ body {
         color: darkgoldenrod !important;
     }
 
+.startpage-create-box:hover {
+    transform: scale(1.1);
+}
+
+    .startpage-create-box:hover .startpage-create-text {
+        color: darkgoldenrod !important;
+    }
 
     #startpage-image-vvik:hover .resolution-scale-image-startpage {
         filter: brightness(90%) contrast(110%);
