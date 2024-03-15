@@ -10,8 +10,8 @@
 }
 
 <div class="hero-image">
-    <img src="~/images/heroheader-image-vvik.png" id="Vvik"/>
-    
+    <img src="~/images/heroheader-image-vvik.png" id="Vvik" />
+
     <div class="hero-text">
         <h1>VÄSTERVIK</h1>
     </div>
@@ -29,8 +29,7 @@
     <div class="gradient-block"></div>
 </h2>
 
-
-@foreach (DataRow row in Model.Rows)
+@foreach (DataRow row in Model.EventDt.Rows)
 {
     <div class="container-pop-event">
 
@@ -64,8 +63,8 @@
 
             <div class="container-pop-event-infobox-link">
                 <p class="pop-event-infobox-link-text">
-<a asp-action="EventDetails" asp-controller="Vastervik" asp-route-eventId="@row["EventID"]">Läs mer</a>
-</p>
+                    <a asp-action="EventDetails" asp-controller="Vastervik" asp-route-eventId="@row["EventID"]">Läs mer</a>
+                </p>
                 <img src="~/images/read-more-icon.png" />
             </div>
 
@@ -91,71 +90,71 @@
     </div>
 </div>
 
-    <h2>
-        <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
-        <div class="gradient-block"></div>
-    </h2>
+<h2>
+    <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
+    <div class="gradient-block"></div>
+</h2>
 
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
 
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row">
 
-                        <!-- nytt carousel förslag // placeholder-->
-                        @for (int i = 0; i < 4; i++)
-                        {
-                             DataRow row = Model.ActivitiesDt.Rows[i];
-                            <div class="col-md-4">
+                    <!-- nytt carousel förslag // placeholder-->
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        DataRow row = Model.ActivitiesDt.Rows[i];
+                        <div class="col-md-4">
 
-                                <div class="box">
+                            <div class="box">
 
-                                    <img class="img-fluid" src=@row["imageLink"]>
-                                    <h2 class="carousel-title">
-                                        @row["name"]
-                                    </h2>
-                                    <p class="carousel-text">@row["description"]</p>
-                                    <a href="http://google.com">
-                                        <div id="container-pop-event-infobox-link">
-                                            <p class="carousel-link-text">Läs mer</p>
-                                        </div>
-                                    </a>
-                                    <div id="container-pop-event-date-area">
-                                        <div id="container-pop-event-date-icon">
-                                            <img src="~/images/date-icon.png" />
-                                        </div>
-                                        <div id="container-pop-event-date">
-                                            <p class="pop-event-date-text">8-9 JUN</p>
-                                        </div>
+                                <img class="img-fluid" src=@row["imageLink"]>
+                                <h2 class="carousel-title">
+                                    @row["name"]
+                                </h2>
+                                <p class="carousel-text">@row["description"]</p>
+                                <a href="http://google.com">
+                                    <div id="container-pop-event-infobox-link">
+                                        <p class="carousel-link-text">Läs mer</p>
+                                    </div>
+                                </a>
+                                <div id="container-pop-event-date-area">
+                                    <div id="container-pop-event-date-icon">
+                                        <img src="~/images/date-icon.png" />
+                                    </div>
+                                    <div id="container-pop-event-date">
+                                        <p class="pop-event-date-text">8-9 JUN</p>
                                     </div>
                                 </div>
-                               
                             </div>
-                            }
+
                         </div>
+                    }
                 </div>
             </div>
-
-
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-
-
-
         </div>
 
-    </div> 
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+
+
+    </div>
+
+</div>
