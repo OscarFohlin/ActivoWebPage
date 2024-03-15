@@ -10,12 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //SSO
-builder.Services.AddHttpClient(); // L‰gg till HTTPClientFactory som en tj‰nst
+builder.Services.AddHttpClient(); // L√§gg till HTTPClientFactory som en tj√§nst
 
 builder.Services.AddScoped<EventApiService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddSession();
 builder.Services.AddTransient<HomeController.EventApiService>();
+builder.Services.AddTransient<HomeController.ActivitiesApiService>();
 
 
 var app = builder.Build();
