@@ -73,7 +73,7 @@ namespace ActivoWebPage.Controllers
         }
         
         //Logga in
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             return View();
         }
@@ -107,7 +107,7 @@ namespace ActivoWebPage.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
@@ -116,7 +116,7 @@ namespace ActivoWebPage.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
@@ -125,7 +125,7 @@ namespace ActivoWebPage.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
