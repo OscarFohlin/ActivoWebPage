@@ -9,13 +9,17 @@ namespace ActivoWebPage.Controllers
 {
     public class TrollhattanController : Controller
     {
+          public class TrollhattanController : Controller
+    {
         private readonly EventApiService _eventApiService;
         private readonly ActivitiesApiService _activitiesApiService;
+        private readonly PlacesApiService _placesApiService;
 
-        public TrollhattanController(ActivitiesApiService activitiesApiService, EventApiService eventApiService)
+        public TrollhattanController(ActivitiesApiService activitiesApiService, EventApiService eventApiService, PlacesApiService placesApiService)
         {
             _eventApiService = eventApiService;
             _activitiesApiService = activitiesApiService;
+            _placesApiService = placesApiService;
         }
 
         //Flikar för Trollhättan
