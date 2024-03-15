@@ -136,7 +136,7 @@ namespace ActivoWebPage.Controllers
             return View(viewModel);
 
         }
-        public IActionResult ActivityDetails()
+        public async Task<IActionResult> ActivityDetailsAsync()
         {
             DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
 
