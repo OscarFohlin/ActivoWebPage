@@ -10,65 +10,110 @@ namespace ActivoWebPage.Controllers
     public class TrollhattanController : Controller
     {
         private readonly EventApiService _eventApiService;
+        private readonly ActivitiesApiService _activitiesApiService;
 
-        public TrollhattanController(EventApiService eventApiService)
+        public TrollhattanController(ActivitiesApiService activitiesApiService, EventApiService eventApiService)
         {
             _eventApiService = eventApiService;
+            _activitiesApiService = activitiesApiService;
         }
 
         //Flikar för Trollhättan
         public async Task<IActionResult> Home()
         {
             //Hämtar data från API och skickar de till view
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
 
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
 
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
-            return View("~/Views/Trollhattan/Home.cshtml", eventDt);
+            return View(viewModel);
         }
 
         public async Task<IActionResult> CultureAsync()
         {
-            //Hämtar data från API och skickar de till view
+             //Hämtar data från API och skickar de till view
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
+
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
 
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Culture.cshtml", eventDt);
+
+            return View(viewModel);
         }
 
 
         public async Task<IActionResult> SportsAsync()
         {
-            //Hämtar data från API och skickar de till view
+             //Hämtar data från API och skickar de till view
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
 
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
 
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Sports.cshtml", eventDt);
+
+            return View(viewModel);
         }
+        
         public async Task<IActionResult> SocializingAsync()
         {
+            //Hämtar data från API och skickar de till view
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
+
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
 
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-            return View("~/Views/Trollhattan/Trollhattan_Socializing.cshtml", eventDt);
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Search()
         {
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
 
-            return View(eventDt);
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
+
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
+            return View(viewModel);
         }
+        
         public async Task<IActionResult> EventDetails(int eventId)
         {
             var eventModel = await _eventApiService.GetEventByIdAsync(eventId);
@@ -93,7 +138,14 @@ namespace ActivoWebPage.Controllers
         }
         public IActionResult ActivityDetails()
         {
-            return View("~/Views/Trollhattan/ActivityDetails.cshtml");
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
+
+
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
+            return View(activitiesDt);
         }
     }
 }
