@@ -1,7 +1,7 @@
 using System;
 namespace ActivoWebPage.Models
 {
-    public class Activities
+    public class Activity
     {
         public int activityID { get; set; }
 
