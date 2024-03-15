@@ -143,16 +143,20 @@ body {
     padding: 10px;
 }
 
-
+.login-button-text{
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 5px;
+}
 /* startsida css */
-    /* hero */
-    .hero-text h1 {
-        margin-top: 80px;
-        font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
+/* hero */
+.hero-text h1 {
+    margin-top: 80px;
+    font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
         kommer nog ändra i framtiden till någopt som anpassar sig bättre*/
-        font-weight: 700;
-        text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-    }
+    font-weight: 700;
+    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
+}
 
 #thn, #Vvik {
     height: 60vh;
@@ -598,7 +602,7 @@ body {
         font-size: 14px;
         font-family: 'Istok Web', sans-serif;
         font-weight: 500;
-        max-height: 200px;
+        max-height: 120px;
         width: 340px;
         overflow: auto;
     }
@@ -607,7 +611,7 @@ body {
     font-size: 14px;
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
-    max-height: 200px;
+    max-height: 120px;
     width: 340px;
     overflow: auto;
     text-align: end;
@@ -618,7 +622,7 @@ body {
         font-family: 'Istok Web', sans-serif;
         font-weight: 500;
         font-style: italic;
-        margin-top: 25px;
+        margin-top: 28px;
         text-decoration: underline;
         text-color: black;
         text-decoration-thickness: 1px;
@@ -629,7 +633,7 @@ body {
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
     font-style: italic;
-    margin-top: 25px;
+    margin-top: 28px;
     text-decoration: underline;
     text-color: black;
     text-decoration-thickness: 1px;
@@ -734,7 +738,7 @@ a {
     .container-pop-event-date-area {
         display: flex;
         align-items: center;
-        margin-top: -20px;
+        margin-top: -25px;
         margin-bottom: 10px;
     }
 
