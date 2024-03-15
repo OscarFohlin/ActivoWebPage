@@ -33,9 +33,15 @@
                     <h2 class="pop-event-title-text">@row["Name"]<h2>
                 </div>
 
+                <!-- Slicing på description, tredje punkten -->
                 <div class="container-pop-event-summary-description">
+                    @{
+                        string description = row["Description"].ToString();
+                        string[] sentences = description.Split(new[] { '.' }, 3);
+                        string shortDescription = string.Join(".", sentences.Take(2));
+                    }
                     <p class="pop-event-summary-text">
-                        @row["Description"]
+                        @shortDescription
                     </p>
                 </div>
 
