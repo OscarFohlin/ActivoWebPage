@@ -17,12 +17,14 @@ namespace ActivoWebPage.Controllers
        
         private readonly ActivitiesApiService _activitiesApiService;
         private readonly EventApiService _eventApiService;
+        private readonly PlacesApiService _placesApiService;
 
-        public HomeController(ILogger<HomeController> logger, ActivitiesApiService activitiesApiService, EventApiService eventApiService)
+        public HomeController(ILogger<HomeController> logger, ActivitiesApiService activitiesApiService, EventApiService eventApiService, PlacesApiService placesApiService)
         {
             _logger = logger;
             _activitiesApiService = activitiesApiService;
             _eventApiService = eventApiService;
+            _placesApiService = placesApiService;
 
         }
 
@@ -161,6 +163,34 @@ namespace ActivoWebPage.Controllers
             }
         }
 
+public class PlacesApiService
+        {
+            private readonly string placesApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
+
+            public async Task<DataTable> GetPlacesDataAsync()
+            {
+                DataTable placesDt = new DataTable();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(placesApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage getData = await client.GetAsync("");
+
+                    if (getData.IsSuccessStatusCode)
+                    {
+                        string results = await getData.Content.ReadAsStringAsync();
+                        placesDt = JsonConvert.DeserializeObject<DataTable>(results);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error calling the API");
+                    }
+                }
+                return placesDt;
+            }
+        }
 
 // Views
         public async Task<IActionResult> Index()
@@ -256,7 +286,7 @@ namespace ActivoWebPage.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         
