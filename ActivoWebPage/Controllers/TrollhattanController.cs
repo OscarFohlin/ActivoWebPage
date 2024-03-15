@@ -9,8 +9,6 @@ namespace ActivoWebPage.Controllers
 {
     public class TrollhattanController : Controller
     {
-          public class TrollhattanController : Controller
-    {
         private readonly EventApiService _eventApiService;
         private readonly ActivitiesApiService _activitiesApiService;
         private readonly PlacesApiService _placesApiService;
