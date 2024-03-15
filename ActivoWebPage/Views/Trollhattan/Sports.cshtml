@@ -17,66 +17,67 @@
         <div class="gradient-block"></div>
     </h2>
 
- @foreach (DataRow row in Model.Rows)
- {
-     <div class="container-pop-event">
+    @foreach (DataRow row in Model.EventDt.Rows)
+    {
+        <div class="container-pop-event">
 
-         <div class="container-pop-event-image">
-             <img class="pop-event-image" src="@row["ImageLink"]" />
-         </div>
-
-         <div class="container-pop-event-content-seperation">
-             <div class="seperation-block"></div>
-         </div>
-
-         <div class="container-pop-event-info">
-             <div class="container-pop-event-title-description">
-                 <h2 class="pop-event-title-text">@row["Name"]<h2>
-             </div>
-
-             <div class="container-pop-event-summary-description">
-                 <p class="pop-event-summary-text">
-                     @row["Description"]
-                 </p>
-             </div>
-
-             <div class="container-pop-event-date-area">
-                 <div class="container-pop-event-date-icon">
-                     <img src="~/images/date-icon.png" />
-                 </div>
-                 <div class="container-pop-event-date">
-                     <p class="pop-event-date-text">@row["StartDateTime"]</p>
-                 </div>
-             </div>
-
-             <div class="container-pop-event-infobox-link">
-                 <p class="pop-event-infobox-link-text">                        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@row["EventID"]">Läs mer</a>
-</p>
-                 <img src="~/images/read-more-icon.png" />
-             </div>
-
-         </div>
-
-     </div>
- }
-
-
-<div class="container-fluid align-content-center">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-9" style="height: 100%;">
-
-            <div class="advert-text">
-                <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
+            <div class="container-pop-event-image">
+                <img class="pop-event-image" src="@row["ImageLink"]" />
             </div>
 
-            <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
-                <a href="https://kia.com">
-                    <img src="~/images/advert-placeholder.png" alt="An advert of a car of the car brand KIA, standing in a frozen wonderland" class="img-fluid">
-                </a>
+            <div class="container-pop-event-content-seperation">
+                <div class="seperation-block"></div>
+            </div>
+
+            <div class="container-pop-event-info">
+                <div class="container-pop-event-title-description">
+                    <h2 class="pop-event-title-text">@row["Name"]<h2>
+                </div>
+
+                <div class="container-pop-event-summary-description">
+                    <p class="pop-event-summary-text">
+                        @row["Description"]
+                    </p>
+                </div>
+
+                <div class="container-pop-event-date-area">
+                    <div class="container-pop-event-date-icon">
+                        <img src="~/images/date-icon.png" />
+                    </div>
+                    <div class="container-pop-event-date">
+                        <p class="pop-event-date-text">@row["StartDateTime"]</p>
+                    </div>
+                </div>
+
+                <div class="container-pop-event-infobox-link">
+                    <p class="pop-event-infobox-link-text">
+                        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@row["EventID"]">Läs mer</a>
+                    </p>
+                    <img src="~/images/read-more-icon.png" />
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+
+    <div class="container-fluid align-content-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-9" style="height: 100%;">
+
+                <div class="advert-text">
+                    <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
+                </div>
+
+                <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
+                    <a href="https://kia.com">
+                        <img src="~/images/advert-placeholder.png" alt="An advert of a car of the car brand KIA, standing in a frozen wonderland" class="img-fluid">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <h2>
         <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
@@ -98,7 +99,7 @@
                         <!-- nytt carousel förslag // placeholder-->
                         @for (int i = 0; i < 4; i++)
                         {
-                             DataRow row = Model.ActivitiesDt.Rows[i];
+                            DataRow row = Model.ActivitiesDt.Rows[i];
                             <div class="col-md-4">
 
                                 <div class="box">
@@ -122,10 +123,10 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
-                            }
-                        </div>
+                        }
+                    </div>
                 </div>
             </div>
 
@@ -145,4 +146,4 @@
 
         </div>
 
-    </div> 
+    </div>
