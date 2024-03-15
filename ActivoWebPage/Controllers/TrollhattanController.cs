@@ -28,11 +28,13 @@ namespace ActivoWebPage.Controllers
             //Hämtar data från API och skickar de till view
             DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
+            DataTable placesDt = await _placesApiService.GetPlacesDataAsync();
 
             var viewModel = new CollectionViewModel
             {
                 ActivitiesDt = activitiesDt,
-                EventDt = eventDt
+                EventDt = eventDt,
+                PlacesDt = placesDt
             };
 
             var authenticationService = new AuthenticationService();
