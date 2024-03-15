@@ -1,5 +1,5 @@
 @using System.Data
-@model DataTable
+@model CollectionViewModel
 
 @{
     Layout = "~/Views/Shared/_layout_Vastervik.cshtml";
@@ -21,8 +21,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (DataRow row in Model.Rows)
-             {
+            @foreach (DataRow row in Model.EventDt.Rows)
+            {
                 <tr>
                     <td>@row["Name"]</td>
                     <td>@row["Description"]</td>
@@ -32,7 +32,7 @@
                     <td>@row["EndDateTime"]</td>
                     <td>@row["URL"]</td>
                 </tr>
-             }
+            }
         </tbody>
     </table>
 </div>
