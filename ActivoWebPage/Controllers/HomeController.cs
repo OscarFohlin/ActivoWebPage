@@ -226,7 +226,7 @@ namespace ActivoWebPage.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> PrivacyAsync()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
@@ -235,7 +235,7 @@ namespace ActivoWebPage.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> AboutAsync()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
@@ -244,7 +244,7 @@ namespace ActivoWebPage.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> ContactAsync()
         {
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
