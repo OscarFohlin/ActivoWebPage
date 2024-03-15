@@ -7,5 +7,6 @@ namespace ActivoWebPage.Models
 	{
         public DataTable ActivitiesDt { get; set; }
         public DataTable EventDt { get; set; }
+        public DataTable PlacesDt { get; set; }
     }
 }
