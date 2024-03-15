@@ -17,6 +17,7 @@ builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddSession();
 builder.Services.AddTransient<HomeController.EventApiService>();
 builder.Services.AddTransient<HomeController.ActivitiesApiService>();
+builder.Services.AddTransient<HomeController.PlacesApiService>();
 
 
 var app = builder.Build();
