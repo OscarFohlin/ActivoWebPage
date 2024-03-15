@@ -26,6 +26,7 @@ namespace ActivoWebPage.Controllers
 
         }
 
+//APIservices
         public class EventApiService
         {
             private readonly IHttpClientFactory _httpClientFactory;
@@ -125,6 +126,11 @@ namespace ActivoWebPage.Controllers
                 return eventDt;
             }
         }
+        public async Task<IActionResult> FetchEvents()
+        {
+            var events = await _eventApiService.GetEventDataAsync();
+            return View("Home", "Trollhattan");
+        }
 
          public class ActivitiesApiService
         {
@@ -156,6 +162,7 @@ namespace ActivoWebPage.Controllers
         }
 
 
+// Views
         public async Task<IActionResult> Index()
         {
             //Läs in om session finns och skicka till ViewData, allt gör SSO NuGet
@@ -184,7 +191,7 @@ namespace ActivoWebPage.Controllers
 
 
         //Logga in
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             return View();
         }
@@ -193,8 +200,23 @@ namespace ActivoWebPage.Controllers
         {
             var authenticationService = new AuthenticationService();
             var authenticatedSession = await authenticationService.CreateSession(email, password, controllerBase: this, HttpContext);
-            return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Privacy", "Home");
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            //Dirigera bara citizens till Activo, de andra till admin (profilsidan för tillfället)
+            if (userRole == "Admin" )
+            {
+                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
+            }
+            if (userRole == "Organizer")
+            {
+                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
+            }
+            else
+            {
+                return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Privacy", "Home");
+            }
         }
+
 
 
         public IActionResult Logout()
@@ -206,16 +228,28 @@ namespace ActivoWebPage.Controllers
 
         public IActionResult Privacy()
         {
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View();
         }
 
         public IActionResult About()
         {
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View();
         }
 
         public IActionResult Contact()
         {
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View();
         }
 
@@ -225,10 +259,6 @@ namespace ActivoWebPage.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public async Task<IActionResult> FetchEvents()
-        {
-            var events = await _eventApiService.GetEventDataAsync();
-            return View("Home", "Trollhattan");
-        }
+        
     }
 }
