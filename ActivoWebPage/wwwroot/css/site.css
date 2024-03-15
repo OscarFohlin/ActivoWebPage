@@ -894,10 +894,12 @@ a {
         font-weight: 700;
     }
 
-    .carousel-text {
+      .carousel-text {
         margin-top: 2px;
         font-size: 14px;
         font-family: 'Istok Web', sans-serif;
+        max-height: 130px;
+        overflow: hidden;
     }
 
     .carousel-link-text {
@@ -928,8 +930,10 @@ a {
         height: auto;
     }
 
-    .row {
+     .row {
         margin: auto;
+        overflow: hidden;
+        flex-wrap:nowrap;
     }
 
     .col-md-4 {
@@ -961,6 +965,7 @@ a {
         max-width: 100%;
         width: 200px;
         height: auto;
+        max-height: 115px;
         border-radius: 10px;
     }
 
