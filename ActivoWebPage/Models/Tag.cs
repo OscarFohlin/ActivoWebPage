@@ -9,7 +9,7 @@ namespace ActivoWebPage.Models
 
 		public DateTime? timestamp { get; set; }
 
-		public Activities[]? activity { get; set; }
+		public Activity[]? activity { get; set; }
 	}
 }
 
