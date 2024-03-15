@@ -1,5 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ActivoWebPage.Models.EventDetailsViewModel
+
 @{
+    ViewData["Title"] = "Event Details";
+    Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
+}
+
+<div id="page-container">
+    <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important;">&#8592;</a><br />
+    <h2 class="gradient-text">@Model.Event?.Name</h2>
+    <div class="gradient-block"></div>
+
+    <div id="container-pop-event">
+        <div id="container-pop-event-info">
+            <div class="event-image-wrapper">
+                @if (Model.Event?.ImageLink?.Length > 0)
+                {
+                    <img src="@Model.Event.ImageLink[0]" alt="@Model.Event.Name" class="event-image" />
+                }
+            </div>
+
+            <div id="container-pop-event-content-seperation">
+                <div class="seperation-block"></div>
+            </div>
+
+            <div class="event-description">
+                <p>@Model.Event?.Description</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-details" style="padding-right:600px !important;">
+        @if (Model.Place != null)
+        {
+            <p>@Model.Place.Name</p>
+            <p>@Model.Place.Address, @Model.Place.City</p>
+
+            <div class="event-map">
+                <iframe width="600"
+                        height="450"
+                        style="border:0"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?key=YourGoogleMapsAPIKey
+    &q=@Model.Place.Latitude,@Model.Place.Longitude"></iframe>
+    </div>
+    }
+            <div class="event-info">
+            <p><i class="bi bi-calendar2-week-fill"></i> @Model.Event?.StartDateTime?.ToString("yyyy-MM-dd HH:mm:ss")</p>
+        <div><i class="bi bi-person-fill"></i>Åldergräns: @Model.Event?.AgeLimit År</div>
+                <p><i class="bi bi-tag-fill"></i>Pris: @Model.Event?.Price?.ToString("kr/pers")</p>
+        @*<a href="@Model.Event?.URL">Mer information</a>*@
+                <div class="container-pop-event-infobox-link">
+                    <p class="pop-event-infobox-link-text"><a href="#">Anmäl dig</a></p>
+                    <img src="~/images/read-more-icon.png" />
+                </div>
+            </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 }
