@@ -114,28 +114,28 @@ namespace ActivoWebPage.Controllers
             return View(viewModel);
         }
         
-         public async Task<IActionResult> EventDetails(int eventId)
- {
-     var eventModel = await _eventApiService.GetEventByIdAsync(eventId);
-     if (eventModel == null)
-     {
-         return View("EventNotFound");
-     }
+        public async Task<IActionResult> EventDetails(int eventId)
+        {
+            var eventModel = await _eventApiService.GetEventByIdAsync(eventId);
+            if (eventModel == null)
+            {
+                return View("EventNotFound");
+            }
+           
+            /*var placeModel = await _eventApiService.GetPlaceByIdAsync(eventModel.PlacesID);
+            if (placeModel == null)
+            {
+                return View("PlaceNotFound"); 
+            }*/
 
-     var placeModel = await _eventApiService.GetPlaceByIdAsync(eventModel.PlacesID);
-     if (placeModel == null)
-     {
-         return View("PlaceNotFound");
-     }
+            var viewModel = new EventDetailsViewModel
+            {
+                Event = eventModel,
+                //Place = placeModel
+            };
+            return View(viewModel);
 
-     var viewModel = new EventDetailsViewModel
-     {
-         Event = eventModel,
-         Place = placeModel
-     };
-
-     return View(viewModel);
- }
+        }
         public async Task<IActionResult> ActivityDetailsAsync()
         {
             DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
