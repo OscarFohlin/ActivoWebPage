@@ -14,12 +14,16 @@ namespace ActivoWebPage.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+       
+        private readonly ActivitiesApiService _activitiesApiService;
         private readonly EventApiService _eventApiService;
 
-        public HomeController(ILogger<HomeController> logger, EventApiService eventApiService)
+        public HomeController(ILogger<HomeController> logger, ActivitiesApiService activitiesApiService, EventApiService eventApiService)
         {
             _logger = logger;
+            _activitiesApiService = activitiesApiService;
             _eventApiService = eventApiService;
+
         }
 
         public class EventApiService
@@ -122,6 +126,36 @@ namespace ActivoWebPage.Controllers
             }
         }
 
+         public class ActivitiesApiService
+        {
+            private readonly string activitiesApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
+
+            public async Task<DataTable> GetActivitiesDataAsync()
+            {
+                DataTable activitiesDt = new DataTable();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(activitiesApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage getData = await client.GetAsync("");
+
+                    if (getData.IsSuccessStatusCode)
+                    {
+                        string results = await getData.Content.ReadAsStringAsync();
+                        activitiesDt = JsonConvert.DeserializeObject<DataTable>(results);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error calling the API");
+                    }
+                }
+                return activitiesDt;
+            }
+        }
+
+
         public async Task<IActionResult> Index()
         {
             //Läs in om session finns och skicka till ViewData, allt gör SSO NuGet
@@ -133,11 +167,21 @@ namespace ActivoWebPage.Controllers
             return View();
         }
 
+
         public async Task<IActionResult> Search()
         {
+            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
-            return View(eventDt);
+
+            var viewModel = new CollectionViewModel
+            {
+                ActivitiesDt = activitiesDt,
+                EventDt = eventDt
+            };
+
+            return View(viewModel);
         }
+
 
         //Logga in
         public IActionResult Login()
