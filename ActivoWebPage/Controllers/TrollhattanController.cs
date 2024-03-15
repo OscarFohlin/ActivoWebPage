@@ -67,6 +67,10 @@ namespace ActivoWebPage.Controllers
         
         public async Task<IActionResult> Search()
         {
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             DataTable eventDt = await _eventApiService.GetEventDataAsync();
 
             return View(eventDt);
