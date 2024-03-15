@@ -1004,3 +1004,72 @@ a {
     width: 150px;
     height: fit-content;
 }
+/*EventDetails*/
+
+.event-details {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+}
+
+.event-map iframe {
+    flex: 0 0 auto; /* Prevent the iframe from growing */
+    margin-right: 20px; /* Space between map and info */
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+    .event-info div {
+        margin-bottom: 10px; /* Space between info lines */
+    }
+
+.bi {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+#container-pop-event {
+    max-width: 1200px; /* Max width of the container */
+    margin: auto; /* Center the container */
+    padding: 0 40px; /* Padding on the sides */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-image-wrapper {
+    max-width: 100%; /* Ensure the image container does not overflow the width of the parent */
+    padding: 0 40px; /* Padding on the sides */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+.event-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.event-description p {
+    text-align: justify;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+    #container-pop-event {
+        padding: 0 20px; /* Smaller padding on smaller screens */
+    }
+
+    .event-image-wrapper, .event-description p {
+        padding: 0 20px;
+    }
+}
+
