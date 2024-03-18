@@ -1,5 +1,61 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@model EventDetailsViewModel
+
 @{
+    ViewData["Title"] = "Activity Details";
+    Layout = "~/Views/Shared/_layout_vastervik.cshtml";
 }
+
+<div id="page-container">
+    <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important;">&#8592;</a><br />
+    <div style="display: flex;align-items: center;">
+        <h2 class="gradient-text" style=" margin-right: 100px;">@Model.Activity?.name</h2>
+        <a class="bi bi-bookmark-fill" href="#" style="font-size: 2.5rem; text-decoration: none !important; "></a>
+    </div>
+    <div class="gradient-block"></div>
+
+    <div id="container-pop-event">
+        <div id="container-pop-event-info">
+            <div class="event-image-wrapper">
+                @if (!string.IsNullOrEmpty(Model.Activity?.imageLink))
+                {
+                    <img src="@Model.Activity.imageLink" alt="@Model.Activity.name" loading="lazy" class="event-image" />
+                }
+            </div>
+            <div id="container-pop-event-content-seperation">
+                <div class="seperation-block"></div>
+            </div>
+
+            <div class="event-description">
+                <p>@Model.Activity?.description</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-details" style="padding-right:100px !important; ">
+        <div class="event-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1207.1482770585962!2d16.63638791905807!3d57.7686036487119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4658425cb397cae3%3A0x5e0349e58833532!2zTMO2Z2EgVsOkc3RlcnZpaw!5e0!3m2!1ssv!2sse!4v1709819402537!5m2!1ssv!2sse"
+                    width="300"
+                    height="200"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p>@Model.Place?.Name</p>
+            <p>Adress: @Model.Place?.Address</p>
+        </div>
+
+        <div class="event-info">
+            <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
+            <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
+            <div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>
+            <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+}
+
+
