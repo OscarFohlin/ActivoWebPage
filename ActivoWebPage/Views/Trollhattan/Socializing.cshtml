@@ -1,41 +1,40 @@
 @using System.Data
-@model CollectionViewModel
+@model HomeViewModel
 
 @{
     ViewData["Title"] = "Home Page";
-}
-
-@{
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
-<h2 id="top-titlecard-at-section">
-    <span class="gradient-text">HÄNDER JUST NU</span>
-    <div class="gradient-block"></div>
-</h2>
+<div class="content">
 
-@foreach (DataRow row in Model.EventDt.Rows)
-{
-    <div class="container-pop-event">
+    <h2 id="top-titlecard-at-section">
+        <span class="gradient-text">HÄNDER JUST NU</span>
+        <div class="gradient-block"></div>
+    </h2>
 
-        <div class="container-pop-event-image">
-            <img class="pop-event-image" src="@row["ImageLink"]" />
-        </div>
+    @foreach (var events in Model.Events)
+    {
+        <div class="container-pop-event">
 
-        <div class="container-pop-event-content-seperation">
-            <div class="seperation-block"></div>
-        </div>
-
-        <div class="container-pop-event-info">
-            <div class="container-pop-event-title-description">
-                <h2 class="pop-event-title-text">@row["Name"]<h2>
+            <div class="container-pop-event-image">
+                <img class="pop-event-image" src="@events?.ImageLink" />
             </div>
+
+            <div class="container-pop-event-content-seperation">
+                <div class="seperation-block"></div>
+            </div>
+
+            <div class="container-pop-event-info">
+                <div class="container-pop-event-title-description">
+                    <h2 class="pop-event-title-text">@events?.Name<h2>
+                </div>
 
                 <!-- Slicing på description, andra punkten -->
                 <div class="container-pop-event-summary-description">
                     @{
-                        string description = row["Description"].ToString();
-                        string[] sentences = description.Split(new[] { '.' }, 3);
+                        string description = events?.Description ?? string.Empty;
+                        string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
                         string shortDescription = string.Join(".", sentences.Take(2));
                     }
                     <p class="pop-event-summary-text">
@@ -43,109 +42,104 @@
                     </p>
                 </div>
 
-            <div class="container-pop-event-date-area">
-                <div class="container-pop-event-date-icon">
-                    <img src="~/images/date-icon.png" />
+                <div class="container-pop-event-date-area">
+                    <div class="container-pop-event-date-icon">
+                        <img src="~/images/date-icon.png" />
+                    </div>
+                    <div class="container-pop-event-date">
+                        <p class="pop-event-date-text">@events?.StartDateTime?.ToString("yyyy-MM-dd  HH:mm:ss")</p>
+                    </div>
                 </div>
-                <div class="container-pop-event-date">
-                    <p class="pop-event-date-text">@row["StartDateTime"]</p>
-                </div>
-            </div>
 
-            <div class="container-pop-event-infobox-link">
-                <p class="pop-event-infobox-link-text">
-                    <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@row["EventID"]">Läs mer</a>
-                </p>
-                <img src="~/images/read-more-icon.png" />
+                <div class="container-pop-event-infobox-link">
+                    <p class="pop-event-infobox-link-text">
+                        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@events?.EventID">Läs mer</a>
+                    </p>
+                    <img src="~/images/read-more-icon.png" />
+                </div>
+
             </div>
 
         </div>
+    }
+    <div class="container-fluid align-content-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-9" style="height: 100%;">
 
-    </div>
-}
+                <div class="advert-text">
+                    <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
+                </div>
 
-<div class="container-fluid align-content-center">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-9" style="height: 100%;">
-
-            <div class="advert-text">
-                <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
-            </div>
-
-            <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
-                <a href="https://kia.com">
-                    <img src="~/images/advert-placeholder.png" alt="An advert of a car of the car brand KIA, standing in a frozen wonderland" class="img-fluid">
-                </a>
+                <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
+                    <a href="https://kia.com">
+                        <img src="~/images/advert-placeholder.png" alt="An advert of a car of the car brand KIA, standing in a frozen wonderland" class="img-fluid">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<h2>
-    <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
-    <div class="gradient-block"></div>
-</h2>
+    <h2>
+        <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
+        <div class="gradient-block"></div>
+    </h2>
 
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
 
-        <div class="carousel-item active">
-            <div class="container">
-                <div class="row">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
 
-                    <!-- nytt carousel förslag // placeholder-->
-                    @for (int i = 0; i < 4; i++)
-                    {
-                        DataRow row = Model.ActivitiesDt.Rows[i];
-                        <div class="col-md-4">
+                        <!-- nytt carousel förslag // placeholder-->
+                        @for (int i = 0; i < Model.Activities.Count && i < 4; i++)
+                        {
+                            var activity = Model.Activities[i];
+                            <div class="col-md-4">
 
-                            <div class="box">
+                                <div class="box">
 
-                                <img class="img-fluid" src=@row["imageLink"]>
-                                <h2 class="carousel-title">
-                                    @row["name"]
-                                </h2>
-                                <p class="carousel-text">@row["description"]</p>
-                                <a href="http://google.com">
-                                    <div id="container-pop-event-infobox-link">
-                                        <p class="carousel-link-text">Läs mer</p>
-                                    </div>
-                                </a>
-                                <div id="container-pop-event-date-area">
-                                    <div id="container-pop-event-date-icon">
-                                        <img src="~/images/date-icon.png" />
-                                    </div>
-                                    <div id="container-pop-event-date">
-                                        <p class="pop-event-date-text">8-9 JUN</p>
+                                    <img class="img-fluid" src=@activity?.imageLink>
+                                    <h2 class="carousel-title">
+                                        @activity?.name
+                                    </h2>
+                                    <p class="carousel-text">@activity?.description</p>
+                                    <a asp-action="ActivityDetails" asp-controller="Trollhattan" asp-route-activityId="@activity?.activityID">
+                                        <div id="container-pop-event-infobox-link">
+                                            <p class="carousel-link-text">Läs mer</p>
+                                        </div>
+                                    </a>
+                                    <div class="container-pop-event-date-area">
+                                        <div class="container-pop-event-date-icon">
+                                            <img src="~/images/date-icon.png" />
+                                        </div>
+                                        <div class="container-pop-event-date">
+                                            <p class="pop-event-date-text">8-9 JUN</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
-                    }
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
         </div>
 
-
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-
-
-
     </div>
-
-</div>
