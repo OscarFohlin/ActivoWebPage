@@ -30,6 +30,8 @@ namespace ActivoWebPage.Models
 
         public int[]? TagID { get; set; }
 
-        public int PlacesID { get; internal set; }
+        public int PlacesID { get; set; }
+
+        public Places? Place { get; set; }
     }
 }
