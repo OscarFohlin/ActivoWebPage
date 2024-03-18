@@ -1,25 +1,25 @@
-@model ActivoWebPage.Models.EventDetailsViewModel
+@model EventDetailsViewModel
 
 @{
     ViewData["Title"] = "Event Details";
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
-<div id="page-container" @*style=" width: 100% !important; height: 100%; background: url('../images/bakgrund.jpg') no-repeat center center fixed;
-     background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;*@">
-    <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important;">&#8592;</a><br />
+<div id="page-container">
+    <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important; @*style=" width: 100% !important; height: 100%; background: url('.. /images/bakgrund.jpg') no-repeat center center fixed;
+       background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;*@"">&#8592;</a><br />
     <h2 class="gradient-text">@Model.Event?.Name</h2>
     <div class="gradient-block"></div>
 
     <div id="container-pop-event">
         <div id="container-pop-event-info">
             <div class="event-image-wrapper">
-                @if (Model.Event?.ImageLink?.Length > 0)
+                @if (!string.IsNullOrEmpty(Model.Event?.ImageLink))
                 {
-                    <img src="@Model.Event.ImageLink[0]" alt="@Model.Event.Name" class="event-image" />
+                    <img src="@Model.Event.ImageLink" alt="@Model.Event.ImageLink" loading="lazy" class="event-image" />
                 }
             </div>
-
+        
             <div id="container-pop-event-content-seperation">
                 <div class="seperation-block"></div>
             </div>
@@ -46,17 +46,17 @@
 
         <div class="event-info">
             <div><i class="bi bi-calendar2-week-fill"></i>@Model.Event?.StartDateTime?.ToString("yyyy-MM-dd  HH:mm:ss")</div>
-            <div><i class="bi bi-person-fill"></i> Åldergräns: @Model.Event?.AgeLimit År</div>
-            <div><i class="bi bi-tag-fill"></i>Price: @Model.Event?.Price kr/pers</div>
-            <div><i class="bi bi-info-circle-fill"></i>Mer info: @Model.Event?.URL</div></br>
-            
+            <div><i class="bi bi-person-fill"></i> Åldersgräns: @Model.Event?.AgeLimit År</div>
+            <div><i class="bi bi-tag-fill"></i>Pris: @Model.Event?.Price kr/pers</div>
+            <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Event?.URL" target="_blank">@Model.Event?.URL</a></div></br>
             <div class="container-pop-event-infobox-link">
                 <p class="pop-event-infobox-link-text" style="font-size: 1rem; text-decoration: none;">
-            <a href="https://informatik7.ei.hv.se/ProfilMVC/SingUps/index/@Model.Event?.EventID">Anmäl dig</a></p>
-            <img src="~/images/read-more-icon.png" />
+                    <a href="https://informatik7.ei.hv.se/ProfilMVC/SingUps/index/@eventId ">Anmäl dig</a>
+                </p>
+                <img src="~/images/read-more-icon.png" />
             </div>
-            
         </div>
+       
             </div>
     </div>
 
