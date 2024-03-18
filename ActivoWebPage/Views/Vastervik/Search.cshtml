@@ -1,5 +1,5 @@
 @using System.Data
-@model CollectionViewModel
+@model HomeViewModel
 
 @{
     Layout = "~/Views/Shared/_layout_Vastervik.cshtml";
@@ -9,6 +9,7 @@
     <h1>Sök event </h1>
 
     <table class="table">
+
         <thead>
             <tr>
                 <th scope="col">Namn</th>
@@ -21,19 +22,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (DataRow row in Model.EventDt.Rows)
+            @foreach (var events in Model.Events.Where(e => e != null))
             {
                 <tr>
-                    <td>@row["Name"]</td>
-                    <td>@row["Description"]</td>
-                    <td>@row["Price"]</td>
-                    <td>@row["PlacesID"]</td>
-                    <td>@row["StartDateTime"]</td>
-                    <td>@row["EndDateTime"]</td>
-                    <td>@row["URL"]</td>
+                    <td>@events?.Name</td>
+                    <td>@events?.Description</td>
+                    <td>@events?.Price</td>
+                    <td>@events?.PlacesID</td>
+                    <td>@events?.StartDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@events?.EndDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
                 </tr>
             }
         </tbody>
+
     </table>
+
 </div>
 
