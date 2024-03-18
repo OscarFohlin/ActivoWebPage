@@ -19,10 +19,12 @@ namespace ActivoWebPage.Models
 
         public Category[]? category { get; set; }
 
-        public int? placesID { get; set; }
-
         public DateTime? timestamp { get; set; }
 
         public Tag[]? tags { get; set; }
+
+        public int PlacesID { get; set; }
+
+        public Places? Place { get; set; }
     }
 }
