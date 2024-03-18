@@ -1,28 +1,24 @@
 @using System.Data
-@model CollectionViewModel
+@model HomeViewModel
 
 @{
     ViewData["Title"] = "Home Page";
-}
-
-@{
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
 <div class="content">
 
-
     <h2 id="top-titlecard-at-section">
-        <span class="gradient-text">SPORT  &  FRILUFTSLIV</span>
+        <span class="gradient-text">HÄNDER JUST NU</span>
         <div class="gradient-block"></div>
     </h2>
 
-    @foreach (DataRow row in Model.EventDt.Rows)
+    @foreach (var events in Model.Events)
     {
         <div class="container-pop-event">
 
             <div class="container-pop-event-image">
-                <img class="pop-event-image" src="@row["ImageLink"]" />
+                <img class="pop-event-image" src="@events?.ImageLink" />
             </div>
 
             <div class="container-pop-event-content-seperation">
@@ -31,14 +27,14 @@
 
             <div class="container-pop-event-info">
                 <div class="container-pop-event-title-description">
-                    <h2 class="pop-event-title-text">@row["Name"]<h2>
+                    <h2 class="pop-event-title-text">@events?.Name<h2>
                 </div>
 
                 <!-- Slicing på description, andra punkten -->
                 <div class="container-pop-event-summary-description">
                     @{
-                        string description = row["Description"].ToString();
-                        string[] sentences = description.Split(new[] { '.' }, 3);
+                        string description = events?.Description ?? string.Empty;
+                        string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
                         string shortDescription = string.Join(".", sentences.Take(2));
                     }
                     <p class="pop-event-summary-text">
@@ -51,13 +47,13 @@
                         <img src="~/images/date-icon.png" />
                     </div>
                     <div class="container-pop-event-date">
-                        <p class="pop-event-date-text">@row["StartDateTime"]</p>
+                        <p class="pop-event-date-text">@events?.StartDateTime?.ToString("yyyy-MM-dd  HH:mm:ss")</p>
                     </div>
                 </div>
 
                 <div class="container-pop-event-infobox-link">
                     <p class="pop-event-infobox-link-text">
-                        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@row["EventID"]">Läs mer</a>
+                        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@events?.EventID">Läs mer</a>
                     </p>
                     <img src="~/images/read-more-icon.png" />
                 </div>
@@ -66,8 +62,6 @@
 
         </div>
     }
-
-
     <div class="container-fluid align-content-center">
         <div class="row justify-content-center align-items-center">
             <div class="col-9" style="height: 100%;">
@@ -103,28 +97,28 @@
                     <div class="row">
 
                         <!-- nytt carousel förslag // placeholder-->
-                        @for (int i = 0; i < 4; i++)
+                        @for (int i = 0; i < Model.Activities.Count && i < 4; i++)
                         {
-                            DataRow row = Model.ActivitiesDt.Rows[i];
+                            var activity = Model.Activities[i];
                             <div class="col-md-4">
 
                                 <div class="box">
 
-                                    <img class="img-fluid" src=@row["imageLink"]>
+                                    <img class="img-fluid" src=@activity?.imageLink>
                                     <h2 class="carousel-title">
-                                        @row["name"]
+                                        @activity?.name
                                     </h2>
-                                    <p class="carousel-text">@row["description"]</p>
-                                    <a href="http://google.com">
+                                    <p class="carousel-text">@activity?.description</p>
+                                    <a asp-action="ActivityDetails" asp-controller="Trollhattan" asp-route-activityId="@activity?.activityID">
                                         <div id="container-pop-event-infobox-link">
                                             <p class="carousel-link-text">Läs mer</p>
                                         </div>
                                     </a>
-                                    <div id="container-pop-event-date-area">
-                                        <div id="container-pop-event-date-icon">
+                                    <div class="container-pop-event-date-area">
+                                        <div class="container-pop-event-date-icon">
                                             <img src="~/images/date-icon.png" />
                                         </div>
-                                        <div id="container-pop-event-date">
+                                        <div class="container-pop-event-date">
                                             <p class="pop-event-date-text">8-9 JUN</p>
                                         </div>
                                     </div>
@@ -136,8 +130,6 @@
                 </div>
             </div>
 
-
-
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -147,8 +139,6 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-
-
 
         </div>
 
