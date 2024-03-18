@@ -5,47 +5,38 @@ using Newtonsoft.Json;
 using System.Data;
 using System.Diagnostics;
 using System.Net.Http.Headers;
+using static ActivoWebPage.Controllers.HomeController;
+using Activity = ActivoWebPage.Models.Activity;
 
 
 namespace ActivoWebPage.Controllers
 {
-
-
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-       
-        private readonly ActivitiesApiService _activitiesApiService;
         private readonly EventApiService _eventApiService;
-        private readonly PlacesApiService _placesApiService;
-
-        public HomeController(ILogger<HomeController> logger, ActivitiesApiService activitiesApiService, EventApiService eventApiService, PlacesApiService placesApiService)
+        public HomeController(EventApiService eventApiService)
         {
-            _logger = logger;
-            _activitiesApiService = activitiesApiService;
             _eventApiService = eventApiService;
-            _placesApiService = placesApiService;
-
         }
 
-//APIservices
         public class EventApiService
         {
             private readonly IHttpClientFactory _httpClientFactory;
             private readonly string _eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
             private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
+            private readonly string _activityApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
             private readonly ILogger<EventApiService> _logger;
-
 
             public EventApiService(IHttpClientFactory httpClientFactory, ILogger<EventApiService> logger)
             {
                 _httpClientFactory = httpClientFactory;
                 _logger = logger;
             }
-            public async Task<Event> GetEventByIdAsync(int eventId)
+
+            public async Task<Event?> GetEventByIdAsync(int EventID)
             {
                 var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync($"{_eventApiUrl}/{eventId}");
+                var response = await client.GetAsync($"{_eventApiUrl}/{EventID}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -65,31 +56,21 @@ namespace ActivoWebPage.Controllers
                 }
             }
 
-           
-            public async Task<Places> GetPlaceByIdAsync(int? placeId)
+            public async Task<Places?> GetPlaceByIdAsync(int? placeId)
             {
-                // Kontrollera först att placeId inte är null.
                 if (!placeId.HasValue)
                 {
                     _logger.LogError("PlaceID is null");
                     return null;
                 }
 
-                // Skapa en HttpClient-instans.
                 var client = _httpClientFactory.CreateClient();
-
                 try
                 {
-                    // Utför en GET-förfrågan till API:et med det angivna PlaceID.
                     var response = await client.GetAsync($"{_placeApiUrl}/{placeId.Value}");
-
-                    // Kontrollera om förfrågan var framgångsrik.
                     if (response.IsSuccessStatusCode)
                     {
-                        // Läs svaret som en sträng.
                         var jsonString = await response.Content.ReadAsStringAsync();
-
-                        // Deserialisera JSON-strängen till ett Places-objekt.
                         return JsonConvert.DeserializeObject<Places>(jsonString);
                     }
                     else
@@ -100,127 +81,114 @@ namespace ActivoWebPage.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Logga eventuella undantag som uppstår under anropet.
                     _logger.LogError($"Exception occurred when fetching place data for PlaceID {placeId}: {ex.Message}");
                     return null;
                 }
             }
 
-
-
-            public async Task<DataTable> GetEventDataAsync()
+            public async Task<Activity?> GetActivityByIdAsync(int activityID)
             {
-                DataTable eventDt = new DataTable();
-                using (var client = new HttpClient())
+                var client = _httpClientFactory.CreateClient();
+                var response = await client.GetAsync($"{_activityApiUrl}/{activityID}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Activity>(jsonString);
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+                else
+                {
+                    _logger.LogError($"Failed to fetch activity data. Status code: {response.StatusCode}");
+                    return null;
+                }
+            }
+
+            public async Task<List<Activity?>> GetActivityDataAsync()
+            {
+                List<Activity?> activities = new List<Activity?>();
+                using (var client = _httpClientFactory.CreateClient())
+                {
+                    client.BaseAddress = new Uri(_activityApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.GetAsync("");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+                        activities = JsonConvert.DeserializeObject<List<Activity?>>(result);
+                    }
+                    else
+                    {
+                        _logger.LogError("Error calling the Activities API");
+                    }
+                }
+                return activities;
+            }
+
+            public async Task<List<Event>> GetEventDataAsync()
+            {
+                List<Event> events = new List<Event>();
+                using (var client = _httpClientFactory.CreateClient())
                 {
                     client.BaseAddress = new Uri(_eventApiUrl);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage getData = await client.GetAsync("");
+                    HttpResponseMessage response = await client.GetAsync("");
 
-                    if (getData.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        string results = await getData.Content.ReadAsStringAsync();
-                        eventDt = JsonConvert.DeserializeObject<DataTable>(results);
+                        string result = await response.Content.ReadAsStringAsync();
+                        events = JsonConvert.DeserializeObject<List<Event>>(result);
                     }
                     else
                     {
-                        Console.WriteLine("Error calling the API");
+                        _logger.LogError("Error calling the Events API");
                     }
                 }
-                return eventDt;
+                return events;
             }
         }
+
         public async Task<IActionResult> FetchEvents()
         {
             var events = await _eventApiService.GetEventDataAsync();
             return View("Home", "Trollhattan");
         }
 
-         public class ActivitiesApiService
+        //View
+        public async Task<IActionResult?> Index()
         {
-            private readonly string activitiesApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
+            var events = await _eventApiService.GetEventDataAsync(); 
+            var activities = await _eventApiService.GetActivityDataAsync(); 
 
-            public async Task<DataTable> GetActivitiesDataAsync()
+            var viewModel = new HomeViewModel
             {
-                DataTable activitiesDt = new DataTable();
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(activitiesApiUrl);
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    HttpResponseMessage getData = await client.GetAsync("");
-
-                    if (getData.IsSuccessStatusCode)
-                    {
-                        string results = await getData.Content.ReadAsStringAsync();
-                        activitiesDt = JsonConvert.DeserializeObject<DataTable>(results);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error calling the API");
-                    }
-                }
-                return activitiesDt;
-            }
-        }
-
-public class PlacesApiService
-        {
-            private readonly string placesApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
-
-            public async Task<DataTable> GetPlacesDataAsync()
-            {
-                DataTable placesDt = new DataTable();
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(placesApiUrl);
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    HttpResponseMessage getData = await client.GetAsync("");
-
-                    if (getData.IsSuccessStatusCode)
-                    {
-                        string results = await getData.Content.ReadAsStringAsync();
-                        placesDt = JsonConvert.DeserializeObject<DataTable>(results);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error calling the API");
-                    }
-                }
-                return placesDt;
-            }
-        }
-
-// Views
-        public async Task<IActionResult> Index()
-        {
-            //Läs in om session finns och skicka till ViewData, allt gör SSO NuGet
-            var authenticationService = new AuthenticationService();
-            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
-
-            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
-
-            return View();
-        }
-
-
-        public async Task<IActionResult> Search()
-        {
-            DataTable activitiesDt = await _activitiesApiService.GetActivitiesDataAsync();
-            DataTable eventDt = await _eventApiService.GetEventDataAsync();
-
-            var viewModel = new CollectionViewModel
-            {
-                ActivitiesDt = activitiesDt,
-                EventDt = eventDt
+                Events = events,
+                Activities = activities
             };
 
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> Search()
+        {
+            var events = await _eventApiService.GetEventDataAsync();
+            var activities = await _eventApiService.GetActivityDataAsync(); 
+
+            var viewModel = new HomeViewModel
+            {
+                Events = events,
+                Activities = activities
+            };
+
+            return View(viewModel); 
         }
 
 
@@ -237,7 +205,7 @@ public class PlacesApiService
             var userRole = HttpContext.Session.GetString("UserRole");
 
             //Dirigera bara citizens till Activo, de andra till admin (profilsidan för tillfället)
-            if (userRole == "Admin" )
+            if (userRole == "Admin")
             {
                 return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
             }
@@ -292,7 +260,5 @@ public class PlacesApiService
         {
             return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        
     }
 }
