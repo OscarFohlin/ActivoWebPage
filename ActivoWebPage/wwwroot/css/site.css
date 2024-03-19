@@ -565,7 +565,16 @@ body {
 }
 
 
-
+/*table*/
+table{
+    height: 50vh;
+    display: block;
+    overflow:scroll; 
+}
+thead{
+    position:sticky;
+    top: 0;
+}
 
 /* footer */
 .footer-wrapper {
