@@ -253,15 +253,15 @@ namespace ActivoWebPage.Controllers
             //Dirigera bara citizens till Activo, de andra till admin (profilsidan för tillfället)
             if (userRole == "Admin")
             {
-                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
+                return authenticatedSession ? Redirect("https://informatik4.ei.hv.se/EVENTADMIN") : RedirectToAction("Index", "Home");
             }
             else if (userRole == "Organizer")
             {
-                return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
+                return authenticatedSession ? Redirect("https://informatik4.ei.hv.se/EVENTADMIN") : RedirectToAction("Index", "Home");
             }
             else
             {
-                return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Privacy", "Home");
+                return authenticatedSession ? RedirectToAction("Index", "Home") : RedirectToAction("Index", "Home");
             }
         }
 
