@@ -699,13 +699,13 @@ a {
 
 .container-pop-event {
     margin: 0px auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
     display: flex;
     justify-content: flex-start;
+    max-width: fit-content;
     align-items: flex-start;
     justify-content: center;
     transition: 0.5s;
+    overflow: hidden;
 }
 
 /*sträcker ut bilderna till det som de borde vara, ser lite skit ut på en del bilder men får bli så tills vidare*/
