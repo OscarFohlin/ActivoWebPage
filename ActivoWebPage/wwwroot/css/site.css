@@ -715,14 +715,16 @@ a {
     margin-right: 10px;
     width: 400px !important;
     height: 300px !important;
+    background-color: transparent;
+    border-radius: 20px;
 }
 
 .pop-event-image {
     max-width: 400px !important;
     width: 400px !important;
-    border-radius: 20px;
     height: 300px;
     object-fit: fill;
+    border-radius: 20px;
 }
 
     .container-pop-event-content-seperation {
