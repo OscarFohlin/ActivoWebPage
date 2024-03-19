@@ -1,9 +1,11 @@
 using ActivoWebPage.Models;
 using Hv.Sos100.SingleSignOn;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Data;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using static ActivoWebPage.Controllers.HomeController;
 using Activity = ActivoWebPage.Models.Activity;
@@ -25,6 +27,7 @@ namespace ActivoWebPage.Controllers
             private readonly string _eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
             private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
             private readonly string _activityApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
+            private readonly string _advertisementApiUrl = "https://informatik6.ei.hv.se/advertisement/api/Ads/horizontal";
             private readonly ILogger<EventApiService> _logger;
 
             public EventApiService(IHttpClientFactory httpClientFactory, ILogger<EventApiService> logger)
@@ -154,12 +157,45 @@ namespace ActivoWebPage.Controllers
                 }
                 return events;
             }
+            //random test
+            public async Task<List<Advertisements>> GetAdvertisementDataAsync()
+            {
+                List<Advertisements> adverts = new List<Advertisements>();
+                using (var client = _httpClientFactory.CreateClient())
+                {
+                    client.BaseAddress = new Uri(_advertisementApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.GetAsync("");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        var advert = JsonConvert.DeserializeObject<Advertisements>(result);
+                        adverts.Add(advert);
+                    }
+                    else
+                    {
+                        _logger.LogError("Error displaying ads or someth");
+                    }
+                    return adverts;
+                }
+            }
         }
 
         public async Task<IActionResult> FetchEvents()
         {
             var events = await _eventApiService.GetEventDataAsync();
             return View("Home", "Trollhattan");
+        }
+
+        //random test
+        public async Task<IActionResult> FetchAdvertisements(int advertisementID)
+        {
+            var adverts = await _eventApiService.GetAdvertisementDataAsync();
+            return View();
         }
 
         //View
@@ -191,7 +227,7 @@ namespace ActivoWebPage.Controllers
             return View(viewModel); 
         }
 
-
+        
         //Logga in
         public async Task<IActionResult> Login()
         {
