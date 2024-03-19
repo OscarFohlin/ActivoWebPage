@@ -62,22 +62,29 @@
 
         </div>
     }
-    <div class="container-fluid align-content-center">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-9" style="height: 100%;">
 
-                <div class="advert-text">
-                    <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
-                </div>
 
-                <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
-                    <a href="https://kia.com">
-                        <img src="~/images/advert-placeholder.png" alt="An advert of a car of the car brand KIA, standing in a frozen wonderland" class="img-fluid">
-                    </a>
+    @if (Model.RandomAdvertisement != null)
+    {
+        <div class="container-fluid align-content-center">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-9" style="height: 100%;">
+
+                    <div class="advert-text">
+                        <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
+                    </div>
+
+                    <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
+                        <a href="@Model.RandomAdvertisement?.imageLink">
+                            <img src="@Model.RandomAdvertisement?.imageSource" alt="Advert" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+
+
 
     <h2>
         <span class="gradient-text">POPULÄRA  AKTIVITETER</span>
@@ -143,3 +150,5 @@
         </div>
 
     </div>
+
+</div>

@@ -7,8 +7,11 @@ using System.Data;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Hv.Sos100.Logger;
 using static ActivoWebPage.Controllers.HomeController;
 using Activity = ActivoWebPage.Models.Activity;
+using static Hv.Sos100.Logger.LogService;
+using System;
 
 
 namespace ActivoWebPage.Controllers
@@ -18,14 +21,13 @@ namespace ActivoWebPage.Controllers
         private readonly EventApiService _eventApiService;
         public HomeController(EventApiService eventApiService)
         {
-            _eventApiService = eventApiService;
-        }
+            _eventApiService = eventApiService;        }
 
         public class EventApiService
         {
             private readonly IHttpClientFactory _httpClientFactory;
             private readonly string _eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
-            private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API2/api/Places";
+            private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
             private readonly string _activityApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
             private readonly string _advertisementApiUrl = "https://informatik6.ei.hv.se/advertisement/api/Ads/horizontal";
             private readonly ILogger<EventApiService> _logger;
@@ -41,19 +43,16 @@ namespace ActivoWebPage.Controllers
                 var client = _httpClientFactory.CreateClient();
                 var response = await client.GetAsync($"{_eventApiUrl}/{EventID}");
 
-                if (response.IsSuccessStatusCode)
+                try
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<Event>(jsonString);
                 }
-                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                catch (Exception ex)
                 {
-                    // Handle not found
-                    return null;
-                }
-                else
-                {
-                    // Log unexpected error
+                    var logger = new LogService();
+
+                    await logger.CreateLog("Eventivo_Website", ex);
                     _logger.LogError($"Failed to fetch event data. Status code: {response.StatusCode}");
                     return null;
                 }

@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using ActivoWebPage.Models;
 using static ActivoWebPage.Controllers.HomeController;
+using System;
 
 
 namespace ActivoWebPage.Controllers
@@ -25,9 +26,16 @@ namespace ActivoWebPage.Controllers
             //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
+            var randomAdvert = new Random();
+
+            var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
+            int randomIndex = randomAdvert.Next(0, advertIds.Count);
+            var randomAdId = advertIds[randomIndex];
+            var randomAd = adverts.FirstOrDefault(ad => ad.advertisementID == randomAdId);
 
             foreach (var activity in activities)
             {
@@ -49,7 +57,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                RandomAdvertisement = randomAd
             };
 
             var authenticationService = new AuthenticationService();
@@ -64,9 +73,16 @@ namespace ActivoWebPage.Controllers
             //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
+            var randomAdvert = new Random();
+
+            var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
+            int randomIndex = randomAdvert.Next(0, advertIds.Count);
+            var randomAdId = advertIds[randomIndex];
+            var randomAd = adverts.FirstOrDefault(ad => ad.advertisementID == randomAdId);
 
             foreach (var activity in activities)
             {
@@ -88,7 +104,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                RandomAdvertisement = randomAd
             };
 
             var authenticationService = new AuthenticationService();
@@ -104,9 +121,16 @@ namespace ActivoWebPage.Controllers
             //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
+            var randomAdvert = new Random();
+
+            var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
+            int randomIndex = randomAdvert.Next(0, advertIds.Count);
+            var randomAdId = advertIds[randomIndex];
+            var randomAd = adverts.FirstOrDefault(ad => ad.advertisementID == randomAdId);
 
             foreach (var activity in activities)
             {
@@ -128,7 +152,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                RandomAdvertisement = randomAd
             };
 
             var authenticationService = new AuthenticationService();
@@ -142,9 +167,16 @@ namespace ActivoWebPage.Controllers
         {
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
+            var randomAdvert = new Random();
+
+            var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
+            int randomIndex = randomAdvert.Next(0, advertIds.Count);
+            var randomAdId = advertIds[randomIndex];
+            var randomAd = adverts.FirstOrDefault(ad => ad.advertisementID == randomAdId);
 
             foreach (var activity in activities)
             {
@@ -166,7 +198,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                RandomAdvertisement = randomAd
             };
 
             var authenticationService = new AuthenticationService();

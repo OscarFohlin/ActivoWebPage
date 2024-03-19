@@ -4,7 +4,7 @@ namespace ActivoWebPage.Models
     {
         public List<Event?> Events { get; set; } = new List<Event?>();
         public List<Activity?> Activities { get; set; } = new List<Activity?>();
-        public Advertisements RandomAdvertisement { get; set; }
+        public Advertisements? RandomAdvertisement { get; set; }
 
     }
 }
