@@ -699,6 +699,8 @@ a {
 
 .container-pop-event {
     margin: 0px auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -706,16 +708,21 @@ a {
     transition: 0.5s;
 }
 
+/*sträcker ut bilderna till det som de borde vara, ser lite skit ut på en del bilder men får bli så tills vidare*/
+
 .container-pop-event-image {
     flex: 0 0 auto;
     margin-right: 10px;
+    width: 400px !important;
+    height: 300px !important;
 }
 
 .pop-event-image {
     max-width: 400px !important;
+    width: 400px !important;
     border-radius: 20px;
     height: 300px;
-    object-fit: cover;
+    object-fit: fill;
 }
 
     .container-pop-event-content-seperation {
