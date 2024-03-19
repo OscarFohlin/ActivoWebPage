@@ -112,38 +112,45 @@
                     <div class="row">
 
                         <!-- nytt carousel förslag // placeholder-->
-                        @for (int i = 0; i < Model.Activities.Count && i < 4; i++)
-                        {
-                            var activity = Model.Activities[i];
-                            <div class="col-md-4">
+                             @for (int i = 0; i < Model.Activities.Count && i < 4; i++)
+                      {
+                          var activity = Model.Activities[i];
 
-                                <div class="box">
+                          if (activity.categoryID == 4)
+                          {
+                              {
+                                  <div class="col-md-4">
 
-                                    <img class="img-fluid" src=@activity?.imageLink>
-                                    <h2 class="carousel-title">
-                                        @activity?.name
-                                    </h2>
-                                    <p class="carousel-text">@activity?.description</p>
-                                    <a asp-action="ActivityDetails" asp-controller="Trollhattan" asp-route-activityId="@activity?.activityID">
-                                        <div id="container-pop-event-infobox-link">
-                                            <p class="carousel-link-text">Läs mer</p>
-                                        </div>
-                                    </a>
-                                    <div class="container-pop-event-date-area">
-                                        <div class="container-pop-event-date-icon">
-                                            <img src="~/images/date-icon.png" />
-                                        </div>
-                                        <div class="container-pop-event-date">
-                                            <p class="pop-event-date-text">8-9 JUN</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                      <div class="box">
 
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
+                                          <img class="img-fluid" src=@activity?.imageLink>
+                                          <h2 class="carousel-title">
+                                              @activity?.name
+                                          </h2>
+                                          <p class="carousel-text">@activity?.description</p>
+                                          <a asp-action="ActivityDetails" asp-controller="Trollhattan" asp-route-activityId="@activity?.activityID">
+                                              <div id="container-pop-event-infobox-link">
+                                                  <p class="carousel-link-text">Läs mer</p>
+                                              </div>
+                                          </a>
+                                          <div class="container-pop-event-date-area">
+                                              <div class="container-pop-event-date-icon">
+                                                  <img src="~/images/date-icon.png" />
+                                              </div>
+                                              <div class="container-pop-event-date">
+                                                  <p class="pop-event-date-text">8-9 JUN</p>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              }
+                          }
+                      }
+                      
+                  </div>
+              </div>
+          </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
