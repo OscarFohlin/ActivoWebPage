@@ -243,6 +243,10 @@ namespace ActivoWebPage.Controllers
                 Activities = filteredActivities
             };
 
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View("Search", viewModel); // Se till att du har en Search-vy som tar emot HomeViewModel
         }
 
@@ -270,6 +274,10 @@ namespace ActivoWebPage.Controllers
                 Place = placeModel
             };
 
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View(viewModel);
         }
 
@@ -291,6 +299,10 @@ namespace ActivoWebPage.Controllers
                 Activity = activityModel,
                 Place = placeModel
             };
+
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
             return View(viewModel);
         }
