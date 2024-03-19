@@ -658,3 +658,19 @@ body {
     width: 150px;
     height: fit-content;
 }
+
+/* Spara activity knappen */
+#activitySavedPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: Black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    color: white;
+}
