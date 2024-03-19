@@ -81,3 +81,15 @@ if (currentUrl.includes("Search")) {
 //blir knasigt i css när man försöker ändra en annan saks properties
     //fortsätter på det senare sätter bara upp startsidan först så att den finns
 
+//karusellknappar
+goLeft = document.getElementById("goLeft");
+goRight = document.getElementById("goRight");
+carousel = document.getElementById("activitesCarousel");
+
+goLeft.addEventListener("click", function () {
+    carousel.scrollLeft += -300;
+});
+goRight.addEventListener("click", function () {
+    carousel.scrollLeft += 300;
+});
+
