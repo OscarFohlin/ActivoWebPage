@@ -13,7 +13,7 @@
         <div class="gradient-block"></div>
     </h2>
 
-    @foreach (var events in Model.Events)
+    @foreach (var events in Model.Events.Where(e => e.TagID != null && (e.TagID.Contains(9) || e.TagID.Contains(10) || e.TagID.Contains(17) || e.TagID.Contains(18) || e.TagID.Contains(19) || e.TagID.Contains(21) || e.TagID.Contains(22) || e.TagID.Contains(23) || e.TagID.Contains(29))))
     {
 
         <div class="page-container">
