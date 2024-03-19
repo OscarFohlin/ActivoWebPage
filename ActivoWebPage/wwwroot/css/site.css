@@ -24,6 +24,7 @@ body {
 .startbody {
     background-image: url("/images/bakgrund.png");
     background-size: cover;
+    min-width: 990px;
 }
 
 .container-seperation {
