@@ -870,6 +870,7 @@ a {
     text-decoration: underline;
     margin-top: 20px;
     color: black;
+    margin-left: 5px;
 }
 
 .advert-image-container {
@@ -879,8 +880,6 @@ a {
 .advertisement-large img {
     transition: filter 0.3s;
     border-radius: 11px;
-    width: 1000px;
-    height: 550px;
 }
 
 .advertisement-large:hover img {

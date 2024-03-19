@@ -248,12 +248,14 @@ namespace ActivoWebPage.Controllers
             var authenticatedSession = await authenticationService.CreateSession(email, password, controllerBase: this, HttpContext);
             var userRole = HttpContext.Session.GetString("UserRole");
 
+            Console.WriteLine(email, password, userRole);
+
             //Dirigera bara citizens till Activo, de andra till admin (profilsidan för tillfället)
             if (userRole == "Admin")
             {
                 return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
             }
-            if (userRole == "Organizer")
+            else if (userRole == "Organizer")
             {
                 return authenticatedSession ? Redirect("https://informatik7.ei.hv.se/ProfilMVC") : RedirectToAction("Privacy", "Home");
             }
