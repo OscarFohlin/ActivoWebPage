@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0/lV7wt2cMZMYJeiDszADFqWomd35zT/mc5nzKfk9PqD9QreEpVKbITjLE/uzYpX7EaWtVlO7lHry42uR6DC8A==",
+  "dgSpecHash": "polYYDXpR79c4f6Ej6YshHtjnQZWlsRuN4OsD8eLe0PxWPn7DunEc2e/Io5mqccxepGn+zDy5UNxtqSZAzUW9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\oscar\\OneDrive\\Dokument\\GitHub\\ActivoWebPage\\ActivoWebPage\\ActivoWebPage.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\oscar\\.nuget\\packages\\asp.versioning.mvc\\8.0.0\\asp.versioning.mvc.8.0.0.nupkg.sha512",
     "C:\\Users\\oscar\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\oscar\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\hv.sos100.logger\\1.5.0\\hv.sos100.logger.1.5.0.nupkg.sha512",
     "C:\\Users\\oscar\\.nuget\\packages\\hv.sos100.singlesignon\\1.3.0\\hv.sos100.singlesignon.1.3.0.nupkg.sha512",
     "C:\\Users\\oscar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\oscar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

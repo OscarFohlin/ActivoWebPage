@@ -25,7 +25,7 @@ namespace ActivoWebPage.Controllers
         {
             private readonly IHttpClientFactory _httpClientFactory;
             private readonly string _eventApiUrl = "https://informatik4.ei.hv.se/EVENTAPI2/api/events";
-            private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API/api/Places";
+            private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API2/api/Places";
             private readonly string _activityApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
             private readonly string _advertisementApiUrl = "https://informatik6.ei.hv.se/advertisement/api/Ads/horizontal";
             private readonly ILogger<EventApiService> _logger;

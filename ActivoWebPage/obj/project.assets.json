@@ -97,6 +97,15 @@
           }
         }
       },
+      "Hv.Sos100.Logger/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Hv.Sos100.Logger.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Hv.Sos100.Logger.dll": {}
+        }
+      },
       "Hv.Sos100.SingleSignOn/1.3.0": {
         "type": "package",
         "dependencies": {
@@ -1158,6 +1167,20 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Hv.Sos100.Logger/1.5.0": {
+      "sha512": "EDuBv/Wu9o23gLkOqNh989SUr2FL01qCnYPsAEUpcV249YHUsoWMMajxmfssudCDdlJZnC+XBE6jbyck5+T7rw==",
+      "type": "package",
+      "path": "hv.sos100.logger/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logging.png",
+        "README.md",
+        "hv.sos100.logger.1.5.0.nupkg.sha512",
+        "hv.sos100.logger.nuspec",
+        "lib/net8.0/Hv.Sos100.Logger.dll"
       ]
     },
     "Hv.Sos100.SingleSignOn/1.3.0": {
@@ -2916,6 +2939,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Hv.Sos100.Logger >= 1.5.0",
       "Hv.Sos100.SingleSignOn >= 1.3.0",
       "Microsoft.EntityFrameworkCore >= 8.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.3",
@@ -2961,6 +2985,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Hv.Sos100.Logger": {
+            "target": "Package",
+            "version": "[1.5.0, )"
+          },
           "Hv.Sos100.SingleSignOn": {
             "target": "Package",
             "version": "[1.3.0, )"

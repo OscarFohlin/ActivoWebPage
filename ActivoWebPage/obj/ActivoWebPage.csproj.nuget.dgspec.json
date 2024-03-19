@@ -40,6 +40,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Hv.Sos100.Logger": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
             "Hv.Sos100.SingleSignOn": {
               "target": "Package",
               "version": "[1.3.0, )"
