@@ -6,6 +6,11 @@ html {
     min-height: 100%;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
 .content {
     flex: 1;
@@ -26,21 +31,171 @@ html {
     height: 10px;
 }
 
-    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-    }
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .no-pointer-events {
     pointer-events: none;
 }
 
-/* titel text här o där */
+
+
+
+/* navbar */
+
+/* adaptiv storlek av navbar först */
+@media (max-width: 1330px) {
+    .content-align-desktop {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1331px) {
+    .content-align-mobile {
+        display: none !important;
+    }
+}
+
+#logged-in-menu, #logged-out-menu {
+    width: 200px;
+}
+
+#loginStatus {
+    display: flex;
+    text-align: center;
+}
+
+.container-categories {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+#loginStatus,
+.nav-start {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5px;
+}
+
+.bg-custom {
+    background-color: #212121;
+}
+
+.search-icon {
+    width: 20px;
+    height: auto;
+    margin-left: 4px;
+    margin-bottom: 5px;
+}
+
+.navbar {
+    padding: 15px;
+    position: relative;
+}
+
+.dropdown-toggle {
+    margin-left: 12px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-family: 'Roboto Medium', sans-serif;
+    transition: 0.75s;
+}
+
+.nav-link-sm {
+    width: 210px;
+    margin-right: -20px;
+}
+
+.nav-link-lg {
+    width: 265px;
+    margin-left: -20px;
+}
+
+.d-flex {
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: darkgoldenrod !important;
+}
+
+.dropdown-cities {
+    margin-left: 3% !important; /* blir inte centrerad på rätt sätt så gör en liten separat margin */
+}
+
+.dropdown-cities,
+.dropdown-categories,
+.dropdown-profile {
+    background-color: #212121;
+    position: absolute;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: dropdownAnimation 0.2s ease forwards;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 1000;
+    padding: 10px !important;
+    min-width: fit-content;
+    margin-top: 30px !important;
+    text-align: center;
+}
+
+.dropdown-city {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.dropdown {
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: 0.75s;
+    border-radius: 15px;
+}
+
+    .dropdown-menu .dropdown-item:hover {
+        color: darkgoldenrod;
+        background-color: #212529;
+    }
+
+@keyframes dropdownAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
+.nav-item {
+    display: flex;
+    position: relative;
+}
+    .nav-item dropdown {
+        overflow: hidden;
+    }
+
+
+
+/* titel text */
 .gradient-text {
     margin-left: 3%;
     margin-bottom: 30px;
@@ -81,318 +236,11 @@ body {
         color: transparent;
     }
 
-/* Logga in */
-#loggainlogga {
-    filter: invert(100%);
-}
-
-.btn-primary {
-    border-radius: 75px;
-}
-
-.loginbody {
-    display: flex;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.btn-login {
-    margin-top: 30px;
-}
-
-
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-}
-
-    .form-signin .checkbox {
-        font-weight: 400;
-    }
-
-    .form-signin .form-floating:focus-within {
-        z-index: 2;
-    }
-
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-radius: 30px;
-    }
-
-    .form-signin input[type="password"] {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border-radius: 30px;
-    }
-
-.login-or-container {
-    margin: 20px;
-}
-
-.no-account-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.login-create-account-text {
-    font-size: 16px;
-    padding: 10px;
-}
-
-.login-button-text{
-    font-size: 20px;
-    margin: 0 auto;
-    padding: 5px;
-}
-/* startsida css */
-/* hero */
-.hero-text h1 {
-    margin-top: 80px;
-    font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
-        kommer nog ändra i framtiden till någopt som anpassar sig bättre*/
-    font-weight: 700;
-    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-#thn, #Vvik {
-    height: 60vh;
-    width: 100%;
-    object-fit: cover;
-}
-
-    /* hero header */
-
-    .hero-gradient-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .hero-image {
-        position: relative;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        margin-bottom: 80px;
-    }
-
-    .hero-text {
-        text-align: center;
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        text-shadow: 100px;
-    }
-
-    .hero-scroll-button {
-        position: absolute;
-        bottom: 80px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-        .hero-scroll-button img {
-            width: 40px;
-            height: auto;
-            transition: 1s;
-        }
-
-        .hero-scroll-button button {
-            padding: 10px 20px;
-            background-color: #fff;
-            border: 2px solid #000;
-            border-radius: 5px;
-        }
-
-        .hero-scroll-button:hover img {
-            filter: brightness(10%) grayscale(50%) contrast(70%);
-            transform: scale(1.25);
-            cursor: pointer;
-        }
-
-
-/* navbar */
-
-/* adaptiv storlek av navbar först */
-@media (max-width: 1330px) {
-    .content-align-desktop {
-        display: none !important;
-    }
-}
-
-@media (min-width: 1331px) {
-    .content-align-mobile {
-        display: none !important;
-    }
-}
-
-#logged-in-menu, #logged-out-menu {
-    width: 200px;
-}
-
-#loginStatus {
-    display: flex;
-    text-align: center;
-}
-
-#skeleton-profile-placeholder {
-    width: 200px;
-    display: block;
-    height: fit-content;
-
-}
-
-
-.header-trollhattan {
-    min-width: 990px;
-}
-
-.container-categories {
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-}
-
-#loginStatus,
-.nav-start {
-    display: flex;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-}
-
-.nav-item {
-    margin-left: 5px;
-}
-
-    .bg-custom {
-        background-color: #212121;
-    }
-
-    .search-icon {
-        width: 20px;
-        height: auto;
-        margin-left: 4px;
-        margin-bottom: 5px;
-    }
-
-    .navbar {
-        padding: 15px;
-        position: relative;
-    }
-
-.dropdown-toggle{
-    margin-left: 12px;
-}
-
-.nav-link {
-    color: #ffffff !important;
-    font-size: 20px;
-    font-family: 'Roboto Medium', sans-serif;
-    transition: 0.75s;
-}
-
-.nav-link-sm {
-    width: 210px;
-    margin-right: -20px;
-}
-
-.nav-link-lg {
-    width: 265px;
-    margin-left: -20px;
-}
-
-.d-flex {
-    align-items: center;
-}
-
-        .nav-link:hover {
-            color: darkgoldenrod !important;
-        }
-
-.dropdown-cities {
-    margin-left: 3% !important; /* blir inte centrerad på rätt sätt så gör en liten separat margin */
-}
-
-.dropdown-cities,
-.dropdown-categories,
-.dropdown-profile {
-    background-color: #212121;
-    position: absolute;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    animation: dropdownAnimation 0.2s ease forwards;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 1000;
-    padding: 10px !important;
-    min-width: fit-content;
-    margin-top: 30px !important;
-    text-align: center;
-}
-
-.dropdown-city {
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-}
-
-.dropdown{
-}
-
-.dropdown-menu .dropdown-item {
-    color: white;
-    transition: 0.75s;
-    border-radius: 15px;
-}
-
-            .dropdown-menu .dropdown-item:hover {
-                color: darkgoldenrod;
-                background-color: #212529;
-            }
 
 
 
-    @keyframes dropdownAnimation {
-        from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
-.nav-item {
-    display: flex;
-    position: relative;
-}
-
-    .nav-item dropdown {
-        overflow: hidden;
-    }
-
-
-    /*Start page css*/
-
-
+/*Start page css*/
 .start-container {
     display: flex;
     z-index: 10;
@@ -575,416 +423,150 @@ body {
 
 
 
-/*slut på startsidans css*/
-/*fixa pop event för mobiler*/
-
-    /*css för pop event och liknande containers*/
-/*text css*/
-.pop-event-title-text {
-    font-size: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    max-width: 400px;
+/* hero */
+.hero-text h1 {
+    margin-top: 80px;
+    font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
+        kommer nog ändra i framtiden till någopt som anpassar sig bättre*/
+    font-weight: 700;
+    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.pop-event-title-text-bottom {
-    font-size: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin-top: 10px;
-    text-align: end;
-    max-width: 400px;
-    margin-top: -5px;
-
-}
-
-    .pop-event-summary-text {
-        font-size: 14px;
-        font-family: 'Istok Web', sans-serif;
-        font-weight: 500;
-        max-height: 120px;
-        width: 340px;
-        overflow: auto;
-    }
-
-.pop-event-summary-text-bottom {
-    font-size: 14px;
-    font-family: 'Istok Web', sans-serif;
-    font-weight: 500;
-    max-height: 120px;
-    width: 340px;
-    overflow: auto;
-    text-align: end;
-}
-
-    .pop-event-date-text {
-        font-size: 14px;
-        font-family: 'Istok Web', sans-serif;
-        font-weight: 500;
-        font-style: italic;
-        margin-top: 28px;
-        text-decoration: underline;
-        text-color: black;
-        text-decoration-thickness: 1px;
-    }
-
-.pop-event-date-text-bottom {
-    font-size: 14px;
-    font-family: 'Istok Web', sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    margin-top: 28px;
-    text-decoration: underline;
-    text-color: black;
-    text-decoration-thickness: 1px;
-    text-align: end;
-}
-
-    .pop-event-infobox-link-text {
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-    }
-
-.pop-event-infobox-link-text-bottom {
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-align: end;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-        a:hover {
-            color: darkgoldenrod !important;
-            text-decoration: none;
-        }
-
-    /*slut på text css och början av div css logik*/
-.container-pop-event:hover {
-    transform: scale(1.05);
-}
-
-.container-pop-event-lower:hover {
-    transform: scale(1.05);
-}
-
-.page-container:hover{
-    cursor:default;
-}
-
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 100% !important;
-    margin: 0px auto;
-    min-width: 990px;
-    justify-content: center;
-    transition: 0.7s;
-    cursor: pointer;
-    margin-bottom: 50px;
-    overflow: hidden;
-    position: relative;
-    padding: 30px;
-}
-
-.container-pop-event {
-    margin: 0px auto;
-    display: flex;
-    justify-content: flex-start;
-    max-width: fit-content;
-    align-items: flex-start;
-    justify-content: center;
-    transition: 0.5s;
-    overflow: hidden;
-}
-
-/*sträcker ut bilderna till det som de borde vara, ser lite skit ut på en del bilder men får bli så tills vidare*/
-
-.container-pop-event-image {
-    flex: 0 0 auto;
-    margin-right: 10px;
-    width: 400px !important;
-    height: 300px !important;
-    background-color: transparent;
-    border-radius: 20px;
-}
-
-.pop-event-image {
-    max-width: 400px !important;
-    width: 400px !important;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 20px;
-}
-
-    .container-pop-event-content-seperation {
-        height: 100%;
-        width: 30px;
-    }
-
-    .seperation-block {
-        border-bottom: 55px solid black;
-        width: 5px;
-        margin-left: 35px;
-    }
-
-    .container-pop-event-info {
-        margin-left: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container-pop-event-date-area {
-        display: flex;
-        align-items: center;
-        margin-top: -25px;
-        margin-bottom: 10px;
-    }
-
-.container-pop-event-date-icon img {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-
-.container-pop-event-infobox-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0px 0;
-    margin-top: -10px;
-}
-
-        .container-pop-event-infobox-link img {
-            margin-top: -16px;
-            width: 20px;
-            height: auto;
-        }
-
-
-    /*Slut för css del av pop event och liknande events*/
-    /*test för fix av info-boxar*/
-/*funkar!*/
-
-.container-pop-event-lower {
-    margin: 0px auto;
-    margin-top: -20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    justify-content: center;
-    transition: 0.5s;
-}
-
-.container-pop-event-image-lower {
-    flex: 0 0 auto;
-    margin-left: 5px;
-}
-
-.pop-event-image-lower {
-    max-width: 400px !important;
-    border-radius: 20px;
-    height: 300px;
+#thn, #Vvik {
+    height: 60vh;
+    width: 100%;
     object-fit: cover;
 }
 
-.container-pop-event-content-seperation-lower {
-    height: 100%;
-    width: 30px;
-    margin-right: 55px;
-}
-
-.seperation-block-lower {
-    border-bottom: 55px solid black;
-    width: 5px;
-    margin-left: 35px;
-}
-
-.container-pop-event-title-description-lower {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.container-pop-event-summary-description-lower {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.container-pop-event-info-lower {
-    display: flex;
-    flex-direction: column;
-    margin-right: -17px;
-}
-
-.container-pop-event-date-area-lower {
-    display: flex;
-    align-items: center;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    justify-content: flex-end;
-    width: calc(100% - 5px);
-}
-
-.container-pop-event-date-icon-lower img {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-
-.container-pop-event-infobox-link-lower {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0;
-    justify-content: flex-end;
-    width: calc(100% - 5px);
-    margin-top: -10px;
-}
-
-    .container-pop-event-infobox-link-lower img {
-        margin-top: -16px;
-        width: 20px;
-        height: auto;
-    }
-
-/*slut på page-container css */
-
-
-    /* reklam css typ */
-.advert-text {
-    font-size: 12px;
-    text-decoration: underline;
-    margin-top: 20px;
-    color: black;
-    margin-left: 5px;
-}
-
-.advert-image-container {
-    max-width: fit-content;
-}
-
-.advertisement-large img {
-    transition: filter 0.3s;
-    border-radius: 11px;
-}
-
-.advertisement-large:hover img {
-    filter: brightness(80%) grayscale(20%) contrast(120%);
-    cursor: pointer;
-}
-
-.advertisement-large {
+.hero-gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    margin-top: -25px;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    /*object-fit: cover;*/
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
-    /*Carousel css part*/
 
-    /*some text css first*/
+.hero-image {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 80px;
+}
 
-    .carousel-title {
-        margin-top: 10px;
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 100px;
+}
+
+.hero-scroll-button {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .hero-scroll-button img {
+        width: 40px;
+        height: auto;
+        transition: 1s;
     }
 
-      .carousel-text {
-        margin-top: 2px;
-        font-size: 14px;
-        font-family: 'Istok Web', sans-serif;
-        max-height: 130px;
-        overflow: hidden;
+    .hero-scroll-button button {
+        padding: 10px 20px;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 5px;
     }
 
-    .carousel-link-text {
-        font-size: 12px;
-        font-family: 'Inter', sans-serif;
+    .hero-scroll-button:hover img {
+        filter: brightness(10%) grayscale(50%) contrast(70%);
+        transform: scale(1.25);
+        cursor: pointer;
+    }
+
+
+
+
+/* Logga in */
+#loggainlogga {
+    filter: invert(100%);
+}
+
+.btn-primary {
+    border-radius: 75px;
+}
+
+.loginbody {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.btn-login {
+    margin-top: 30px;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+    .form-signin .checkbox {
         font-weight: 400;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
     }
 
-    .carousel-date-text {
-        font-size: 12px;
-        font-family: 'Istok Web', sans-serif;
-        font-weight: 500;
-        font-style: italic;
-        text-decoration: underline;
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
     }
 
-    /*start of css for carousel*/
-    /*karusellen funkar inte alls just nu, någon får gärna greja med den fast vi kommer 
-    dock behöva loopa in infomration från en API så en placeholder för ett fast antal element är lite meningslöst imo*/
-    #carouselExampleDark {
-        display: flex;
-        overflow-x: auto;
-        gap: 10px;
-        margin: auto;
-        width: 90%;
-        height: auto;
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-radius: 30px;
     }
 
-     .row {
-        margin: auto;
-        overflow: hidden;
-        flex-wrap:nowrap;
+    .form-signin input[type="password"] {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 30px;
     }
 
-    .col-md-4 {
-        flex: 0 0 auto;
-        background-color: #FFC9C0;
-        width: 240px;
-        height: 400px;
-        margin: 25px 30px auto;
-        border-radius: 10px;
-        box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-        padding: 15px;
-        transition: 0.5s;
-    }
+.login-or-container {
+    margin: 20px;
+}
 
-        .col-md-4:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-        }
+.no-account-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
 
-    .carousel-inner {
-        width: 100%;
-        height: 500px;
-        max-height: 500px;
-        padding: 30px;
-        margin: auto;
-    }
+.login-create-account-text {
+    font-size: 16px;
+    padding: 10px;
+}
 
-    .carousel-image {
-        max-width: 100%;
-        width: 200px;
-        height: auto;
-        max-height: 115px;
-        border-radius: 10px;
-    }
+.login-button-text {
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 5px;
+}
 
 
 
 
-    /* footer */
+/* footer */
 .footer-wrapper {
     width: 100%;
     overflow-x: auto;
@@ -1076,72 +658,3 @@ a {
     width: 150px;
     height: fit-content;
 }
-/*EventDetails*/
-
-.event-details {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    padding: 20px;
-}
-
-.event-map iframe {
-    flex: 0 0 auto; /* Prevent the iframe from growing */
-    margin-right: 20px; /* Space between map and info */
-}
-
-.event-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-    .event-info div {
-        margin-bottom: 10px; /* Space between info lines */
-    }
-
-.bi {
-    margin-right: 5px; /* Space between icon and text */
-}
-
-#container-pop-event {
-    max-width: 1200px; /* Max width of the container */
-    margin: auto; /* Center the container */
-    padding: 0 40px; /* Padding on the sides */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.event-image-wrapper {
-    max-width: 100%; /* Ensure the image container does not overflow the width of the parent */
-    padding: 0 40px; /* Padding on the sides */
-    box-sizing: border-box; /* Include padding in the width calculation */
-    margin-bottom: 20px; /* Space between image and text */
-}
-
-.event-image {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain the aspect ratio */
-    border-radius: 10px; /* Rounded corners */
-}
-
-.event-description p {
-    text-align: justify;
-    max-width: 100%;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 0 40px;
-}
-
-@media (max-width: 768px) {
-    #container-pop-event {
-        padding: 0 20px; /* Smaller padding on smaller screens */
-    }
-
-    .event-image-wrapper, .event-description p {
-        padding: 0 20px;
-    }
-}
-
