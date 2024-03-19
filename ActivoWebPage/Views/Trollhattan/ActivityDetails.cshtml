@@ -11,6 +11,9 @@
     <h2 class="gradient-text" style=" margin-right: 100px;">@Model.Activity?.name</h2>
     <a class="bi bi-bookmark-fill" href="#" style="font-size: 2.5rem; text-decoration: none !important; "></a>
     </div>
+ <div id="activitySavedPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index: 1000; font-size: 1.5rem; border-radius: 5px; color: black;">
+     Aktiviteten har sparats.
+ </div>
     <div class="gradient-block"></div>
 
     <div id="container-pop-event">
@@ -60,5 +63,23 @@
 
 @section Scripts {
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookmarkIcon = document.querySelector('.bi-bookmark-fill');
+            const activitySavedPopup = document.getElementById('activitySavedPopup');
+
+            if (bookmarkIcon) {
+                bookmarkIcon.addEventListener('click', function (e) {
+                    e.preventDefault(); // Förhindrar standardbeteendet för länken.
+                    activitySavedPopup.style.display = 'block'; // Visar popup-meddelandet.
+                    setTimeout(function () {
+                        activitySavedPopup.style.display = 'none'; // Gömmer popup-meddelandet efter 3 sekunder.
+                    }, 3000);
+                });
+            }
+        });
+
+    </script>
 }
 
