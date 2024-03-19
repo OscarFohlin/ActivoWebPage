@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
+    @using System.Data
+
     @*sida än så länge låst på typ 990px 
         i min-width på grund av overflow problem inom de andra sektionerna
         men när de mobilanpassats så kan vi basically ta bort min-width av
@@ -28,15 +30,15 @@
               </a>
 
             <div class="nav-list">
-
+                
                 <div class="vr text-light" style="width: 3px;"></div>
                 <a class="nav-link" asp-action="Search" asp-controller="Home">SÖK EVENT <img class="search-icon" src="~/images/searchglass.svg" /></a>
                 <div class="vr text-light" style="width: 3px;"></div>
               <div id="loginStatus">
                     @{
                         var isAuthenticated = ViewData["IsAuthenticated"] as string;
-
-                        if (isAuthenticated == "true")
+                        
+                        @if (isAuthenticated == "true")
                         {
                             <div class="nav-item dropdown" id="logged-in-menu">
                                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

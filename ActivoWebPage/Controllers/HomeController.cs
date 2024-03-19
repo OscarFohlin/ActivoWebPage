@@ -201,7 +201,11 @@ namespace ActivoWebPage.Controllers
         public async Task<IActionResult?> Index()
         {
             var events = await _eventApiService.GetEventDataAsync(); 
-            var activities = await _eventApiService.GetActivityDataAsync(); 
+            var activities = await _eventApiService.GetActivityDataAsync();
+
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
             var viewModel = new HomeViewModel
             {
@@ -215,7 +219,12 @@ namespace ActivoWebPage.Controllers
         public async Task<IActionResult> Search()
         {
             var events = await _eventApiService.GetEventDataAsync();
-            var activities = await _eventApiService.GetActivityDataAsync(); 
+            var activities = await _eventApiService.GetActivityDataAsync();
+
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
 
             var viewModel = new HomeViewModel
             {

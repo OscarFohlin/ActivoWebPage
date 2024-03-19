@@ -63,6 +63,10 @@ namespace ActivoWebPage.Controllers
                 RandomAdvertisement = randomAd
             };
 
+            var authenticationService = new AuthenticationService();
+            var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
+            authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
+
             return View(viewModel);
         }
 
