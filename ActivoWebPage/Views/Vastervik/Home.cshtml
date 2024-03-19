@@ -89,19 +89,22 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-9" style="height: 100%;">
 
-                <div class="advert-text">
-                    <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
-                </div>
-
                 <div class="advertisement-large d-flex justify-content-center align-items-center position-relative">
-                    <a href="@Model.RandomAdvertisement.imageLink">
-                        <img src="@Model.RandomAdvertisement.imageSource" alt="Advert" class="img-fluid">
-                    </a>
+                    <div class="advert-image-container">
+                        <div class="advert-text">
+                            <div class="advert-text-inner" style="font-size: 12px; text-decoration: underline;">Annons</div>
+                        </div>
+                        <a href="@Model.RandomAdvertisement.imageLink">
+                            <img src="@Model.RandomAdvertisement.imageSource" alt="Advert" class="img-fluid">
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 }
+
 
         <h2>
             <span class="gradient-text">POPULÄRA  AKTIVITETER</span>

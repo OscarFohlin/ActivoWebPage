@@ -863,33 +863,37 @@ a {
 
 
     /* reklam css typ */
-    .advert-text {
-        margin-left: 10.5%;
-        font-size: 12px;
-        text-decoration: underline;
-        margin-top: 20px;
-        color: black;
-    }
+.advert-text {
+    font-size: 12px;
+    text-decoration: underline;
+    margin-top: 20px;
+    color: black;
+}
+
+.advert-image-container {
+    max-width: fit-content;
+}
 
 .advertisement-large img {
     transition: filter 0.3s;
     border-radius: 11px;
+    width: 1000px;
+    height: 550px;
 }
 
-    .advertisement-large:hover img {
-        filter: brightness(80%) grayscale(20%) contrast(120%);
-        cursor: pointer;
-    }
+.advertisement-large:hover img {
+    filter: brightness(80%) grayscale(20%) contrast(120%);
+    cursor: pointer;
+}
 
-    .advertisement-large {
-        width: 80%;
-        height: auto;
-        margin-top: -25px;
-        margin: 0 auto;
-        margin-bottom: 100px;
-        object-fit: cover;
-    }
-
+.advertisement-large {
+    width: 100%;
+    height: auto;
+    margin-top: -25px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    /*object-fit: cover;*/
+}
     /*Carousel css part*/
 
     /*some text css first*/
