@@ -24,24 +24,21 @@
             <h2 class="startpage-thn-name no-pointer-events">Trollhättan</h2>
         </a>
     </div>
+    @{
+        var isAuthenticated = ViewData["IsAuthenticated"] as string;
+        @if (isAuthenticated != "true")
+        {
+            <h1 class="startpage-or-text no-pointer-events">ELLER</h1>
 
-    <h1 class="startpage-or-text no-pointer-events">ELLER</h1>
-
-    <div class="startpage-login-container">
-        <a asp-action="Login" asp-controller="Home">
-            <div class="startpage-login-box">
-                <h1 class="startpage-login-text no-pointer-events">LOGGA IN</h1>
-            </div>
-        </a>
-    </div>
-
-    <div class="startpage-create-container">
-        <a href="https://informatik7.ei.hv.se/ProfilMVC/Citizens/Create">
-            <div class="startpage-create-box">
-                <h1 class="startpage-create-text no-pointer-events">SKAPA KONTO</h1>
-            </div>
-        </a>
-    </div>
+            <div class="startpage-login-container">
+                <a asp-action="Login" asp-controller="Home">
+                <div class="startpage-login-box">
+                    <h1 class="startpage-login-text no-pointer-events">LOGGA IN</h1>
+                </div>
+            </a>
+        </div>
+        }
+    }
 
     <div class="logo-startpage no-pointer-events"><img class="logo-startpage-img" src="~/images/logo_Eventivo.png" alt="Company-Logo" /></div>
 
