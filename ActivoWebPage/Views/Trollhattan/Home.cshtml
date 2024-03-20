@@ -67,9 +67,11 @@
                     </div>
 
                     <div class="container-pop-event-infobox-link">
-                        <p class="pop-event-infobox-link-text"><a href="#">Läs mer</a></p>
-                        <img src="~/images/read-more-icon.png" />
-                    </div>
+    <p class="pop-event-infobox-link-text" style="font-size: 1rem; text-decoration: none;">
+        <a asp-action="EventDetails" asp-controller="Trollhattan" asp-route-eventId="@events?.EventID">Läs mer</a>
+    </p>
+    <img src="~/images/read-more-icon.png" />
+</div>
                 </div>
             </div>
         </div>
