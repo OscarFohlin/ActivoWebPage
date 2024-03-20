@@ -328,7 +328,7 @@ body {
 
 .resolution-scale-image-startpage {
     object-fit: cover;
-    height: 100vh;
+    height: 1200px;
     filter: brightness(40%) contrast(110%);
     transition: 1s ease;
 }
@@ -354,7 +354,7 @@ body {
 .startpage-seperation-block {
     margin: 0 auto;
     width: 3px;
-    height: 100vh;
+    height: 1200px;
     background-color: #212121;
     z-index: 1;
 }
@@ -425,11 +425,6 @@ body {
     .startpage-login-box:hover .startpage-login-text {
         color: darkgoldenrod !important;
     }
-
-
-
-
-
 
 /* hero */
 

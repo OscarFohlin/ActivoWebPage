@@ -14,8 +14,8 @@
     margin-top: -5px;
 }
 
-.pop-event-summary-text, .pop-event-summary-text-lower {
-    font-size: 14px;
+.pop-event-summary-text{
+    font-size: 20px;
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
     height: 150px;
