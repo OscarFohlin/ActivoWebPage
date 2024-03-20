@@ -19,20 +19,17 @@ namespace ActivoWebPage.Controllers
             _eventApiService = eventApiService;
         }
 
-        //Flikar för Trollhättan
         public async Task<IActionResult> Home()
         {
+            //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
-            //random test
             var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
-            //random test
             var randomAdvert = new Random();
 
-            //random test
             var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
             int randomIndex = randomAdvert.Next(0, advertIds.Count);
             var randomAdId = advertIds[randomIndex];
@@ -59,7 +56,6 @@ namespace ActivoWebPage.Controllers
             {
                 Events = filteredEvent,
                 Activities = filteredActivities,
-                //random test
                 RandomAdvertisement = randomAd
             };
 
@@ -72,16 +68,15 @@ namespace ActivoWebPage.Controllers
 
         public async Task<IActionResult> CultureAsync()
         {
+            //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
             var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
-            //random test
             var randomAdvert = new Random();
 
-            //random test
             var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
             int randomIndex = randomAdvert.Next(0, advertIds.Count);
             var randomAdId = advertIds[randomIndex];
@@ -118,18 +113,18 @@ namespace ActivoWebPage.Controllers
             return View(viewModel);
         }
 
+
         public async Task<IActionResult> SportsAsync()
         {
+            //Hämtar data från API och skickar de till view
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
             var adverts = await _eventApiService.GetAdvertisementDataAsync();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
-            //random test
             var randomAdvert = new Random();
 
-            //random test
             var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
             int randomIndex = randomAdvert.Next(0, advertIds.Count);
             var randomAdId = advertIds[randomIndex];
@@ -174,10 +169,8 @@ namespace ActivoWebPage.Controllers
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
-            //random test
             var randomAdvert = new Random();
 
-            //random test
             var advertIds = adverts.Select(ad => ad.advertisementID).ToList();
             int randomIndex = randomAdvert.Next(0, advertIds.Count);
             var randomAdId = advertIds[randomIndex];
@@ -216,20 +209,23 @@ namespace ActivoWebPage.Controllers
 
         public async Task<IActionResult> Search()
         {
+            // Hämtar alla events och aktiviteter
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var tags = await _eventApiService.GetTags();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
 
             foreach (var activity in activities)
             {
-                var place = await _eventApiService.GetPlaceByIdAsync(activity.PlacesID);
-                if (place?.City?.Equals("Trollhättan", StringComparison.OrdinalIgnoreCase) == true)
+                var place = await _eventApiService.GetPlaceByIdAsync(activity?.PlacesID);
+                if (place != null && place.City == "Trollhättan")
                 {
                     filteredActivities.Add(activity);
                 }
             }
+
             foreach (var ev in events)
             {
                 var place = await _eventApiService.GetPlaceByIdAsync(ev.PlacesID);
@@ -239,23 +235,24 @@ namespace ActivoWebPage.Controllers
                 }
             }
 
+            // Skapar och returnerar viewModel med filtrerade listor
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                Tags = tags
             };
-            
+
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
             authenticationService.ReadSessionVariables(controller: this, httpContext: HttpContext);
 
-            return View("Search", viewModel);
+            return View("Search", viewModel); // Se till att du har en Search-vy som tar emot HomeViewModel
         }
 
-
-        public async Task<IActionResult> EventDetails(int EventID)
+        public async Task<IActionResult> EventDetails(int eventId)
         {
-            var eventModel = await _eventApiService.GetEventByIdAsync(EventID);
+            var eventModel = await _eventApiService.GetEventByIdAsync(eventId);
             if (eventModel == null)
             {
                 return View("EventNotFound");
@@ -284,22 +281,17 @@ namespace ActivoWebPage.Controllers
             return View(viewModel);
         }
 
-        public async Task<IActionResult> ActivityDetails(int activityID)
+        public async Task<IActionResult> ActivityDetailsAsync(int activityId)
         {
-            var activityModel = await _eventApiService.GetActivityByIdAsync(activityID);
+            var activityModel = await _eventApiService.GetActivityByIdAsync(activityId);
             if (activityModel == null)
             {
                 return View("ActivityNotFound");
             }
-
             var placeModel = await _eventApiService.GetPlaceByIdAsync(activityModel.PlacesID);
             if (placeModel == null)
             {
-                placeModel = new Places
-                {
-                    Name = "Okänd plats",
-                    Address = "Ingen adress tillgänglig"
-                };
+                return View("PlaceNotFound");
             }
 
             var viewModel = new EventDetailsViewModel
@@ -314,8 +306,5 @@ namespace ActivoWebPage.Controllers
 
             return View(viewModel);
         }
-
-
     }
 }
-
