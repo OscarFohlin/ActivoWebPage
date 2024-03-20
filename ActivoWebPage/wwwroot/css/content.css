@@ -275,7 +275,7 @@ a {
 /* Carousel */
 .activitesCarousel {
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     margin-left: 10vw;
     gap: 25px;
     width: 80vw;

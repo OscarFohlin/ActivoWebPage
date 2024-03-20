@@ -38,8 +38,25 @@ body {
 .no-pointer-events {
     pointer-events: none;
 }
+/*scrollbar test*/
 
+::-webkit-scrollbar {
+    width: 10px;
+}
 
+::-webkit-scrollbar-track {
+    background: #E6E4E4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ADACAC;
+    border-radius: 50px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #969595;
+    }
 
 
 /* navbar */
