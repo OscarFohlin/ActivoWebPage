@@ -5,38 +5,37 @@
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
-<div class="smallercontent">
-    <h1>Sök event </h1>
+<div class="startbody">
+    <div class="smallercontent">
+        <h1>Sök event </h1>
 
-    <table class="table">
-
-        <thead>
-            <tr>
-                <th scope="col">Namn</th>
-                <th scope="col">Beskrivning</th>
-                <th scope="col">Pris</th>
-                <th scope="col">Plats</th>
-                <th scope="col">Startar</th>
-                <th scope="col">Slutar</th>
-                <th scope="col">Länk</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var events in Model.Events.Where(e => e != null))
-            {
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
                 <tr>
-                    <td>@events?.Name</td>
-                    <td>@events?.Description</td>
-                    <td>@events?.Price</td>
-                    <td>@events?.PlacesID</td>
-                    <td>@events?.StartDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td>@events?.EndDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
+                    <th scope="col">Namn</th>
+                    <th scope="col">Beskrivning</th>
+                    <th scope="col">Pris</th>
+                    <th scope="col">Plats</th>
+                    <th scope="col">Startar</th>
+                    <th scope="col">Slutar</th>
+                    <th scope="col">Länk</th>
                 </tr>
-            }
-        </tbody>
-
-    </table>
-
+            </thead>
+            <tbody>
+                @foreach (var events in Model.Events.Where(e => e != null))
+                {
+                    <tr>
+                        <td>@events?.Name</td>
+                        <td>@events?.Description</td>
+                        <td>@events?.Price</td>
+                        <td>@events?.PlacesID</td>
+                        <td>@events?.StartDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@events?.EndDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
