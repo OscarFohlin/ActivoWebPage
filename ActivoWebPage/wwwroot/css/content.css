@@ -464,29 +464,33 @@ thead {
 .container-pop-event-image {
     flex: 0 0 auto;
     padding-right: 25px;
-    width: 45vw;
-    height: 300px !important;
+    width: 400px !important;
+    height: 350px !important;
     background-color: transparent;
     border-radius: 20px;
 }
 .container-pop-event-image-lower {
     flex: 0 0 auto;
     padding-left: 25px;
+    width: 400px !important;
+    height: 350px !important;
+    background-color: transparent;
+    border-radius: 20px;
 }
 
 .pop-event-image {
     max-width: 400px !important;
-    width: 45vw;
-    height: 300px;
+    width: 400px !important;
+    height: 350px !important;
     object-fit: fill;
     border-radius: 20px;
     float: right;
 }
 .pop-event-image-lower {
-    max-width: 400px !important;
+    width: 400px !important;
+    height: 350px !important;
+    object-fit: fill;
     border-radius: 20px;
-    height: 300px;
-    object-fit: cover;
 }
 
 
