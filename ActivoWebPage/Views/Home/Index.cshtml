@@ -58,5 +58,31 @@
         <h4 class="login-popup-text">Du är inloggad</h4>
     </div>
 
+@* script ligger här annars funkar inte karusellknappar....*@
+ <script>
+        function showPopUp() {
+            var popUp = document.querySelector('.login-pop-up-success');
+            popUp.classList.add('show');
 
+            setTimeout(function () {
+                popUp.classList.remove('show');
+            }, 4000);
+        }
+
+        window.onload = function () {
+            var popUpElement = document.querySelector('.login-pop-up-success');
+            var isAuthenticated = popUpElement.getAttribute('data-is-authenticated');
+
+            if (isAuthenticated === "true" && !sessionStorage.getItem('popUpDisplayed')) {
+                showPopUp();
+                sessionStorage.setItem('popUpDisplayed', true);
+            }
+        };
+
+        var logoutLink = document.getElementById('logout-link');
+
+        logoutLink.addEventListener('click', function () {
+            sessionStorage.removeItem('popUpDisplayed');
+        });
+    </script>
 </div>
