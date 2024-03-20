@@ -6,14 +6,14 @@
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
-<div class="content">
+<div class="content startbody">
 
     <h2 id="top-titlecard-at-section">
         <span class="gradient-text">HÄNDER JUST NU</span>
         <div class="gradient-block"></div>
     </h2>
 
-    @foreach (var events in Model.Events.Where(e => e.TagID != null && (e.TagID.Contains(2) || e.TagID.Contains(3) || e.TagID.Contains(5) || e.TagID.Contains(6) || e.TagID.Contains(15) || e.TagID.Contains(16) || e.TagID.Contains(27) || e.TagID.Contains(28))))
+    @foreach (var events in Model.Events.Where(e => e.TagID != null && (e.TagID.Contains(2) || e.TagID.Contains(3) || e.TagID.Contains(5) || e.TagID.Contains(6) || e.TagID.Contains(15) || e.TagID.Contains(16) || e.TagID.Contains(27) || e.TagID.Contains(28))).Take(3))
     {
 
         <div class="page-container">
@@ -135,13 +135,5 @@
                 </div>
                 }
             }
-        </div>
-        <div class="scrollbuttons">
-            <div>
-                <button class="scrollbutton" id="goLeft"> &#8249 </button>
-            </div>
-            <div>
-                <button class="scrollbutton" id="goRight">&#8250 </button>
-            </div>
         </div>
     </div>
