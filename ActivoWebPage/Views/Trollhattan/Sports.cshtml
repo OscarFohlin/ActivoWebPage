@@ -6,16 +6,15 @@
     Layout = "~/Views/Shared/_layout_trollhattan.cshtml";
 }
 
-<div class="content">
+<div class="content startbody">
 
     <h2 id="top-titlecard-at-section">
         <span class="gradient-text">HÄNDER JUST NU</span>
         <div class="gradient-block"></div>
     </h2>
 
-    @foreach (var events in Model.Events.Where(e => e.TagID != null && (e.TagID.Contains(9) || e.TagID.Contains(10) || e.TagID.Contains(17) || e.TagID.Contains(18) || e.TagID.Contains(19) || e.TagID.Contains(21) || e.TagID.Contains(22) || e.TagID.Contains(23) || e.TagID.Contains(29))))
+    @foreach (var events in Model.Events.Where(e => e.TagID != null && (e.TagID.Contains(9) || e.TagID.Contains(10) || e.TagID.Contains(17) || e.TagID.Contains(18) || e.TagID.Contains(19) || e.TagID.Contains(21) || e.TagID.Contains(22) || e.TagID.Contains(23) || e.TagID.Contains(29))).Take(3))
     {
-
         <div class="page-container">
             <div class="container-pop-event">
 
@@ -62,12 +61,8 @@
                         </p>
                         <img src="~/images/read-more-icon.png" />
                     </div>
-
-
                 </div>
-
             </div>
-
         </div>
     }
 
@@ -132,13 +127,5 @@
                 </div>
                 }
             }
-        </div>
-        <div class="scrollbuttons">
-            <div>
-                <button class="scrollbutton" id="goLeft"> &#8249 </button>
-            </div>
-            <div>
-                <button class="scrollbutton" id="goRight">&#8250 </button>
-            </div>
         </div>
     </div>
