@@ -334,7 +334,61 @@ body {
     height: 250px;
     width: auto;
 }
+/* logg in på startsidan */
+.startpage-login-container {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
 
+.startpage-login-box {
+    background-color: #212121;
+    border-radius: 50px;
+    width: 200px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.startpage-login-text, .startpage-create-text {
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.startpage-create-container {
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.startpage-create-box {
+    background-color: #212121;
+    border-radius: 50px;
+    width: 200px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.startpage-login-box:hover {
+    transform: scale(1.1);
+}
+
+    .startpage-login-box:hover .startpage-login-text {
+        color: darkgoldenrod !important;
+    }
 
 
 
