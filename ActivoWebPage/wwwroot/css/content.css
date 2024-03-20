@@ -21,6 +21,7 @@
     height: 150px;
     width: 40vw;
     overflow: auto;
+    margin-right: 10px;
 }
 
 .pop-event-summary-text-bottom {

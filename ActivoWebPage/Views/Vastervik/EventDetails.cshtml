@@ -13,9 +13,9 @@
     <div id="container-pop-event">
         <div id="container-pop-event-info">
             <div class="event-image-wrapper">
-                @if (Model.Event?.ImageLink?.Length > 0)
+                @if (!string.IsNullOrEmpty(Model.Event?.ImageLink))
                 {
-                    <img src="@Model.Event.ImageLink[0]" alt="@Model.Event.Name" loading="lazy" class="event-image" />
+                    <img src="@Model.Event.ImageLink" alt="@Model.Event.ImageLink" loading="lazy" class="event-image" />
                 }
             </div>
 
