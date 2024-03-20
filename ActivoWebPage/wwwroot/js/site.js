@@ -1,7 +1,3 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
 
 //hero header pil ner script temp funktionalitet
 function scrollToBottom() {
@@ -11,7 +7,7 @@ function scrollToBottom() {
 //kolla URL
 var currentUrl = window.location.href;
 
-//kolla om URL stämmer
+//kolla om URL stämmer, ange färg på text
 if (currentUrl.includes("Trollhattan")) {
     //fixa stilar/funktioner beroende på det som ska hända om URL:en stämmer
     var navLink = document.querySelector("body > header > nav > div.nav-list > div.nav-item.dropdown > a")
@@ -20,7 +16,6 @@ if (currentUrl.includes("Trollhattan")) {
     //ändra font stil
     navLink.classList.add('chosen-section-highlight-text');
 }
-
 
 if (currentUrl.includes("Vastervik")) {
 
@@ -76,36 +71,7 @@ if (currentUrl.includes("Search")) {
     navLink.classList.add('chosen-section-highlight-text');
 }
 
-function showPopUp() {
-    var popUp = document.querySelector('.login-pop-up-success');
-    popUp.classList.add('show');
 
-    setTimeout(function () {
-        popUp.classList.remove('show');
-    }, 4000);
-}
-
-window.onload = function () {
-    var popUpElement = document.querySelector('.login-pop-up-success');
-    var isAuthenticated = popUpElement.getAttribute('data-is-authenticated');
-
-    if (isAuthenticated === "true" && !sessionStorage.getItem('popUpDisplayed')) {
-        showPopUp();
-        sessionStorage.setItem('popUpDisplayed', true);
-    }
-};
-
-var logoutLink = document.getElementById('logout-link');
-
-logoutLink.addEventListener('click', function () {
-    sessionStorage.removeItem('popUpDisplayed');
-});
-
-
-
-    //funktioner för blur effekt på den andra bilden när man hoverar över för
-//blir knasigt i css när man försöker ändra en annan saks properties
-    //fortsätter på det senare sätter bara upp startsidan först så att den finns
 
 //karusellknappar
 goLeft = document.getElementById("goLeft");
