@@ -45,8 +45,16 @@
                         <h2 class="pop-event-title-text">@events.Name</h2>
                     </div>
 
-                    <div class="container-pop-event-summary-description">
-                        <p class="pop-event-summary-text">@events.Description</p>
+                     <div class="container-pop-event-summary-description">
+                      @{
+                          string description = events?.Description ?? string.Empty;
+                          string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                          string shortDescription = string.Join(".", sentences.Take(2));
+                      }
+
+                      <p class="pop-event-summary-text">
+                      @shortDescription
+                      </p>
                     </div>
 
                     <div class="container-pop-event-date-area">
@@ -75,9 +83,17 @@
                         <h2 class="pop-event-title-text-lower">@events.Name</h2>
                     </div>
 
-                    <div class="container-pop-event-summary-description-lower">
-                        <p class="pop-event-summary-text-lower">@events.Description</p>
-                    </div>
+                  <div class="container-pop-event-summary-description">
+                  @{
+                      string description = events?.Description ?? string.Empty;
+                      string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                      string shortDescription = string.Join(".", sentences.Take(2));
+                  }
+
+                  <p class="pop-event-summary-text">
+                      @shortDescription
+                  </p>
+                  </div>
 
                     <div class="container-pop-event-date-area-lower">
                         <div class="container-pop-event-date-icon-lower">
