@@ -16,48 +16,50 @@
  </div>
     <div class="gradient-block"></div>
 
-    <div id="container-pop-event">
-        <div id="container-pop-event-info">
-           <div class="event-image-wrapper">
-                @if (!string.IsNullOrEmpty(Model.Activity?.imageLink))
-                {
-                    <img src="@Model.Activity.imageLink" alt="@Model.Activity.name" loading="lazy" class="event-image" />
-                }
-            </div>
-            <div id="container-pop-event-content-seperation">
-                <div class="seperation-block"></div>
-            </div>
+   <div class="startbody">
+        <div id="container-pop-event">
+            <div id="container-pop-event-info">
+                <div class="event-image-wrapper">
+                    @if (!string.IsNullOrEmpty(Model.Activity?.imageLink))
+                    {
+                        <img src="@Model.Activity.imageLink" alt="@Model.Activity.name" loading="lazy" class="event-image" />
+                    }
+                </div>
+                <div id="container-pop-event-content-seperation">
+                    <div class="seperation-block"></div>
+                </div>
 
-            <div class="event-description">
-                <p>@Model.Activity?.description</p>
+                <div class="event-description">
+                    <p>@Model.Activity?.description</p>
+                </div>
             </div>
         </div>
-    </div>
 
-<div class="event-details" style="padding-right:100px !important; ">
-    <div class="event-map">
-        <img src="~/images/GoogleMaps.png"
-             width="300"
-             height="200"
-             style="border:0;"
-             allowfullscreen=""
-             loading="lazy"
-             referrerpolicy="no-referrer-when-downgrade" />
+        <div class="event-details" style="padding-right:100px !important; ">
+            <div class="event-map">
+                <img src="~/images/GoogleMaps.png"
+                     width="300"
+                     height="200"
+                     style="border:0;"
+                     allowfullscreen=""
+                     loading="lazy"
+                     referrerpolicy="no-referrer-when-downgrade" />
 
-        <p>
-            <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=2/@Model.Place?.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
+                <p>
+                    <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=2/@Model.Place?.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
 
-        </p>
-        <p>Adress: @Model.Place?.Address</p>
-    </div>
+                </p>
+                <p>Adress: @Model.Place?.Address</p>
+            </div>
 
-    <div class="event-info">
-        <div><i class="bi bi-activity"></i>@Model.Activity?.name</div>
-        <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
-        <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
-        @*<div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>*@
-        <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
-    </div>
+            <div class="event-info">
+                <div><i class="bi bi-activity"></i>@Model.Activity?.name</div>
+                <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
+                <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
+                @*<div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>*@
+                <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
+            </div>
+        </div>
     </div>
 </div>
 
