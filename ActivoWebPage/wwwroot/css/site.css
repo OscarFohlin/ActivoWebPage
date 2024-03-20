@@ -14,7 +14,7 @@ body {
 
 .content {
     flex: 1;
-    min-width: 990px; /*tills overflow av infoboxar har fixats (mobilanpassning) därefter omkring 500px min*/
+    /*min-width: 990px;*/ /*tills overflow av infoboxar har fixats (mobilanpassning) därefter omkring 500px min*/
 }
 
 .smallercontent {
@@ -24,7 +24,6 @@ body {
 .startbody {
     background-image: url("/images/bakgrund.png");
     background-size: cover;
-    min-width: 990px;
 }
 
 .container-seperation {
@@ -73,7 +72,6 @@ body {
     max-width: 100%;
 }
 
-#loginStatus,
 .nav-start {
     display: flex;
 }
@@ -83,9 +81,20 @@ body {
     align-items: center;
 }
 
+/*.nav-item {
+    margin-left: 5px;
+}*/
+
+/*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
 .nav-item {
+    display: flex;
+    position: relative;
     margin-left: 5px;
 }
+
+    .nav-item dropdown {
+        overflow: hidden;
+    }
 
 .bg-custom {
     background-color: #212121;
@@ -113,6 +122,9 @@ body {
     font-family: 'Roboto Medium', sans-serif;
     transition: 0.75s;
 }
+    .nav-link:hover {
+        color: darkgoldenrod !important;
+    }
 
 .nav-link-sm {
     width: 210px;
@@ -128,9 +140,6 @@ body {
     align-items: center;
 }
 
-.nav-link:hover {
-    color: darkgoldenrod !important;
-}
 
 .dropdown-cities {
     margin-left: 3% !important; /* blir inte centrerad på rätt sätt så gör en liten separat margin */
@@ -160,9 +169,6 @@ body {
     font-size: 20px;
 }
 
-.dropdown {
-}
-
 .dropdown-menu .dropdown-item {
     color: white;
     transition: 0.75s;
@@ -185,14 +191,7 @@ body {
     }
 }
 
-/*gör att dropdown-boxen inte ligger längre ner än de andra sakerna*/
-.nav-item {
-    display: flex;
-    position: relative;
-}
-    .nav-item dropdown {
-        overflow: hidden;
-    }
+
 
 
 
@@ -246,6 +245,8 @@ body {
     display: flex;
     z-index: 10;
     position: relative;
+    flex: 1;
+    justify-content: center;
 }
 
 .startpage-text {
@@ -260,21 +261,6 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
     font-size: 120px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.startpage-or-text {
-    position: absolute;
-    bottom: 27%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: center;
-    z-index: 3;
-    color: white;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 60px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -295,15 +281,6 @@ body {
     text-shadow: 0 0 10px rgba(0, 0, 0, 2);
 }
 
-
-.start-container {
-    display: flex;
-    position: relative;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-}
-
 .startpage-image {
     flex: 50%;
     z-index: 1;
@@ -315,15 +292,33 @@ body {
 
 .resolution-scale-image-startpage {
     object-fit: cover; 
-    height: 1200px;
+    height: 90vh;
     filter: brightness(40%) contrast(110%);
     transition: 1s ease;
 }
 
+
+#startpage-image-vvik:hover .resolution-scale-image-startpage {
+    filter: brightness(90%) contrast(110%);
+}
+
+#startpage-image-vvik:hover .startpage-vvik-name {
+    font-size: 4.5vw;
+}
+
+#startpage-image-thn:hover .resolution-scale-image-startpage {
+    filter: brightness(90%) contrast(110%);
+}
+
+#startpage-image-thn:hover .startpage-thn-name {
+    font-size: 4.5vw;
+}
+
+
 .startpage-seperation-block {
     margin: 0 auto;
     width: 3px;
-    height: 1200px;
+    height: 90vh;
     background-color: #212121;
     z-index: 1;
 }
@@ -340,149 +335,47 @@ body {
     width: auto;
 }
 
-.startpage-login-container {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
 
-.startpage-login-box{
-    background-color: #212121;
-    border-radius: 50px;
-    width: 200px;
-    padding: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
-    z-index: 1;
-    transition: 0.5s ease;
-}
-
-.startpage-login-text, .startpage-create-text {
-    margin: 0;
-    text-align: center;
-    color: white;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 24px;
-    z-index: 1;
-    transition: 0.5s ease;
-}
-
-.startpage-create-container{
-    position: absolute;
-    bottom: 13%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-.startpage-create-box {
-    background-color: #212121;
-    border-radius: 50px;
-    width: 200px;
-    padding: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
-    z-index: 1;
-    transition: 0.5s ease;
-}
-
-
-.startpage-login-box:hover {
-    transform: scale(1.1);
-}
-
-    .startpage-login-box:hover .startpage-login-text {
-        color: darkgoldenrod !important;
-    }
-
-.startpage-create-box:hover {
-    transform: scale(1.1);
-}
-
-    .startpage-create-box:hover .startpage-create-text {
-        color: darkgoldenrod !important;
-    }
-
-    #startpage-image-vvik:hover .resolution-scale-image-startpage {
-        filter: brightness(90%) contrast(110%);
-    }
-
-#startpage-image-vvik:hover .startpage-vvik-name {
-    font-size: 4.5vw;
-}
-
-/*the other images animations/transitions ya knowwww*/
-
-#startpage-image-thn:hover .resolution-scale-image-startpage {
-    filter: brightness(90%) contrast(110%);
-}
-
-#startpage-image-thn:hover .startpage-thn-name {
-    font-size: 4.5vw;
-}
-
-.login-pop-up-success {
-    position: fixed;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #212121;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 45px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-    .login-pop-up-success.show {
-        opacity: 0.8;
-    }
-
-.login-popup-text {
-    margin-top: 5px;
-    font-weight: 600;
-    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-    font-size: 16px;
-}
 
 
 
 
 
 /* hero */
-.hero-text h1 {
-    margin-top: 80px;
-    font-size: 12vw; /*test för att inte hemsidan ska typ dö vid små x-värden men 
-        kommer nog ändra i framtiden till någopt som anpassar sig bättre*/
-    font-weight: 700;
-    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-#thn, #Vvik {
-    height: 60vh;
-    width: 100%;
-    object-fit: cover;
-}
-
-.hero-gradient-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
 
 .hero-image {
     position: relative;
     width: 100%;
+    height: 40vh;
     margin: 0;
     padding: 0;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+}
+
+#thn, #Vvik {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-text h1 {
+    margin-top: 80px;
+    font-size: 11vw; 
+    font-weight: 700;
+    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-text {
@@ -591,6 +484,33 @@ body {
     padding: 5px;
 }
 
+/* loggin notis */
+.login-pop-up-success {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #212121;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 45px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+    .login-pop-up-success.show {
+        opacity: 0.8;
+    }
+
+.login-popup-text {
+    margin-top: 5px;
+    font-weight: 600;
+    text-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+
+
 
 /*table*/
 table{
@@ -602,6 +522,12 @@ thead{
     position:sticky;
     top: 0;
 }
+
+thead tr{
+    background-color: white;
+}
+
+
 
 /* footer */
 .footer-wrapper {
@@ -622,10 +548,9 @@ thead{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 990px;
+/*    min-width: 990px;*/
     height: 120px;
 }  
-
 
     .logo-footer {
         width: 30px;
@@ -636,7 +561,6 @@ thead{
         display: flex;
         align-items: center;
         margin-left: 10px;
-
     }
 
         .footer-icons a {
@@ -669,7 +593,7 @@ thead{
     position: absolute;
     width: 100%;
     text-align: center;
-    min-width: 990px;
+/*    min-width: 990px;*/
     z-index: 1;
 }
 
@@ -696,18 +620,3 @@ thead{
     height: fit-content;
 }
 
-/* Spara activity knappen */
-#activitySavedPopup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: Black;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    color: white;
-}
