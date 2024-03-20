@@ -10,58 +10,59 @@
     <h2 class="gradient-text">@Model.Event?.Name</h2>
     <div class="gradient-block"></div>
 
-    <div id="container-pop-event">
-        <div id="container-pop-event-info">
-            <div class="event-image-wrapper">
-                @if (!string.IsNullOrEmpty(Model.Event?.ImageLink))
-                {
-                    <img src="@Model.Event.ImageLink" alt="@Model.Event.ImageLink" loading="lazy" class="event-image" />
-                }
+    <div class="startbody">
+        <div id="container-pop-event">
+            <div id="container-pop-event-info">
+                <div class="event-image-wrapper">
+                    @if (!string.IsNullOrEmpty(Model.Event?.ImageLink))
+                    {
+                        <img src="@Model.Event.ImageLink" alt="@Model.Event.ImageLink" loading="lazy" class="event-image" />
+                    }
+                </div>
+
+                <div id="container-pop-event-content-seperation">
+                    <div class="seperation-block"></div>
+                </div>
+
+                <div class="event-description">
+                    <p>@Model.Event?.Description</p>
+                </div>
             </div>
-        
-            <div id="container-pop-event-content-seperation">
-                <div class="seperation-block"></div>
+        </div>
+
+        <div class="event-details" style="padding-right:100px !important; ">
+            <div class="event-map">
+                <img src="~/images/GoogleMaps.png"
+                     width="300"
+                     height="200"
+                     style="border:0;"
+                     allowfullscreen=""
+                     loading="lazy"
+                     referrerpolicy="no-referrer-when-downgrade" />
+
+                <p>
+                    <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=2/@Model.Place?.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
+
+                </p>
+                <p>Adress: @Model.Place?.Address</p>
             </div>
 
-            <div class="event-description">
-                <p>@Model.Event?.Description</p>
+            <div class="event-info">
+                <div><i class="bi bi-calendar2-week-fill"></i>@Model.Event?.StartDateTime?.ToString("yyyy-MM-dd  HH:mm:ss")</div>
+                <div><i class="bi bi-person-fill"></i> Åldersgräns: @Model.Event?.AgeLimit År</div>
+                <div><i class="bi bi-tag-fill"></i>Pris: @Model.Event?.Price kr/pers</div>
+                <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Event?.URL" target="_blank">@Model.Event?.URL</a></div><br />
+
+                <div class="container-pop-event-infobox-link">
+                    <p class="pop-event-infobox-link-text" style="font-size: 1rem; text-decoration: none;">
+                        <a href="https://informatik7.ei.hv.se/ProfilmvC/SignUps/index/@Model.Event?.EventID">Anmäl dig</a>
+                    </p>
+                    <img src="~/images/read-more-icon.png" />
+                </div>
             </div>
         </div>
     </div>
-
-   <div class="event-details" style="padding-right:100px !important; ">
-     <div class="event-map">
-         <img src="~/images/GoogleMaps.png"
-              width="300"
-              height="200"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" />
-
-         <p>
-             <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=2/@Model.Place?.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
-
-         </p>
-         <p>Adress: @Model.Place?.Address</p>
-     </div>
-
-     <div class="event-info">
-         <div><i class="bi bi-calendar2-week-fill"></i>@Model.Event?.StartDateTime?.ToString("yyyy-MM-dd  HH:mm:ss")</div>
-         <div><i class="bi bi-person-fill"></i> Åldersgräns: @Model.Event?.AgeLimit År</div>
-         <div><i class="bi bi-tag-fill"></i>Pris: @Model.Event?.Price kr/pers</div>
-         <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Event?.URL" target="_blank">@Model.Event?.URL</a></div><br />
-
-         <div class="container-pop-event-infobox-link">
-             <p class="pop-event-infobox-link-text" style="font-size: 1rem; text-decoration: none;">
-                 <a href="https://informatik7.ei.hv.se/ProfilmvC/SignUps/index/@Model.Event?.EventID">Anmäl dig</a>
-             </p>
-             <img src="~/images/read-more-icon.png" />
-         </div>
-     </div>
-       
-            </div>
-    </div>
+</div>
 
 @section Scripts {
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
