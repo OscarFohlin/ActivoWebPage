@@ -20,7 +20,6 @@ namespace ActivoWebPage.Controllers
             _eventApiService = eventApiService;
         }
 
-        //Flikar för Trollhättan
         public async Task<IActionResult> Home()
         {
             //Hämtar data från API och skickar de till view
@@ -214,6 +213,7 @@ namespace ActivoWebPage.Controllers
             // Hämtar alla events och aktiviteter
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var tags = await _eventApiService.GetTags();
 
             var filteredActivities = new List<Activity?>();
             var filteredEvent = new List<Event?>();
@@ -240,7 +240,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = filteredEvent,
-                Activities = filteredActivities
+                Activities = filteredActivities,
+                Tags = tags
             };
 
             var authenticationService = new AuthenticationService();
