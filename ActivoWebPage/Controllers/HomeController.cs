@@ -30,6 +30,7 @@ namespace ActivoWebPage.Controllers
             private readonly string _placeApiUrl = "https://informatik8.ei.hv.se/Places_API2/api/Places";
             private readonly string _activityApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Activities";
             private readonly string _advertisementApiUrl = "https://informatik6.ei.hv.se/advertisement/api/Ads/horizontal";
+            private readonly string _tagApiUrl = "https://informatik1.ei.hv.se/ActivityAPI/api/Tags";
             private readonly ILogger<EventApiService> _logger;
 
             public EventApiService(IHttpClientFactory httpClientFactory, ILogger<EventApiService> logger)
@@ -133,29 +134,8 @@ namespace ActivoWebPage.Controllers
                 return activities;
             }
 
-            public async Task<List<Event>> GetEventDataAsync()
-            {
-                List<Event> events = new List<Event>();
-                using (var client = _httpClientFactory.CreateClient())
-                {
-                    client.BaseAddress = new Uri(_eventApiUrl);
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
 
-                    HttpResponseMessage response = await client.GetAsync("");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string result = await response.Content.ReadAsStringAsync();
-                        events = JsonConvert.DeserializeObject<List<Event>>(result);
-                    }
-                    else
-                    {
-                        _logger.LogError("Error calling the Events API");
-                    }
-                }
-                return events;
-            }
             //random test
             public async Task<List<Advertisements>> GetAdvertisementDataAsync()
             {
@@ -182,7 +162,56 @@ namespace ActivoWebPage.Controllers
                     return adverts;
                 }
             }
+
+            public async Task<List<Event>> GetEventDataAsync()
+            {
+                List<Event> events = new List<Event>();
+                using (var client = _httpClientFactory.CreateClient())
+                {
+                    client.BaseAddress = new Uri(_eventApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.GetAsync("");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+                        events = JsonConvert.DeserializeObject<List<Event>>(result);
+                    }
+                    else
+                    {
+                        _logger.LogError("Error calling the Events API");
+                    }
+                }
+                return events;
+            }
+
+            public async Task<List<Tag>> GetTags()
+            {
+                List<Tag> tags = new List<Tag>();
+                using (var client = _httpClientFactory.CreateClient())
+                {
+                    client.BaseAddress = new Uri(_tagApiUrl);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.GetAsync("");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+                        tags = JsonConvert.DeserializeObject<List<Tag>>(result); // Assign deserialized tags to the tags list
+                    }
+                    else
+                    {
+                        _logger.LogError("Error");
+                    }
+                    return tags;
+                }
+            }
         }
+
 
         public async Task<IActionResult> FetchEvents()
         {
@@ -190,7 +219,6 @@ namespace ActivoWebPage.Controllers
             return View("Home", "Trollhattan");
         }
 
-        //random test
         public async Task<IActionResult> FetchAdvertisements(int advertisementID)
         {
             var adverts = await _eventApiService.GetAdvertisementDataAsync();
@@ -220,6 +248,7 @@ namespace ActivoWebPage.Controllers
         {
             var events = await _eventApiService.GetEventDataAsync();
             var activities = await _eventApiService.GetActivityDataAsync();
+            var tags = await _eventApiService.GetTags();
 
             var authenticationService = new AuthenticationService();
             var existingSession = await authenticationService.ResumeSession(controllerBase: this, HttpContext);
@@ -229,7 +258,8 @@ namespace ActivoWebPage.Controllers
             var viewModel = new HomeViewModel
             {
                 Events = events,
-                Activities = activities
+                Activities = activities,
+                Tags = tags
             };
 
             return View(viewModel); 
