@@ -53,7 +53,16 @@
             {
                 <tr data-tags="@string.Join(",", events.TagID)">
                     <td>@events?.Name</td>
-                    <td>@events?.Description</td>
+                            <td>
+             @{
+                 string description = events?.Description ?? string.Empty;
+                 string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                 string shortDescription = string.Join(".", sentences.Take(2));
+             }
+
+             <p class="pop-event-summary-text">
+                 @shortDescription
+             </p>
                     <td>@events?.PlacesID</td>
                     <td>@events?.StartDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
                     <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
@@ -64,7 +73,16 @@
             {
                 <tr data-tags="@string.Join(",", activity.tags.Select(t => t.tagID))">
                     <td>@activity?.name</td>
-                    <td>@activity?.description</td>
+                     <td>
+                 @{
+                     string description = activity?.description ?? string.Empty;
+                     string[] sentences = description.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                     string shortDescription = string.Join(".", sentences.Take(2));
+                 }
+                 <p class="pop-event-summary-text">
+                 @shortDescription
+                 </p>
+                 </td>
                     <td>@activity?.PlacesID</td>
                     <td>@activity?.openHours</td>
                     <td><a href="@activity?.url" target="_blank">@activity?.url</a></td>
