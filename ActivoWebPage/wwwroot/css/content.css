@@ -21,7 +21,7 @@
     height: 150px;
     width: 40vw;
     overflow: auto;
-    margin-right: 10px;
+    padding-right: 15px;
 }
 
 .pop-event-summary-text-bottom {
@@ -249,7 +249,7 @@ a {
     margin-left: 10vw;
     gap: 25px;
     width: 80vw;
-    padding-bottom: 15px;
+    padding: 15px;
     scroll-snap-type: x proximity;
 }
 
@@ -264,6 +264,11 @@ a {
     box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
     scroll-snap-align: center;
     scroll-snap-stop: always;
+    transition: 1s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
 }
 
 .carousel-title {
