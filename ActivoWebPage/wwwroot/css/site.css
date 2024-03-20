@@ -263,6 +263,20 @@ body {
     font-size: 120px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.startpage-or-text {
+    position: absolute;
+    bottom: 27%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 3;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
 .startpage-vvik-name,
 .startpage-thn-name {
