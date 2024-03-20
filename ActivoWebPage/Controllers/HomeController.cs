@@ -12,6 +12,7 @@ using static ActivoWebPage.Controllers.HomeController;
 using Activity = ActivoWebPage.Models.Activity;
 using static Hv.Sos100.Logger.LogService;
 using System;
+using Azure;
 
 
 namespace ActivoWebPage.Controllers
@@ -68,6 +69,7 @@ namespace ActivoWebPage.Controllers
                 }
 
                 var client = _httpClientFactory.CreateClient();
+
                 try
                 {
                     var response = await client.GetAsync($"{_placeApiUrl}/{placeId.Value}");
@@ -81,33 +83,53 @@ namespace ActivoWebPage.Controllers
                         _logger.LogError($"Failed to fetch place data for PlaceID {placeId}. Status code: {response.StatusCode}");
                         return null;
                     }
+
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError($"Exception occurred when fetching place data for PlaceID {placeId}: {ex.Message}");
+                    var logger = new LogService();
+                    await logger.CreateLog("Eventivo_Website", ex);
+
                     return null;
                 }
+
             }
+
+
 
             public async Task<Activity?> GetActivityByIdAsync(int activityID)
             {
                 var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync($"{_activityApiUrl}/{activityID}");
 
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var jsonString = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Activity>(jsonString);
+                    var response = await client.GetAsync($"{_activityApiUrl}/{activityID}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<Activity>(jsonString);
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        _logger.LogError($"Failed to fetch activity data. Status code: {response.StatusCode}");
+                        return null;
+                    }
+
                 }
-                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                catch (Exception ex)
                 {
+                    var logger = new LogService();
+                    await logger.CreateLog("Eventivo_Website", ex);
+
                     return null;
                 }
-                else
-                {
-                    _logger.LogError($"Failed to fetch activity data. Status code: {response.StatusCode}");
-                    return null;
-                }
+
+
+               
             }
 
             public async Task<List<Activity?>> GetActivityDataAsync()
@@ -148,18 +170,30 @@ namespace ActivoWebPage.Controllers
 
                     HttpResponseMessage response = await client.GetAsync("");
 
-                    if (response.IsSuccessStatusCode)
+                    try
                     {
-                        string result = await response.Content.ReadAsStringAsync();
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string result = await response.Content.ReadAsStringAsync();
 
-                        var advert = JsonConvert.DeserializeObject<Advertisements>(result);
-                        adverts.Add(advert);
+                            var advert = JsonConvert.DeserializeObject<Advertisements>(result);
+                            adverts.Add(advert);
+                        }
+                        else
+                        {
+                            _logger.LogError("Error displaying ads or someth");
+                        }
+
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        _logger.LogError("Error displaying ads or someth");
+                        var logger = new LogService();
+                        await logger.CreateLog("Eventivo_Website", ex);
+
+                        return null;
                     }
                     return adverts;
+
                 }
             }
 
@@ -174,17 +208,30 @@ namespace ActivoWebPage.Controllers
 
                     HttpResponseMessage response = await client.GetAsync("");
 
-                    if (response.IsSuccessStatusCode)
+
+                    try
                     {
-                        string result = await response.Content.ReadAsStringAsync();
-                        events = JsonConvert.DeserializeObject<List<Event>>(result);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string result = await response.Content.ReadAsStringAsync();
+                            events = JsonConvert.DeserializeObject<List<Event>>(result);
+                        }
+                        else
+                        {
+                            _logger.LogError("Error calling the Events API");
+                        }
+                        
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        _logger.LogError("Error calling the Events API");
+                        var logger = new LogService();
+                        await logger.CreateLog("Eventivo_Website", ex);
+
+                        return null;
                     }
+                    return events;
                 }
-                return events;
+
             }
 
             public async Task<List<Tag>> GetTags()
@@ -198,14 +245,26 @@ namespace ActivoWebPage.Controllers
 
                     HttpResponseMessage response = await client.GetAsync("");
 
-                    if (response.IsSuccessStatusCode)
+
+                    try
                     {
-                        string result = await response.Content.ReadAsStringAsync();
-                        tags = JsonConvert.DeserializeObject<List<Tag>>(result); // Assign deserialized tags to the tags list
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string result = await response.Content.ReadAsStringAsync();
+                            tags = JsonConvert.DeserializeObject<List<Tag>>(result); // Assign deserialized tags to the tags list
+                        }
+                        else
+                        {
+                            _logger.LogError("Error");
+                        }
+                        
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        _logger.LogError("Error");
+                        var logger = new LogService();
+                        await logger.CreateLog("Eventivo_Website", ex);
+
+                        return null;
                     }
                     return tags;
                 }
