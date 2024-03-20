@@ -6,17 +6,93 @@
 }
 
 <div class="smallercontent">
-    <h1>Sök event</h1>
+    <h1>Sök event & aktiviteter</h1>
+
+    <!-- Kryssrutor för filter -->
+    <div>
+        <input type="checkbox" id="resturang" class="filter-checkbox" value="2" />
+        <label for="resturang">Resturang</label>
+
+        <input type="checkbox" id="pubobar" class="filter-checkbox" value="3" />
+        <label for="pubobar">Pub & Bar</label>
+
+        <input type="checkbox" id="café" class="filter-checkbox" value="5" />
+        <label for="café">Café</label>
+
+        <input type="checkbox" id="snabbmat" class="filter-checkbox" value="6" />
+        <label for="snabbmat">Snabbmat</label>
+
+        <input type="checkbox" id="golf" class="filter-checkbox" value="9" />
+        <label for="golf">Golf</label>
+
+        <input type="checkbox" id="bad" class="filter-checkbox" value="10" />
+        <label for="bad">Bad</label>
+
+        <input type="checkbox" id="museum" class="filter-checkbox" value="11" />
+        <label for="museum">Museum</label>
+
+        <input type="checkbox" id="barnvanligt" class="filter-checkbox" value="14" />
+        <label for="barnvanligt">Barnvänligt</label>
+
+        <input type="checkbox" id="vego" class="filter-checkbox" value="15" />
+        <label for="vego">Vego</label>
+
+        <input type="checkbox" id="vin" class="filter-checkbox" value="16" />
+        <label for="vin">Vin</label>
+
+        <input type="checkbox" id="vattensport" class="filter-checkbox" value="17" />
+        <label for="vattensport">Vattensport</label>
+
+        <input type="checkbox" id="racketsport" class="filter-checkbox" value="18" />
+        <label for="racketsport">Racketsport</label>
+
+        <input type="checkbox" id="aventyr" class="filter-checkbox" value="19" />
+        <label for="aventyr">Äventyr</label>
+
+        <input type="checkbox" id="feelgood" class="filter-checkbox" value="20" />
+        <label for="feelgood">Feel good</label>
+
+        <input type="checkbox" id="bollsport" class="filter-checkbox" value="21" />
+        <label for="bollsport">Bollsport</label>
+
+        <input type="checkbox" id="pasjon" class="filter-checkbox" value="22" />
+        <label for="pasjon">På sjön</label>
+
+        <input type="checkbox" id="naturliv" class="filter-checkbox" value="23" />
+        <label for="naturliv">Naturliv</label>
+
+        <input type="checkbox" id="musik" class="filter-checkbox" value="24" />
+        <label for="musik">Musik</label>
+
+        <input type="checkbox" id="teater" class="filter-checkbox" value="25" />
+        <label for="teater">Teater</label>
+
+        <input type="checkbox" id="film" class="filter-checkbox" value="26" />
+        <label for="film">Film</label>
+
+        <input type="checkbox" id="marknad" class="filter-checkbox" value="27" />
+        <label for="marknad">Marknad</label>
+
+        <input type="checkbox" id="nattklubb" class="filter-checkbox" value="28" />
+        <label for="nattklubb">Nattklubb</label>
+
+        <input type="checkbox" id="djurvanligt" class="filter-checkbox" value="29" />
+        <label for="djurvanligt">Djurvänligt</label>
+
+        <input type="checkbox" id="livemusik" class="filter-checkbox" value="30" />
+        <label for="livemusik">Livemusik</label>
+     
+    </div>
+
+    
 
     <table class="table table-hover table-striped table-responsive">
         <thead>
             <tr>
                 <th scope="col">Namn</th>
                 <th scope="col">Beskrivning</th>
-                <th scope="col">Pris</th>
                 <th scope="col">Plats</th>
-                <th scope="col">Startar</th>
-                <th scope="col">Slutar</th>
+                <th scope="col">Tider</th>
                 <th scope="col">Länk</th>
             </tr>
         </thead>
@@ -26,13 +102,23 @@
             <tr>
                     <td>@events?.Name</td>
                     <td>@events?.Description</td>
-                    <td>@events?.Price</td>
                     <td>@events?.PlacesID</td>
                     <td>@events?.StartDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td>@events?.EndDateTime?.ToString("yyyy-MM-dd HH:mm")</td>
                     <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
             </tr>
         }
+        @foreach (var activity in Model.Activities)
+            {
+                <tr>
+                    <td>@activity?.name</td>
+                    <td>@activity?.description</td>
+                    <td>@activity?.PlacesID</td>
+                    <td>@activity?.openHours</td>
+                    <td><a href="@activity?.url" target="_blank">@activity?.url</a></td>
+                </tr>
+            }
         </tbody>
     </table>
+
+   
 </div>
