@@ -1,55 +1,34 @@
 
 /* Events */
 /* text */
-.pop-event-title-text {
+.pop-event-title-text, .pop-event-title-text-bottom {
     font-size: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    max-width: 400px;
+    max-width: 40vw;
 }
 
 .pop-event-title-text-bottom {
-    font-size: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
     margin-top: 10px;
     text-align: end;
-    max-width: 400px;
     margin-top: -5px;
 
 }
 
-    .pop-event-summary-text {
-        font-size: 14px;
-        font-family: 'Istok Web', sans-serif;
-        font-weight: 500;
-        max-height: 120px;
-        width: 340px;
-        overflow: auto;
-    }
-
-.pop-event-summary-text-bottom {
+.pop-event-summary-text, .pop-event-summary-text-bottom {
     font-size: 14px;
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
     max-height: 120px;
-    width: 340px;
+    width: 40vw;
     overflow: auto;
+}
+
+.pop-event-summary-text-bottom {
     text-align: end;
 }
 
-    .pop-event-date-text {
-        font-size: 14px;
-        font-family: 'Istok Web', sans-serif;
-        font-weight: 500;
-        font-style: italic;
-        margin-top: 28px;
-        text-decoration: underline;
-        text-color: black;
-        text-decoration-thickness: 1px;
-    }
-
-.pop-event-date-text-bottom {
+.pop-event-date-text, .pop-event-date-text-bottom {
     font-size: 14px;
     font-family: 'Istok Web', sans-serif;
     font-weight: 500;
@@ -58,23 +37,21 @@
     text-decoration: underline;
     text-color: black;
     text-decoration-thickness: 1px;
+}
+
+.pop-event-date-text-bottom {
     text-align: end;
 }
 
-    .pop-event-infobox-link-text {
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-    }
-
-.pop-event-infobox-link-text-bottom {
+.pop-event-infobox-link-text, .pop-event-infobox-link-text-bottom {
     font-size: 16px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     text-decoration: underline;
     text-decoration-thickness: 2px;
+}
+
+.pop-event-infobox-link-text-bottom {
     text-align: end;
 }
 
@@ -83,18 +60,14 @@ a {
     text-decoration: none;
     transition: 0.5s;
 }
+    a:hover {
+        color: darkgoldenrod !important;
+        text-decoration: none;
+    }
 
-        a:hover {
-            color: darkgoldenrod !important;
-            text-decoration: none;
-        }
 
 /*slut på text css och början av div css logik*/
-.container-pop-event:hover {
-    transform: scale(1.05);
-}
-
-.container-pop-event-lower:hover {
+.container-pop-event:hover, .container-pop-event-lower:hover {
     transform: scale(1.05);
 }
 
@@ -107,7 +80,7 @@ a {
     flex-direction: column;
     max-width: 100% !important;
     margin: 0px auto;
-    min-width: 990px;
+/*    min-width: 990px;*/
     justify-content: center;
     transition: 0.7s;
     cursor: pointer;
@@ -127,71 +100,6 @@ a {
     transition: 0.5s;
     overflow: hidden;
 }
-
-/*sträcker ut bilderna till det som de borde vara, ser lite skit ut på en del bilder men får bli så tills vidare*/
-.container-pop-event-image {
-    flex: 0 0 auto;
-    margin-right: 10px;
-    width: 400px !important;
-    height: 300px !important;
-    background-color: transparent;
-    border-radius: 20px;
-}
-
-.pop-event-image {
-    max-width: 400px !important;
-    width: 400px !important;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 20px;
-}
-
-    .container-pop-event-content-seperation {
-        height: 100%;
-        width: 30px;
-    }
-
-    .seperation-block {
-        border-bottom: 55px solid black;
-        width: 5px;
-        margin-left: 35px;
-    }
-
-    .container-pop-event-info {
-        margin-left: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container-pop-event-date-area {
-        display: flex;
-        align-items: center;
-        margin-top: -25px;
-        margin-bottom: 10px;
-    }
-
-.container-pop-event-date-icon img {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-
-.container-pop-event-infobox-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0px 0;
-    margin-top: -10px;
-}
-
-        .container-pop-event-infobox-link img {
-            margin-top: -16px;
-            width: 20px;
-            height: auto;
-        }
-
-
 .container-pop-event-lower {
     margin: 0px auto;
     margin-top: -20px;
@@ -202,16 +110,39 @@ a {
     transition: 0.5s;
 }
 
+/*sträcker ut bilderna till det som de borde vara, ser lite skit ut på en del bilder men får bli så tills vidare*/
+.container-pop-event-image {
+    flex: 0 0 auto;
+    padding-right: 25px;
+    width: 45vw;
+    height: 300px !important;
+    background-color: transparent;
+    border-radius: 20px;
+}
 .container-pop-event-image-lower {
     flex: 0 0 auto;
-    margin-left: 5px;
+    padding-left: 25px;
 }
 
+.pop-event-image {
+    max-width: 400px !important;
+    width: 45vw;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 20px;
+    float: right;
+}
 .pop-event-image-lower {
     max-width: 400px !important;
     border-radius: 20px;
     height: 300px;
     object-fit: cover;
+}
+
+
+.container-pop-event-content-seperation {
+    height: 100%;
+    width: 30px;
 }
 
 .container-pop-event-content-seperation-lower {
@@ -220,11 +151,76 @@ a {
     margin-right: 55px;
 }
 
-.seperation-block-lower {
+.seperation-block, .seperation-block-lower {
     border-bottom: 55px solid black;
     width: 5px;
     margin-left: 35px;
 }
+
+
+
+.container-pop-event-info {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-pop-event-info-lower {
+    display: flex;
+    flex-direction: column;
+    margin-right: -17px;
+}
+
+    .container-pop-event-date-area {
+        display: flex;
+        align-items: center;
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+.container-pop-event-date-area-lower {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    width: calc(100% - 5px);
+}
+
+.container-pop-event-date-icon img, .container-pop-event-date-icon-lower img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+/*.container-pop-event-date-icon-lower img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    margin-top: 10px;
+}*/
+
+.container-pop-event-infobox-link,
+.container-pop-event-infobox-link-lower {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0px 0;
+    margin-top: -10px;
+}
+.container-pop-event-infobox-link-lower {
+    justify-content: flex-end;
+    width: calc(100% - 5px);
+}
+
+    .container-pop-event-infobox-link img,
+    .container-pop-event-infobox-link-lower img {
+        margin-top: -16px;
+        width: 20px;
+        height: auto;
+    }
+
+
 
 .container-pop-event-title-description-lower {
     display: flex;
@@ -238,43 +234,6 @@ a {
     align-items: flex-end;
 }
 
-.container-pop-event-info-lower {
-    display: flex;
-    flex-direction: column;
-    margin-right: -17px;
-}
-
-.container-pop-event-date-area-lower {
-    display: flex;
-    align-items: center;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    justify-content: flex-end;
-    width: calc(100% - 5px);
-}
-
-.container-pop-event-date-icon-lower img {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-
-.container-pop-event-infobox-link-lower {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0;
-    justify-content: flex-end;
-    width: calc(100% - 5px);
-    margin-top: -10px;
-}
-
-    .container-pop-event-infobox-link-lower img {
-        margin-top: -16px;
-        width: 20px;
-        height: auto;
-    }
 
 
 
@@ -386,7 +345,6 @@ a {
     border-radius: 5px;
     align-self: center;
 }
-
 .scrollbuttons {
     display: flex;
     justify-content: center;
@@ -399,6 +357,7 @@ a {
     width: 50px;
     border-radius: 30px;
 }
+
 
 
 
@@ -469,4 +428,22 @@ a {
     .event-image-wrapper, .event-description p {
         padding: 0 20px;
     }
+}
+
+
+
+/* Spara activity knappen */
+#activitySavedPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: Black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    color: white;
 }
