@@ -306,7 +306,7 @@ body {
 
 .resolution-scale-image-startpage {
     object-fit: cover; 
-    height: 90vh;
+    height: 100vh;
     filter: brightness(40%) contrast(110%);
     transition: 1s ease;
 }
@@ -332,7 +332,7 @@ body {
 .startpage-seperation-block {
     margin: 0 auto;
     width: 3px;
-    height: 90vh;
+    height: 100vh;
     background-color: #212121;
     z-index: 1;
 }
