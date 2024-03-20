@@ -76,6 +76,32 @@ if (currentUrl.includes("Search")) {
     navLink.classList.add('chosen-section-highlight-text');
 }
 
+function showPopUp() {
+    var popUp = document.querySelector('.login-pop-up-success');
+    popUp.classList.add('show');
+
+    setTimeout(function () {
+        popUp.classList.remove('show');
+    }, 4000);
+}
+
+window.onload = function () {
+    var popUpElement = document.querySelector('.login-pop-up-success');
+    var isAuthenticated = popUpElement.getAttribute('data-is-authenticated');
+
+    if (isAuthenticated === "true" && !sessionStorage.getItem('popUpDisplayed')) {
+        showPopUp();
+        sessionStorage.setItem('popUpDisplayed', true);
+    }
+};
+
+var logoutLink = document.getElementById('logout-link');
+
+logoutLink.addEventListener('click', function () {
+    sessionStorage.removeItem('popUpDisplayed');
+});
+
+
 
     //funktioner för blur effekt på den andra bilden när man hoverar över för
 //blir knasigt i css när man försöker ändra en annan saks properties
@@ -92,4 +118,5 @@ goLeft.addEventListener("click", function () {
 goRight.addEventListener("click", function () {
     carousel.scrollLeft += 300;
 });
+
 
