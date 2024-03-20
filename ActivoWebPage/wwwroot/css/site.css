@@ -22,7 +22,7 @@ body {
 }
 
 .startbody {
-    background-image: url("/images/bakgrund.png");
+    background-image: url("../images/bakgrund.png");
     background-size: cover;
 }
 
@@ -83,6 +83,9 @@ body {
 #loginStatus {
     display: flex;
     text-align: center;
+    align-content: center;
+    align-items: center;
+    width: 175px;
 }
 
 .container-categories {
@@ -97,6 +100,7 @@ body {
 
 .nav-list {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -132,11 +136,13 @@ body {
 }
 
 .dropdown-toggle {
-    margin-left: 12px;
+    margin-left: -5px;
 }
 
 .nav-link {
     color: #ffffff !important;
+    width: 175px;
+    text-align: center;
     font-size: 20px;
     font-family: 'Roboto Medium', sans-serif;
     transition: 0.75s;
