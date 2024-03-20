@@ -475,7 +475,7 @@ body {
 
 .hero-scroll-button {
     position: absolute;
-    bottom: 80px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -572,7 +572,7 @@ body {
 /* loggin notis */
 .login-pop-up-success {
     position: fixed;
-    bottom: 50px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #212121;
