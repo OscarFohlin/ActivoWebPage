@@ -4,57 +4,60 @@
     ViewData["Title"] = "Activity Details";
     Layout = "~/Views/Shared/_layout_vastervik.cshtml";
 }
+<div class="startbody">
+    <div id="page-container">
+        <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important;">&#8592;</a><br />
+        <div style="display: flex;align-items: center;">
+            <h2 class="gradient-text" style=" margin-right: 100px;">@Model.Activity?.name</h2>
+            <a class="bi bi-bookmark-fill" href="#" style="font-size: 2.5rem; text-decoration: none !important; "></a>
+        </div>
+        <div id="activitySavedPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index: 1000; font-size: 1.5rem; border-radius: 5px; color: black;">
+            Aktiviteten har sparats.
+        </div>
 
-<div id="page-container">
-    <a href="javascript:history.back()" class="back-button" style="font-size: 100px !important; font-weight:bold; display:inline-block !important;">&#8592;</a><br />
-    <div style="display: flex;align-items: center;">
-        <h2 class="gradient-text" style=" margin-right: 100px;">@Model.Activity?.name</h2>
-        <a class="bi bi-bookmark-fill" href="#" style="font-size: 2.5rem; text-decoration: none !important; "></a>
-    </div>
- <div id="activitySavedPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index: 1000; font-size: 1.5rem; border-radius: 5px; color: black;">
-     Aktiviteten har sparats.
- </div>
-    <div class="gradient-block"></div>
 
-    <div id="container-pop-event">
-        <div id="container-pop-event-info">
-            <div class="event-image-wrapper">
-                @if (!string.IsNullOrEmpty(Model.Activity?.imageLink))
-                {
-                    <img src="@Model.Activity.imageLink" alt="@Model.Activity.name" loading="lazy" class="event-image" />
-                }
-            </div>
+        <div class="gradient-block"></div>
 
-            <div class="event-description">
-                <p>@Model.Activity?.description</p>
+        <div id="container-pop-event">
+            <div id="container-pop-event-info">
+                <div class="event-image-wrapper">
+                    @if (!string.IsNullOrEmpty(Model.Activity?.imageLink))
+                    {
+                        <img src="@Model.Activity.imageLink" alt="@Model.Activity.name" loading="lazy" class="event-image" />
+                    }
+                </div>
+
+                <div class="event-description">
+                    <p>@Model.Activity?.description</p>
+                </div>
             </div>
         </div>
-    </div>
 
-<div class="event-details" style="padding-right:100px !important; ">
-    <div class="event-map">
-        <img src="~/images/GoogleMaps.png"
-             width="300"
-             height="200"
-             style="border:0;"
-             allowfullscreen=""
-             loading="lazy"
-             referrerpolicy="no-referrer-when-downgrade" />
+        <div class="event-details" style="padding-right:100px !important; ">
+            <div class="event-map">
+                <img src="~/images/GoogleMaps.png"
+                     width="300"
+                     height="200"
+                     style="border:0;"
+                     allowfullscreen=""
+                     loading="lazy"
+                     referrerpolicy="no-referrer-when-downgrade" />
 
-        <p>
-            <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=@Model.Place.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
+                <p>
+                    <i class="bi bi-link-45deg"></i> Till Kartan: <a href="https://informatik8.ei.hv.se/Places/places?placesid=@Model.Place.PlacesID" target="_blank">@Model.Place?.Name <i class="bi bi-geo-alt-fill"></i></a>
 
-        </p>
-        <p>Adress: @Model.Place?.Address</p>
-    </div>
+                </p>
+                <p>Adress: @Model.Place?.Address</p>
+            </div>
 
-    <div class="event-info">
-        <div><i class="bi bi-activity"></i>@Model.Activity?.name</div>
-        <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
-        <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
-        @*<div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>*@
-        <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
-    </div>
+            <div class="event-info">
+                <div><i class="bi bi-activity"></i>@Model.Activity?.name</div>
+                <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
+                <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
+                @*<div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>*@
+                <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
+            </div>
+        </div>
     </div>
 </div>
 
