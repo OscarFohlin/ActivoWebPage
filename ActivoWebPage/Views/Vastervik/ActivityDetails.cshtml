@@ -51,11 +51,9 @@
             </div>
 
             <div class="event-info">
-                <div><i class="bi bi-activity"></i>@Model.Activity?.name</div>
-                <div><i class="bi bi-calendar2-week-fill"></i> Tidsstämpel: @Model.Activity?.timestamp?.ToString("yyyy-MM-dd HH:mm")</div>
-                <div><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
-                @*<div><i class="bi bi-list-stars"></i> Kategori: @Model.Activity?.category?.ToString()</div>*@
-                <div><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
+                <div id="activityName"><i class="bi bi-activity"></i>@Model.Activity?.name</div>
+                <div id="activityOpenhours"><i class="bi bi-clock-fill"></i> Öppettider: @Model.Activity?.openHours</div>
+                <div id="activityUrl"><i class="bi bi-link-45deg"></i> Mer Info: <a href="@Model.Activity?.url" target="_blank">@Model.Activity?.url</a></div>
             </div>
         </div>
     </div>
