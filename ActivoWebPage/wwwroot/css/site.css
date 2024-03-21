@@ -273,6 +273,7 @@ body {
     position: relative;
     flex: 1;
     justify-content: center;
+    height: 100vh;
 }
 
 .startpage-text {
@@ -333,7 +334,7 @@ body {
 
 .resolution-scale-image-startpage {
     object-fit: cover;
-    height: 1200px;
+    height: 100vh;
     filter: brightness(40%) contrast(110%);
     transition: 1s ease;
 }
@@ -359,7 +360,7 @@ body {
 .startpage-seperation-block {
     margin: 0 auto;
     width: 3px;
-    height: 1200px;
+    height: 100vh;
     background-color: #212121;
     z-index: 1;
 }
