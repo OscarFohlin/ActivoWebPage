@@ -71,7 +71,7 @@
                         <td><a href="@events?.URL" target="_blank">@events?.URL</a></td>
                     </tr>
                 }
-
+                @*
                 @foreach (var activity in Model.Activities)
                 {
                     <tr data-tags="@string.Join(",", activity.tags.Select(t => t.tagID))">
@@ -92,7 +92,7 @@
                         <td><a href="@activity?.url" target="_blank">@activity?.url</a></td>
                     </tr>
                 }
-
+                *@
             </tbody>
         </table>
     </div>
